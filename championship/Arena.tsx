@@ -88,8 +88,13 @@ function Standings({
   title: string;
 }) {
   const b = s.broadcast.leaderboard;
+  const showTargets = b.targets && players.some((p) => p.target);
+  const showAvatars = b.avatars;
+  const showSales = b.sales;
+  const displayedPlayers = players.slice(0, s.settings.size);
+
   return (
-    <section className="oe-board">
+    <section className={`oe-board ${showTargets ? "has-targets" : "no-targets"} ${showAvatars ? "has-avatar" : "no-avatar"}`}>
       <div className="oe-board-heading">
         <div>
           <small>THE LIVE RANKINGS</small>
@@ -104,15 +109,18 @@ function Standings({
           AGENTS
         </span>
       </div>
-      <div className="oe-board-label">
-        <span>RANK / COMPETITOR</span>
-        {b.sales && (
-          <span className="oe-board-metric-labels">
-            <small>SUBMITTED</small>
-            <b>APPROVED</b>
-          </span>
-        )}
+
+      <div
+        className={`oe-board-label ${showTargets ? "has-targets" : "no-targets"} ${showAvatars ? "has-avatar" : "no-avatar"}`}
+      >
+        <span className="oe-head-rank">#</span>
+        {showAvatars && <span className="oe-head-avatar" />}
+        <span className="oe-head-identity">RANK / COMPETITOR</span>
+        {showTargets && <span className="oe-head-progress">TARGET</span>}
+        {showSales && <span className="oe-head-submitted">SUBMITTED</span>}
+        {showSales && <span className="oe-head-approved">APPROVED</span>}
       </div>
+
       <ol
         style={
           {
@@ -120,73 +128,108 @@ function Standings({
           } as React.CSSProperties
         }
       >
-        {players.slice(0, s.settings.size).map((p, i) => (
-          <motion.li
-            layout={s.broadcast.effects.champion}
-            transition={{ duration: 0.4 / s.broadcast.effects.transition }}
-            key={p.id}
-            className={
-              (b.medals && i < 3 ? "oe-medal m" + i : "") + " oe-rank-row"
-            }
-          >
-            <span className="oe-rank">{String(i + 1).padStart(2, "0")}</span>
-            {b.avatars && <Avatar name={p.name} avatar={p.avatar} />}
-            <div className="oe-rank-name">
-              <strong>{p.name}</strong>
-              {b.teams && (
-                <small>
-                  {p.teamLabel}
-                  {profile(s, "team", p.team).badge && (
-                    <em style={{ color: profile(s, "team", p.team).color }}>
-                      {profile(s, "team", p.team).badge}
-                    </em>
+        {displayedPlayers.map((p, i) => {
+          const teamProfile = profile(s, "team", p.team);
+          const agentProfile = profile(s, "agent", p.id);
+          const submittedCount = p.submitted ?? p.sales;
+          const approvedCount = p.approved ?? p.sales;
+
+          return (
+            <motion.li
+              layout={s.broadcast.effects.champion}
+              transition={{ duration: 0.4 / s.broadcast.effects.transition }}
+              key={p.id}
+              className={`oe-rank-row ${b.medals && i < 3 ? `oe-medal m${i}` : ""} ${showTargets ? "has-targets" : "no-targets"} ${showAvatars ? "has-avatar" : "no-avatar"}`}
+            >
+              <div className="oe-cell-rank">
+                <div className="oe-rank-badge">
+                  <span className="oe-rank-num">{String(i + 1).padStart(2, "0")}</span>
+                  {b.changes && p.change !== 0 && (
+                    <span className={`oe-rank-delta ${p.change > 0 ? "up" : "down"}`}>
+                      {p.change > 0 ? `↑${p.change}` : `↓${Math.abs(p.change)}`}
+                    </span>
                   )}
-                  {profile(s, "agent", p.id).badge && (
-                    <em style={{ color: profile(s, "agent", p.id).color }}>
-                      {profile(s, "agent", p.id).badge}
-                    </em>
-                  )}
-                </small>
-              )}
-              {b.targets && p.target && (
-                <div className="oe-row-progress">
-                  <progress
-                    value={p.target.count}
-                    max={p.target.rule.threshold}
-                  />
-                  <span>
-                    {p.target.count}/{p.target.rule.threshold}
-                  </span>
+                </div>
+              </div>
+
+              {showAvatars && (
+                <div className="oe-cell-avatar">
+                  <Avatar name={p.name} avatar={p.avatar} />
                 </div>
               )}
-            </div>
-            {b.changes && (
-              <span className={"oe-rank-change " + (p.change > 0 ? "up" : "")}>
-                {p.change > 0
-                  ? "↑ " + p.change
-                  : p.change < 0
-                    ? "↓ " + -p.change
-                    : "—"}
-              </span>
-            )}
-            {b.sales && (
-              <div
-                className="oe-rank-metrics"
-                title={`Approved: ${p.approved ?? p.sales} · Submitted: ${p.submitted ?? p.sales}`}
-              >
-                <span className="oe-count-submitted" aria-label={`Submitted: ${p.submitted ?? p.sales}`}>
-                  <small>SUB</small>
-                  <b>{p.submitted ?? p.sales}</b>
-                </span>
-                <span className="oe-count-approved" aria-label={`Approved: ${p.approved ?? p.sales}`}>
-                  <small>APP</small>
-                  <strong>{p.approved ?? p.sales}</strong>
-                </span>
+
+              <div className="oe-cell-identity">
+                <strong className="oe-agent-name" title={p.name}>
+                  {p.name}
+                </strong>
+                {b.teams && (
+                  <div className="oe-team-line">
+                    <span
+                      className="oe-team-badge-dot"
+                      style={{ backgroundColor: teamProfile.color || "var(--mint)" }}
+                    />
+                    <span className="oe-team-name">{p.teamLabel}</span>
+                    {teamProfile.badge && (
+                      <em className="oe-team-code" style={{ color: teamProfile.color }}>
+                        {teamProfile.badge}
+                      </em>
+                    )}
+                    {agentProfile.badge && (
+                      <em className="oe-agent-code" style={{ color: agentProfile.color }}>
+                        {agentProfile.badge}
+                      </em>
+                    )}
+                  </div>
+                )}
               </div>
-            )}
-          </motion.li>
-        ))}
+
+              {showTargets && (
+                <div className="oe-cell-progress">
+                  {p.target ? (
+                    <div
+                      className="oe-target-card"
+                      title={`${p.target.rule.name}: ${p.target.count}/${p.target.rule.threshold}`}
+                    >
+                      <div className="oe-progress-track">
+                        <div
+                          className={`oe-progress-bar ${p.target.count >= p.target.rule.threshold ? "achieved" : ""}`}
+                          style={{
+                            width: `${Math.min(100, Math.round((p.target.count / Math.max(1, p.target.rule.threshold)) * 100))}%`,
+                          }}
+                        />
+                      </div>
+                      <span className="oe-progress-text">
+                        <b>{p.target.count}</b>/{p.target.rule.threshold}
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="oe-no-target">—</span>
+                  )}
+                </div>
+              )}
+
+              {showSales && (
+                <div
+                  className="oe-cell-metric oe-metric-submitted"
+                  aria-label={`Submitted: ${submittedCount}`}
+                >
+                  <span className="oe-metric-val">{submittedCount}</span>
+                </div>
+              )}
+
+              {showSales && (
+                <div
+                  className="oe-cell-metric oe-metric-approved"
+                  aria-label={`Approved: ${approvedCount}`}
+                >
+                  <span className="oe-metric-val">{approvedCount}</span>
+                </div>
+              )}
+            </motion.li>
+          );
+        })}
       </ol>
+
       <div className="oe-board-foot">
         <span>SUBMITTED & VALIDATED</span>
         <span>PRECISION · PERFORMANCE · RECOGNITION</span>
