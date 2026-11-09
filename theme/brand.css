@@ -1,0 +1,38 @@
+/* Official brand artwork: preserve native aspect ratio and source colors. */
+img.official-brand-logo {
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.oe-brand img.official-brand-logo {
+  width: 4rem;
+  height: 3.4rem;
+}
+.op-brand img.official-brand-logo {
+  width: 3rem;
+  height: 2.6rem;
+}
+.tv-insignia.official-brand-logo {
+  object-fit: contain;
+}
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel
+  .oe-wheel-hub
+  img.official-brand-logo {
+  width: 52%;
+  height: 44%;
+  margin-bottom: 2%;
+  filter: none;
+}
+.oe-ceremony-rail .ceremony-brand {
+  width: 3.6rem;
+  height: 2.9rem;
+  margin-right: 1rem;
+}
+.oe-ceremony-rail > span:last-child {
+  margin-left: auto;
+}
+/* Closed SVG geometry replaces the clipped rectangular border and its bottom pixel. */
+.championship.titanium-velocity .oe-team-badge { position:relative; border:0; background:none; clip-path:none; box-shadow:none; overflow:visible; }
+.championship.titanium-velocity .oe-team-badge::before,
+.championship.titanium-velocity .oe-team-badge::after { content:none; }
+.championship.titanium-velocity .oe-team-badge .oe-team-shield-frame { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+.championship.titanium-velocity .oe-team-badge .oe-team-shield-icon { position:relative; width:3.5rem; height:3.5rem; }

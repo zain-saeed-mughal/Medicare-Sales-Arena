@@ -1,0 +1,422 @@
+/* Quiet operator interface. TV styles are deliberately outside this scope. */
+.simple-console {
+  background: var(--maroon-tone-0);
+  color: var(--maroon-tone-15);
+}
+.simple-console.op-shell {
+  grid-template-columns: 224px minmax(0, 1fr);
+}
+.simple-console.op-shell.is-collapsed {
+  grid-template-columns: 76px minmax(0, 1fr);
+}
+.simple-console.op-shell > nav {
+  background: var(--maroon-tone-2);
+  border-right: 1px solid var(--maroon-tone-3);
+  padding: 24px 14px;
+}
+.simple-console .op-brand {
+  margin-bottom: 32px;
+}
+.simple-console .op-brand b {
+  font-size: 12px;
+  letter-spacing: 0;
+}
+.simple-console .op-brand em {
+  color: var(--maroon-tone-13);
+  letter-spacing: 0.1em;
+  font-size: 8px;
+}
+.simple-console nav > a {
+  border: 0;
+  border-radius: 7px;
+  padding: 13px 14px;
+  margin: 3px 0;
+  color: var(--maroon-tone-13);
+  font-size: 12px;
+}
+.simple-console nav > a[aria-current="page"] {
+  background: #d5b66a14;
+  color: #eddbaf;
+  box-shadow: inset 3px 0 #c8ac71;
+}
+.simple-console .console-status {
+  margin-top: auto;
+  border-top: 1px solid var(--maroon-tone-3);
+  padding-top: 18px;
+}
+.simple-console .console-status small {
+  display: none;
+}
+.simple-console .op-identity {
+  margin-top: 12px;
+}
+.simple-console .op-top {
+  background: var(--maroon-tone-2);
+  border-bottom: 1px solid var(--maroon-tone-3);
+  box-shadow: none;
+}
+.simple-console .op-body {
+  max-width: 1520px;
+  padding: 36px 42px 70px;
+  margin: auto;
+  width: 100%;
+}
+.simple-console .op-body > h1 {
+  font-size: 29px;
+  letter-spacing: -0.035em;
+}
+.simple-console .dev-label {
+  border: 0;
+  padding: 0;
+  color: var(--maroon-tone-13);
+  font-size: 12px;
+  margin: 9px 0 28px;
+}
+.simple-console .op-panel {
+  background: var(--maroon-tone-2);
+  border: 1px solid var(--maroon-tone-3);
+  border-radius: 10px;
+  box-shadow: none;
+  padding: 24px;
+  margin: 0 0 22px;
+  min-width: 0;
+}
+.simple-console .op-panel-head {
+  margin-bottom: 20px;
+}
+.simple-console .op-panel h2 {
+  font-size: 17px;
+  letter-spacing: -0.025em;
+}
+.simple-console .op-panel p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--maroon-tone-13);
+}
+.simple-console button,
+.simple-console input,
+.simple-console select {
+  border-radius: 6px;
+  min-height: 38px;
+  font-size: 12px;
+}
+.simple-console button {
+  background: var(--maroon-tone-3);
+  border: 1px solid var(--maroon-tone-4);
+  box-shadow: none;
+}
+.simple-console button.primary {
+  background: #d6bc81;
+  color: var(--maroon-tone-2);
+  border-color: #d6bc81;
+}
+.simple-console input,
+.simple-console select {
+  background: var(--maroon-tone-2);
+  border-color: var(--maroon-tone-4);
+}
+.simple-console label {
+  font-size: 12px;
+  letter-spacing: 0;
+  color: var(--maroon-tone-14);
+}
+.simple-console .op-form {
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.simple-console .op-form > label {
+  gap: 9px;
+}
+.simple-console .save-action-bar {
+  position: sticky;
+  bottom: 12px;
+  background: var(--maroon-tone-3);
+  border: 1px solid #baa06d70;
+  box-shadow: 0 5px 15px #0004;
+  z-index: 5;
+}
+.simple-console table th {
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--maroon-tone-13);
+  background: var(--maroon-tone-2);
+}
+.simple-console table td {
+  padding: 15px 12px;
+  font-size: 12px;
+}
+.simple-console .console-metrics,
+.simple-console .target-summaries {
+  gap: 16px;
+}
+.simple-console .console-metrics > div,
+.simple-console .target-summaries > div {
+  background: var(--maroon-tone-2);
+  box-shadow: none;
+  border: 1px solid var(--maroon-tone-3);
+}
+.simple-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--maroon-tone-3);
+  padding-bottom: 12px;
+}
+.simple-console .simple-tabs a,
+.simple-console .simple-tabs button {
+  padding: 10px 14px;
+  border: 0;
+  background: transparent;
+  color: var(--maroon-tone-13);
+  font-size: 12px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.simple-console .simple-tabs [aria-current="page"],
+.simple-console .simple-tabs [aria-selected="true"] {
+  color: #f1dfb7;
+  background: #d7bc7d16;
+}
+.simple-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--maroon-tone-3);
+}
+.simple-summary h2 {
+  font-size: 27px;
+  margin: 12px 0 7px;
+}
+.simple-summary h3 {
+  font-size: 23px;
+  margin: 10px 0 6px;
+}
+.simple-summary p {
+  font-size: 12px;
+  color: var(--maroon-tone-13);
+}
+.simple-summary small {
+  color: var(--maroon-tone-13);
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.simple-status {
+  font-size: 11px;
+  color: var(--maroon-tone-14);
+}
+.simple-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 24px 0 30px;
+  gap: 24px;
+}
+.simple-stats > div {
+  border-right: 1px solid var(--maroon-tone-3);
+  padding-left: 0;
+}
+.simple-stats > div:last-child {
+  border: 0;
+}
+.simple-stats small {
+  color: var(--maroon-tone-13);
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.simple-stats strong {
+  display: block;
+  font-size: 30px;
+  color: #ecddba;
+  margin-top: 8px;
+}
+.simple-dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(260px, 1fr);
+  gap: 24px;
+}
+.simple-action-list {
+  display: grid;
+  gap: 0;
+}
+.simple-action-list a {
+  display: block;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--maroon-tone-3);
+  text-decoration: none;
+}
+.simple-action-list b {
+  display: block;
+  font-size: 13px;
+  color: var(--maroon-tone-15);
+  font-weight: 500;
+}
+.simple-action-list b span {
+  float: right;
+  color: #ceb47a;
+}
+.simple-action-list small {
+  color: var(--maroon-tone-13);
+  font-size: 11px;
+  letter-spacing: 0;
+  margin-top: 6px;
+}
+.simple-open {
+  display: inline-block;
+  margin-top: 24px;
+  color: #e7d3a4;
+  font-size: 12px;
+}
+.simple-live-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+  gap: 24px;
+}
+.simple-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.simple-console details.simple-advanced {
+  padding: 15px 0;
+  margin-top: 20px;
+  border-top: 1px solid var(--maroon-tone-4);
+}
+.simple-advanced summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: #c8b281;
+}
+.simple-preview-row {
+  display: flex;
+  align-items: end;
+  gap: 16px;
+}
+.simple-preview-row label {
+  min-width: 220px;
+}
+.simple-wheel-studio {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.simple-wheel-studio .op-wheel {
+  display: grid;
+  place-items: center;
+  min-height: 420px;
+  background: radial-gradient(ellipse, color-mix(in srgb, var(--maroon-tone-4) 18.04%, transparent), transparent 65%);
+}
+.simple-console .op-wheel .oe-wheel {
+  width: min(440px, 75vw);
+  height: min(440px, 75vw);
+}
+.simple-console .bc-segments {
+  grid-template-columns: 1fr;
+}
+.simple-console .bc-layout,
+.simple-console .console-preview-grid {
+  gap: 24px;
+}
+.simple-console .console-notice {
+  border: 1px solid var(--maroon-tone-4);
+  background: var(--maroon-tone-2);
+  color: var(--maroon-tone-14);
+}
+@media (max-width: 1100px) {
+  .simple-console .op-body {
+    padding: 28px 24px;
+  }
+  .simple-dashboard-grid,
+  .simple-live-grid {
+    grid-template-columns: 1fr;
+  }
+  .simple-console .op-form {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 800px) {
+  .simple-console.op-shell,
+  .simple-console.op-shell.is-collapsed {
+    grid-template-columns: 1fr;
+  }
+  .simple-console .op-body {
+    padding: 24px 16px 60px;
+  }
+  .simple-console.op-shell > nav {
+    width: 260px;
+  }
+  .simple-summary {
+    align-items: start;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 0;
+  }
+  .simple-summary h2 {
+    font-size: 24px;
+  }
+  .simple-stats {
+    gap: 12px;
+  }
+  .simple-stats strong {
+    font-size: 25px;
+  }
+  .simple-console .op-panel {
+    padding: 18px;
+  }
+  .simple-tabs {
+    gap: 3px;
+  }
+  .simple-console .simple-tabs button,
+  .simple-console .simple-tabs a {
+    padding: 9px 10px;
+    font-size: 11px;
+  }
+  .simple-preview-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .simple-preview-row label {
+    min-width: 0;
+  }
+  .simple-console .op-wheel .oe-wheel {
+    width: 65vw;
+    height: 65vw;
+  }
+  .simple-wheel-studio .op-wheel {
+    min-height: 280px;
+  }
+}
+.simple-preview-action {
+  display: flex;
+  justify-content: flex-end;
+  margin: -12px 0 18px;
+}
+.simple-console dialog:has(.op-monitor) {
+  width: min(1000px, 94vw);
+  max-width: 94vw;
+}
+.simple-console .console-tabs {
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.simple-console .console-tabs button {
+  background: transparent;
+  border: 0;
+  color: var(--maroon-tone-13);
+}
+.simple-console .console-tabs button[aria-pressed="true"],
+.simple-console .console-tabs button[aria-selected="true"] {
+  color: #eddbaf;
+  background: #d5b66a14;
+}
+.simple-console .op-panel-head h2:before {
+  display: none;
+}
+.simple-console .op-panel-head h2 {
+  border-left: 0;
+  padding-left: 0;
+}
+.simple-options-toggle { margin:0 0 20px; }
+
+.broadcast-controls-fields { border:0; padding:0; margin:0; min-width:0; }

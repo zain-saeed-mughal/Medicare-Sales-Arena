@@ -1,0 +1,374 @@
+/* Arena-only type roles. The root/rem scale, card geometry and artwork stay intact. */
+.championship[data-tv-preset="Large TV"] {
+  --tv-name: 1.43rem;
+  --tv-hero: 3.55rem;
+  --tv-heading: 1.95rem;
+  --tv-body: 1.12rem;
+  --tv-label: 0.78rem;
+  --tv-small: 0.7rem;
+  --tv-stat: 2.25rem;
+  --tv-score: 5.65rem;
+  --tv-top-score: 2.9rem;
+  --tv-celebration: 6rem;
+  --tv-prize: 5.5rem;
+}
+.championship[data-tv-preset="Extra Large TV"] {
+  --tv-name: 1.62rem;
+  --tv-hero: 3.95rem;
+  --tv-heading: 2.15rem;
+  --tv-body: 1.25rem;
+  --tv-label: 0.88rem;
+  --tv-small: 0.76rem;
+  --tv-stat: 2.5rem;
+  --tv-score: 6rem;
+  --tv-top-score: 3.15rem;
+  --tv-celebration: 6.5rem;
+  --tv-prize: 6rem;
+}
+.championship[data-tv-weight="Medium"] {
+  --tv-weight: 600;
+}
+.championship[data-tv-weight="Bold"] {
+  --tv-weight: 700;
+}
+.championship[data-tv-weight="Extra Bold"] {
+  --tv-weight: 800;
+}
+.championship.titanium-velocity:not([data-tv-weight="Original"])
+  :is(
+    h2,
+    h3,
+    .oe-rank-name strong,
+    .oe-rank-score,
+    .oe-metrics b,
+    .tv-hero-score > strong,
+    .tv-player-bottom strong,
+    .oe-team-score,
+    .cine-sales strong,
+    .cine-bonus strong,
+    .cine-heading,
+    .oe-ticker p,
+    .vx-modules b,
+    .oe-target-line b,
+    .oe-target-line span
+  ) {
+  font-weight: var(--tv-weight);
+}
+
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  :is(
+    .tv-stage-heading h2,
+    .oe-stage-heading h2,
+    .oe-board-head h2,
+    .oe-idle-chamber h2,
+    .oe-standby h2,
+    .oe-monthly-heading h2
+  ) {
+  font-size: clamp(1.7rem, var(--tv-heading), 2.3rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .oe-broadcast-title
+  > span {
+  font-size: clamp(1rem, var(--tv-body), 1.3rem);
+  letter-spacing: 0.06em;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .tv-hero-copy
+  h2 {
+  font-size: clamp(3.1rem, var(--tv-hero), 4.1rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  -webkit-line-clamp: 2;
+  overflow-wrap: anywhere;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  :is(.tv-player h3, .oe-rank-name strong, .oe-hall h3, .oe-podium-player h3) {
+  font-size: clamp(1.25rem, var(--tv-name), 1.7rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  min-width: 0;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  :is(.oe-rank-name strong, .tv-player h3, .oe-team-contributor b) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  :is(.tv-hero-team, .oe-ticker p, .oe-team-contributor b, .vx-modules b) {
+  font-size: clamp(1rem, var(--tv-body), 1.3rem);
+  line-height: 1.2;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  :is(
+    .tv-player p,
+    .oe-rank-name small,
+    .oe-metrics small,
+    .oe-target-line,
+    .tv-hero-score > span,
+    .tv-player-bottom span,
+    .oe-broadcast-title small
+  ) {
+  font-size: clamp(0.7rem, var(--tv-label), 0.9rem);
+  line-height: 1.15;
+  letter-spacing: 0.025em;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  :is(
+    .oe-target-line b,
+    .oe-target-line span,
+    .oe-target-line em,
+    .oe-row-progress span,
+    .vx-modules span,
+    .vx-modules small,
+    .tv-player-top > span:last-child,
+    .tv-kicker
+  ) {
+  font-size: clamp(0.65rem, var(--tv-small), 0.8rem);
+  line-height: 1.15;
+  letter-spacing: 0.025em;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"]) .oe-metrics b {
+  font-size: clamp(2rem, var(--tv-stat), 2.6rem);
+  line-height: 1.05;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .tv-hero-score
+  > strong {
+  font-size: clamp(5.2rem, var(--tv-score), 6.1rem);
+  line-height: 0.95;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  :is(.tv-player-bottom strong, .oe-podium-score strong) {
+  font-size: clamp(2.5rem, var(--tv-top-score), 3.2rem);
+  line-height: 1;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"]) .oe-rank-score {
+  font-size: clamp(1.8rem, var(--tv-stat), 2.5rem);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"]) .oe-team h3 {
+  font-size: clamp(2rem, var(--tv-heading), 2.3rem);
+  line-height: 1.12;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"]) .oe-team-score {
+  font-size: clamp(6rem, calc(var(--tv-score) * 1.1), 7rem);
+  line-height: 1;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .cine-identity
+  h2 {
+  font-size: clamp(4rem, var(--tv-celebration), 6.8rem);
+  line-height: 1.02;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  letter-spacing: -0.04em;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .cine-wheel-stage
+  .cine-identity
+  h2 {
+  font-size: clamp(3rem, var(--tv-hero), 4rem);
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .cine-prize-panel
+  h3 {
+  font-size: clamp(3rem, var(--tv-prize), 6rem);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .cine-bonus
+  strong {
+  font-size: clamp(2rem, var(--tv-top-score), 3.2rem);
+  line-height: 1.1;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  :is(.cine-heading, .cine-reward-ready) {
+  font-size: clamp(1.4rem, var(--tv-heading), 2.2rem);
+  line-height: 1.15;
+  letter-spacing: 0.05em;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"]) .cine-team {
+  font-size: clamp(1.2rem, calc(var(--tv-body) * 1.35), 1.7rem);
+  line-height: 1.2;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .cine-sales
+  strong {
+  font-size: clamp(6rem, calc(var(--tv-score) * 1.35), 8.2rem);
+}
+
+/* Reserve room for essential text rather than enlarging the stage or its icons. */
+.championship.titanium-velocity[data-tv-preset="Extra Large TV"]
+  :is(
+    .tv-hero-signature,
+    .oe-board-foot,
+    .tv-player-bottom em,
+    .tv-lead small
+  ) {
+  display: none;
+}
+.championship.titanium-velocity[data-tv-preset="Extra Large TV"] .tv-hero-copy {
+  padding-block: 1rem;
+}
+.championship.titanium-velocity[data-tv-preset="Extra Large TV"]
+  .tv-hero-score {
+  margin-block: 0.45rem;
+}
+.championship.titanium-velocity[data-tv-preset="Extra Large TV"]
+  .oe-board
+  .oe-rank-row {
+  padding-block: 0.25rem;
+}
+.championship.titanium-velocity[data-tv-preset="Extra Large TV"]
+  .tv-player-identity {
+  margin-block: 0.3rem;
+}
+.championship.titanium-velocity[data-tv-preset="Extra Large TV"]
+  .tv-player-bottom
+  > div {
+  gap: 0.4rem;
+}
+.championship.titanium-velocity[data-tv-preset="Extra Large TV"]
+  .oe-ticker
+  > b {
+  display: none;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .tv-weekly
+  .tv-player
+  h3 {
+  font-size: clamp(1.7rem, calc(var(--tv-name) * 1.3), 2.2rem);
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .tv-weekly
+  .tv-player-bottom
+  strong {
+  font-size: clamp(4.5rem, calc(var(--tv-top-score) * 1.6), 5.2rem);
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .tv-player-identity
+  > div {
+  min-width: 0;
+  max-width: 100%;
+}
+/* Reserve intrinsic width for bold figures and keep the three text lines within a TV row. */
+.championship.titanium-velocity:not([data-tv-preset="Normal"]) .oe-rank-score {
+  width: max-content;
+  min-width: 2.7ch;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .oe-rank-name
+  small {
+  margin-top: 0;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .oe-row-progress {
+  margin-top: 0;
+  line-height: 1;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .tv-weekly
+  .tv-player-top {
+  margin-bottom: 0.7rem;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .tv-weekly
+  .tv-player-identity {
+  gap: 0.6rem;
+}
+.championship.titanium-velocity:not([data-tv-preset="Normal"])
+  .tv-weekly
+  .tv-player-bottom
+  > div {
+  margin-top: 0.5rem;
+}
+/* Preserve the already larger full-stage variants while increasing their type. */
+.championship.titanium-velocity:not([data-tv-preset="Normal"]):not(.has-board) .oe-team h3 { font-size:clamp(3.2rem,calc(var(--tv-heading) * 1.75),3.8rem); }
+.championship.titanium-velocity:not([data-tv-preset="Normal"]):not(.has-board) .oe-team-score { font-size:clamp(9rem,calc(var(--tv-score) * 1.65),10rem); }
+.championship.titanium-velocity:not([data-tv-preset="Normal"]):not(.has-board) .oe-hall-grid h3 { font-size:clamp(2rem,calc(var(--tv-name) * 1.45),2.4rem); }
+.championship.titanium-velocity:not([data-tv-preset="Normal"]) .oe-hall-grid strong { font-size:clamp(1.8rem,var(--tv-top-score),3.2rem); }
+.championship.titanium-velocity:not([data-tv-preset="Normal"]) .oe-hall-grid p { font-size:clamp(1rem,var(--tv-body),1.3rem); }
+.championship.titanium-velocity:not([data-tv-preset="Normal"]) .cine-bonus strong { font-size:clamp(4rem,calc(var(--tv-top-score) * 1.5),4.8rem); }
+.championship.titanium-velocity:not([data-tv-preset="Normal"]) .tv-weekly .tv-player p { font-size:clamp(.85rem,var(--tv-body),1.25rem); }
+
+/* Broadcast readability: semantic roles shared by all modes and TV presets.
+   Viewport units follow the display resolution without scaling artwork or Admin. */
+.championship {
+  --tv-broadcast-size: clamp(24px, min(1.667vw, 2.963vh), 64px);
+  --tv-section-size: 1.9rem;
+  --tv-key-label: .8rem;
+  --tv-support-size: .78rem;
+}
+.championship[data-tv-preset="Large TV"] {
+  --tv-broadcast-size: clamp(26px, min(1.771vw, 3.149vh), 68px);
+  --tv-section-size: 2.1rem;
+  --tv-key-label: .87rem;
+  --tv-support-size: .84rem;
+}
+.championship[data-tv-preset="Extra Large TV"] {
+  --tv-broadcast-size: clamp(28px, min(1.875vw, 3.334vh), 72px);
+  --tv-section-size: 2.25rem;
+  --tv-key-label: .94rem;
+  --tv-support-size: .9rem;
+}
+.championship.titanium-velocity[data-tv-preset] .oe-broadcast-title > span {
+  display:block;
+  font-size:var(--tv-broadcast-size);
+  font-weight:max(700, var(--tv-weight, 800));
+  line-height:1.2;
+  letter-spacing:.015em;
+  white-space:normal;
+  overflow-wrap:break-word;
+  text-wrap:balance;
+}
+.championship.titanium-velocity[data-tv-preset] .oe-broadcast-title small {
+  font-size:clamp(.72rem, var(--tv-support-size), .95rem);
+  line-height:1.15;
+  letter-spacing:.015em;
+  margin-top:.18rem;
+}
+.championship.titanium-velocity[data-tv-preset]
+:is(.tv-stage-heading h2, .oe-stage-heading h2, .oe-board-head h2,
+.oe-monthly-heading h2, .oe-idle-chamber h2, .oe-standby h2) {
+  font-size:clamp(1.8rem, var(--tv-section-size), 2.3rem);
+  font-weight:max(700, var(--tv-weight, 800));
+  line-height:1.12;
+  letter-spacing:-.035em;
+}
+.championship.titanium-velocity[data-tv-preset]
+:is(.oe-metrics small, .tv-kicker, .oe-eyebrow, .tv-stage-heading > span,
+.oe-stage-heading > span, .tv-player-top > span:last-child) {
+  font-size:clamp(.76rem, var(--tv-key-label), .96rem);
+  font-weight:max(600, var(--tv-weight, 700));
+  line-height:1.2;
+  letter-spacing:.025em;
+}
+.championship.titanium-velocity[data-tv-preset] .oe-metrics small {
+  min-width:0;
+  white-space:normal;
+}
+.championship.titanium-velocity[data-tv-preset]
+:is(.cine-heading, .cine-reward-ready, .cine-prize-panel > span) {
+  font-size:clamp(1.5rem, var(--tv-section-size), 2.3rem);
+  font-weight:max(700, var(--tv-weight, 800));
+  line-height:1.15;
+  letter-spacing:.025em;
+}

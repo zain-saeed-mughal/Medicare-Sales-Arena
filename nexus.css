@@ -1,0 +1,739 @@
+:root {
+  --space: var(--maroon-tone-0);
+  --midnight: var(--maroon-tone-2);
+  --royal: var(--maroon-tone-4);
+  --electric: var(--maroon-tone-11);
+  --laser: var(--maroon-tone-11);
+  --ice: var(--maroon-tone-13);
+  --white: var(--maroon-tone-16);
+  --muted: var(--maroon-tone-13);
+  --gold: #efc46a;
+  --line: var(--maroon-tone-4);
+  --mono: ui-monospace, Consolas, monospace;
+  --cut: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 0.65rem),
+    calc(100% - 0.65rem) 100%,
+    0 100%
+  );
+  --fast: 180ms;
+}
+.nexus {
+  background:
+    radial-gradient(ellipse at 28% 40%, var(--maroon-tone-2), transparent 59%), var(--space);
+  padding: 0 2.5rem 0.6rem;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: none;
+}
+.nexus header {
+  flex: none;
+  height: 4.6rem;
+  border-color: var(--maroon-tone-4);
+  position: relative;
+}
+.brandmark.n-mark {
+  color: var(--ice);
+  display: grid;
+  place-items: center;
+  background: var(--maroon-tone-2);
+  clip-path: polygon(22% 0, 100% 0, 80% 100%, 0 100%);
+  width: 3.4rem;
+  height: 2.5rem;
+}
+.brandmark.n-mark svg {
+  position: static;
+  width: 2.1rem;
+  height: 2.1rem;
+  fill: none;
+}
+.nexus .brand strong {
+  color: var(--white);
+}
+.nexus .brand small {
+  font: 600 0.57rem var(--mono);
+  letter-spacing: 0.24em;
+  color: var(--ice);
+}
+.championship-id {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.championship-id small {
+  justify-content: center;
+  font: 0.55rem var(--mono);
+  letter-spacing: 0.22em;
+}
+.championship-id b {
+  font-size: 1.05rem;
+}
+.nexus .headright label {
+  border: none;
+  border-radius: 0;
+  background: var(--maroon-tone-2);
+  color: var(--maroon-tone-12);
+  font: 0.69rem var(--mono);
+}
+.nexus .headright button {
+  border: 0;
+  background: transparent;
+}
+.nexus .metrics {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  border-block: 1px solid var(--maroon-tone-4);
+  background: linear-gradient(100deg, var(--maroon-tone-3), var(--maroon-tone-2) 58%, var(--maroon-tone-2));
+  position: relative;
+  padding: 0.7rem 0;
+  flex: none;
+}
+.nexus .metrics::before {
+  content: "";
+  position: absolute;
+  inset: -1px auto auto 0;
+  width: 15%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--laser), transparent);
+}
+.nexus .metrics article {
+  border: none;
+  border-radius: 0;
+  flex: 1;
+  padding: 0 1.25rem;
+  background: none;
+  border-right: 1px solid var(--maroon-tone-4);
+}
+.nexus .metrics article:last-child {
+  border: 0;
+}
+.nexus .metrics b {
+  line-height: 1.15;
+  margin: 0.25rem 0 0;
+  font-size: 2rem;
+}
+.nexus .metrics small {
+  font: 600 0.68rem var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--maroon-tone-14);
+}
+.nexus .grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.24fr 1fr;
+  margin: 0;
+  gap: 1.2rem;
+}
+.nexus .stage,
+.nexus .board {
+  border-radius: 0;
+}
+.nexus .stage {
+  background: radial-gradient(
+    ellipse at 52% 35%,
+    var(--maroon-tone-4),
+    var(--maroon-tone-2) 46%,
+    var(--maroon-tone-2) 79%
+  );
+  border: 1px solid var(--maroon-tone-4);
+  clip-path: var(--cut);
+}
+.nexus .stage:before {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--maroon-tone-11) 7.06%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--maroon-tone-11) 7.06%, transparent) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem;
+  mask-image: linear-gradient(transparent, #000 36%, transparent 87%);
+}
+.nexus .stagehead {
+  border: 0;
+  padding: 1rem 1.3rem;
+}
+.nexus .stagehead small,
+.nexus .stagehead > span,
+.nexus aside,
+.nexus .tablehead,
+.nexus footer small,
+.nexus .boardhead small {
+  font-family: var(--mono);
+}
+.nexus .stagehead > span {
+  color: var(--maroon-tone-13);
+}
+.nexus .scene {
+  min-height: 0;
+}
+.nexus .scene:before {
+  inset: 68% -25% -20%;
+  background-size: auto;
+  opacity: 0.8;
+}
+.nexus .beam {
+  inset: -15% 0 -8%;
+}
+.nexus .nexus-device {
+  inset: 0;
+  filter: drop-shadow(0 0.65rem 1rem color-mix(in srgb, var(--maroon-tone-0) 47.84%, transparent));
+}
+.rotor {
+  transform-box: view-box;
+  transform-origin: 0 0;
+}
+.outer {
+  animation: orbit 85s linear infinite;
+}
+.inner {
+  animation: orbit 65s linear infinite reverse;
+}
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.nx-index {
+  position: absolute;
+  top: 45%;
+  left: 4%;
+  writing-mode: vertical-rl;
+  font: 0.6rem var(--mono);
+  letter-spacing: 0.16em;
+  color: var(--maroon-tone-11);
+}
+.nx-index.right {
+  left: auto;
+  right: 4%;
+}
+.nexus .champ {
+  position: relative;
+  text-align: left;
+  padding: 0.65rem 1.6rem 0.8rem;
+}
+.nexus .champ small,
+.nexus .team {
+  justify-content: flex-start;
+}
+.nexus .champ h2 {
+  font-size: clamp(2.4rem, 3.5vw, 5rem);
+  margin: 0.15rem 0;
+  line-height: 1.08;
+}
+.champ-number {
+  position: absolute;
+  right: 1.7rem;
+  bottom: 0.4rem;
+  font: italic 700 4.2rem/1 Sora;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--maroon-tone-7);
+  opacity: 0.63;
+}
+.nexus .stagefoot {
+  margin: 0 1.6rem 1rem;
+  text-align: left;
+}
+.nexus .stagefoot > div {
+  padding-left: 1rem;
+}
+.nexus .stagefoot > div:first-child {
+  padding: 0;
+}
+.nexus .stagefoot small {
+  justify-content: flex-start;
+  color: var(--maroon-tone-14);
+}
+.nexus .stagefoot b {
+  font-size: 1.65rem;
+}
+.nexus .board {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: transparent;
+  border: 0;
+}
+.nexus .boardhead {
+  padding: 0.55rem 0.65rem 0.75rem;
+  border-top: 2px solid var(--maroon-tone-7);
+  border-bottom: 1px solid var(--line);
+}
+.nexus .boardhead h3 {
+  font-size: 1.7rem;
+}
+.live-count {
+  font: 0.72rem var(--mono);
+  color: var(--ice);
+  padding: 0.35rem 0.6rem;
+  background: var(--maroon-tone-2);
+}
+.nexus .tablehead {
+  background: none;
+  padding: 0.6rem 0.8rem;
+}
+.nexus ol {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  gap: 0.24rem;
+  padding: 0;
+}
+.nexus li {
+  height: auto;
+  flex: 1;
+  min-height: 0;
+  clip-path: polygon(
+    0.55rem 0,
+    100% 0,
+    100% calc(100% - 0.4rem),
+    calc(100% - 0.4rem) 100%,
+    0 100%,
+    0 0.55rem
+  );
+  border: 0;
+  background: linear-gradient(95deg, var(--maroon-tone-3), var(--maroon-tone-2) 76%);
+  padding: 0 0.8rem;
+  gap: 0.85rem;
+}
+.nexus li.r0 {
+  background: linear-gradient(90deg, #594729, #252a2c 45%, var(--maroon-tone-2));
+  box-shadow: inset 3px 0 var(--gold);
+}
+.nexus li.r1 {
+  background: linear-gradient(90deg, var(--maroon-tone-4), var(--maroon-tone-2));
+}
+.nexus li.r2 {
+  background: linear-gradient(90deg, #3f3330, var(--maroon-tone-2));
+}
+.nexus .rank {
+  font: italic 700 1.23rem Sora;
+  min-width: 1.9rem;
+}
+.nexus .avatar {
+  border-radius: 0.15rem;
+  width: 1.9rem;
+  height: 1.9rem;
+}
+.nexus .person {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+}
+.nexus .person strong {
+  font-size: 1rem;
+}
+.nexus .person small {
+  font-size: 0.7rem;
+  color: var(--maroon-tone-14);
+}
+.nexus li > b {
+  font-size: 1.38rem;
+}
+.nexus li[data-up="true"] .rank,
+.nexus li[data-active="true"] .avatar {
+  animation: rank-signal 1.5s ease-out;
+}
+.nexus footer {
+  border-radius: 0;
+  background: var(--maroon-tone-2);
+  border-inline: 0;
+}
+.nexus footer small {
+  background: var(--ice);
+  color: var(--maroon-tone-2);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 0.5rem) 100%, 0 100%);
+  padding-right: 1.5rem;
+}
+.nexus aside {
+  margin: 0;
+}
+.nexus .title {
+  display: none;
+}
+@media (min-width: 761px) {
+  .nexus {
+    height: 100svh;
+    min-height: 0;
+  }
+  .nexus .grid .stage {
+    min-height: 0;
+  }
+}
+@keyframes rank-signal {
+  30% {
+    color: #fff;
+    background: var(--maroon-tone-5);
+    box-shadow: 0 0 1rem var(--maroon-tone-11);
+  }
+}
+@media (max-width: 760px) {
+  .championship-id {
+    display: none;
+  }
+  .nexus {
+    padding: 0 0.75rem 1rem;
+  }
+  .nexus .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+  .nexus .metrics article {
+    padding: 0 0.5rem;
+  }
+  .nexus .grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .nexus .stage {
+    min-height: 34rem;
+  }
+  .nexus li {
+    min-height: 3.4rem;
+  }
+  .nexus .champ h2 {
+    font-size: 2.5rem;
+  }
+  .nexus .stagehead > span {
+    font-size: 0.55rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nexus *,
+  .nexus *::before {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+.nexus[data-mode="Leaderboard Focus"] .grid {
+  grid-template-columns: 1fr 1.3fr;
+}
+.nexus[data-mode="Leaderboard Focus"] .stage:not(:has(.ceremony)) {
+  display: flex;
+}
+.nexus[data-mode="Leaderboard Focus"] .person strong {
+  font-size: 1.2rem;
+}
+.nexus[data-mode="Leaderboard Focus"] .person {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+.nexus:is(
+    [data-mode="Standby"],
+    [data-mode="Team Battle"],
+    [data-mode="Champion Spotlight"],
+    [data-mode="Reward Ceremony"]
+  )
+  .grid {
+  grid-template-columns: 1fr;
+}
+.nexus:is(
+    [data-mode="Standby"],
+    [data-mode="Team Battle"],
+    [data-mode="Reward Ceremony"]
+  )
+  .board {
+  display: none;
+}
+.nexus .mode-stage,
+.nexus .ceremony {
+  background: radial-gradient(
+    ellipse at 50% 48%,
+    var(--maroon-tone-3),
+    var(--maroon-tone-2) 63%,
+    var(--maroon-tone-0)
+  );
+  text-align: center;
+}
+.nexus .mode-stage > small {
+  font: 0.75rem var(--mono);
+  letter-spacing: 0.18em;
+  color: var(--ice);
+}
+.standby .nexus-device {
+  width: min(75%, 35rem);
+  height: 40vh;
+}
+.nexus .mode-stage h2 {
+  font-size: 2.8rem;
+}
+.duel {
+  display: flex;
+  width: 85%;
+  position: relative;
+  justify-content: center;
+  margin: 1.2rem 0;
+}
+.duel > div {
+  flex: 1;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  border-top: 2px solid var(--laser);
+}
+.duel > div + div {
+  background: linear-gradient(220deg, var(--maroon-tone-4), var(--maroon-tone-2));
+  border-color: var(--maroon-tone-13);
+}
+.duel svg {
+  color: var(--ice);
+  margin: auto auto 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.duel small {
+  justify-content: center;
+}
+.duel h3 {
+  font-size: 2.6rem;
+}
+.duel strong {
+  font-size: 5rem;
+  line-height: 1.3;
+}
+.duel meter {
+  width: 65%;
+  accent-color: var(--laser);
+}
+.versus {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--maroon-tone-7);
+  background: var(--maroon-tone-2);
+  padding: 0.65rem;
+  font-style: italic;
+}
+.podium-steps {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  width: 92%;
+  margin-top: 2rem;
+}
+.step {
+  width: 33%;
+  display: grid;
+  gap: 0.3rem;
+  align-content: start;
+  padding: 0.9rem 0.3rem;
+  background: linear-gradient(var(--maroon-tone-4), var(--maroon-tone-2));
+  border-top: 2px solid var(--maroon-tone-14);
+  height: 11rem;
+  box-shadow: inset -0.65rem 0 1rem color-mix(in srgb, var(--maroon-tone-0) 33.33%, transparent);
+}
+.step em {
+  color: var(--maroon-tone-15);
+  font: italic 700 2.4rem Sora;
+}
+.step strong {
+  font-size: 1.5rem;
+}
+.step span {
+  font-size: 0.7rem;
+  color: var(--maroon-tone-14);
+}
+.step.place-0 {
+  height: 14rem;
+  border-color: var(--gold);
+  background: linear-gradient(#564833, var(--maroon-tone-2));
+}
+.place-0 em {
+  color: var(--gold);
+}
+.step.place-2 {
+  height: 9rem;
+  border-color: #d9a486;
+}
+.champ-profile {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  right: 15%;
+  bottom: 0;
+  width: 4rem;
+  aspect-ratio: 1;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 1.6rem;
+}
+.champ-profile img {
+  width: 100%;
+  border-radius: 50%;
+}
+.champ-achievements {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0 1.6rem 0.8rem;
+}
+.champ-achievements span {
+  font: 0.7rem var(--mono);
+  color: var(--gold);
+  border: 1px solid #68573b;
+  padding: 0.3rem;
+}
+.nexus .ceremony {
+  z-index: 4;
+  background: radial-gradient(ellipse at center, var(--maroon-tone-3), var(--maroon-tone-2) 65%);
+  clip-path: var(--cut);
+}
+.nexus .ceremony-tag {
+  font: 600 0.72rem var(--mono);
+  border-left: 0.2rem solid var(--laser);
+  padding-left: 0.6rem;
+}
+.nexus .phase-approved {
+  animation: recognize 0.95s ease-out both;
+}
+.energy-arrival {
+  pointer-events: none;
+  position: absolute;
+  z-index: 5;
+  right: 0;
+  top: 35%;
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ice), color-mix(in srgb, var(--maroon-tone-11) 40.00%, transparent), transparent);
+  animation: arrive 0.7s both;
+}
+.nexus .stage:has(.phase-approved) .nexus-device {
+  animation: core-surge 0.95s ease-out both;
+}
+.nexus .medallion {
+  position: relative;
+  border-radius: 25%;
+  transform: rotate(-3deg);
+  outline: 1px solid var(--maroon-tone-7);
+  outline-offset: 0.6rem;
+  background: linear-gradient(145deg, var(--maroon-tone-4), var(--maroon-tone-2));
+}
+.nexus .ceremony-score {
+  color: var(--ice);
+  font: 600 0.9rem var(--mono);
+}
+.nexus .phase-wheel .wheel-frame,
+.nexus .phase-result .wheel-frame,
+.chamber-idle .wheel-frame {
+  width: min(17.5rem, 32vh);
+  margin: 1rem;
+}
+.wheel-frame {
+  isolation: isolate;
+  box-shadow:
+    0 0.45rem 0 var(--maroon-tone-0),
+    0 0.6rem 0 var(--maroon-tone-7),
+    0 1.1rem 1.4rem var(--maroon-tone-0),
+    0 0 2rem color-mix(in srgb, var(--maroon-tone-11) 27.06%, transparent);
+}
+.wheel-frame:before,
+.wheel-frame:after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+.wheel-frame:before {
+  inset: -0.65rem;
+  border: 0.23rem dashed var(--maroon-tone-7);
+  outline: 1px solid var(--maroon-tone-11);
+  background: transparent;
+}
+.wheel-frame:after {
+  inset: 0.35rem;
+  border: 1px solid var(--ice);
+  box-shadow: inset 0 0 0.7rem var(--maroon-tone-0);
+}
+.wheel-hub svg {
+  width: 70%;
+  height: 70%;
+}
+.chamber-idle .wheel-disc,
+.phase-result .wheel-disc {
+  animation: none;
+  transform: rotate(var(--landing));
+}
+.phase-result g[data-assigned="true"] path {
+  fill: #b58640;
+  stroke: #ffe1a0;
+  stroke-width: 2;
+}
+.nexus .phase-result h2 {
+  color: var(--gold);
+}
+.nexus .phase-wheel .wheel-frame {
+  animation: chamber-open 0.6s ease-out both;
+}
+@keyframes arrive {
+  from {
+    transform: translateX(95%);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-40%) scaleX(0.1);
+    opacity: 0;
+  }
+}
+@keyframes recognize {
+  0%,
+  32% {
+    opacity: 0;
+  }
+  80%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes core-surge {
+  50% {
+    filter: drop-shadow(0 0 1.4rem var(--maroon-tone-11));
+  }
+}
+@keyframes chamber-open {
+  from {
+    transform: perspective(30rem) rotateX(22deg) scale(0.87);
+  }
+  to {
+    transform: none;
+  }
+}
+.nexus .feed > b {
+  font: 600 0.65rem var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ice);
+  border-right: 1px solid var(--line);
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+}
+.step {
+  height: 12rem;
+}
+.step.place-2 {
+  height: 10.4rem;
+}
+.step.place-0 {
+  height: 14.5rem;
+}
+.motes {
+  animation: levitate 6s ease-in-out infinite alternate;
+}
+@keyframes levitate {
+  to {
+    opacity: 0.35;
+    transform: translateY(-6px);
+  }
+}
+.nexus .championship-id small {
+  text-transform: uppercase;
+}

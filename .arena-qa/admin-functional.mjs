@@ -1,0 +1,41 @@
+import puppeteer from 'puppeteer-core';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const b=await puppeteer.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:['--disable-background-timer-throttling','--disable-renderer-backgrounding'],defaultViewport:{width:1920,height:1080}});
+const base='http://127.0.0.1:5191',key='medicare-arena.dev.v3',results=[];
+try {
+ const p=await b.newPage(),tv=await b.newPage(); const errors=[];p.on('pageerror',e=>errors.push(e.message));tv.on('pageerror',e=>errors.push(e.message));
+ const go=async path=>{console.log('route',path);await p.bringToFront();return p.goto(base+path,{waitUntil:'networkidle0'})};
+ const click=async text=>{const h=await p.evaluateHandle(t=>[...document.querySelectorAll('button')].find(e=>e.textContent.trim()===t),text);assert(await h.asElement(),text);await h.asElement().click();await h.dispose()};
+ const field=async(label,value)=>{const h=await p.evaluateHandle(label=>[...document.querySelectorAll('form label')].find(e=>e.firstChild?.textContent.trim()===label)?.querySelector('input,select'),label);const e=h.asElement();assert(e,label);const tag=await e.evaluate(e=>e.tagName);if(tag==='SELECT')await e.select(value);else {await e.click({clickCount:3});await e.press('Backspace');await e.type(value);}await h.dispose()};
+ const state=()=>p.evaluate(k=>JSON.parse(localStorage.getItem(k)),key);
+ await go('/admin');await p.click('.primary');await p.waitForSelector('.op-shell');
+ await p.evaluate(async()=>{const{command}=await import('/admin/service.ts');await command('settings','qa','QA',d=>{d.settings.simulate=false;d.broadcast.rotation=false;d.queue=[];return 'Isolated audit'})});
+ await tv.goto(base+'/arena',{waitUntil:'networkidle0'});
+ await go('/admin/live-control');
+ await p.evaluate(()=>{const e=[...document.querySelectorAll('select')].find(e=>[...e.options].some(o=>o.value==='Weekly Arena'));e.value='Weekly Arena';e.dispatchEvent(new Event('change',{bubbles:true}))});
+ await tv.waitForSelector('[data-mode="Weekly Arena"]');console.log('checkpoint');results.push('Admin mode -> normal Arena cross-tab');
+ await go('/admin/leaderboard');await click('More display options');
+ await field('Top 3 spotlight','false');await field('Highlight top three rows','false');await p.click('form button.primary');
+ await p.waitForFunction(()=>JSON.parse(localStorage.getItem('medicare-arena.dev.v3')).broadcast.leaderboard.top3===false);await tv.bringToFront();await tv.waitForFunction(()=>!document.querySelector('.tv-top-three')&&!document.querySelector('.oe-medal'));await p.bringToFront();
+ assert.equal((await state()).broadcast.leaderboard.top3,false);console.log('checkpoint');results.push('Leaderboard visibility and medals affect actual Arena');
+ // External edit refreshes clean forms; dirty forms require explicit reload.
+ await field('Top 3 spotlight','true');
+ await tv.evaluate(async()=>{const{signIn,command}=await import('/admin/service.ts');await signIn('u0');await command('leaderboard','qa.external','QA',d=>{d.broadcast.leaderboard.avatars=false;return 'external edit'})});
+ await p.waitForFunction(()=>document.body.innerText.includes('Saved settings changed in another editor'));
+ assert(await p.$('form button.primary:disabled'));await click('Reload saved settings');
+ assert.equal(await p.$eval('form',f=>[...f.querySelectorAll('label')].find(l=>l.textContent.startsWith('Agent avatars')).querySelector('select').value),'false');console.log('checkpoint');results.push('Dirty draft conflict blocks overwrite; reload adopts saved values');
+ await go('/admin/appearance');await field('Background','Grid');await p.click('form button.primary');await tv.waitForSelector('[data-background="Grid"]');
+ assert((await tv.$eval('.championship',e=>getComputedStyle(e).backgroundImage)).includes('linear-gradient'));
+ await p.evaluate(()=>{const d=[...document.querySelectorAll('details')].find(e=>e.textContent.includes('Advanced recognition settings'));d.open=true});
+ await field('Champion composition','Portrait');const forms=await p.$$('form');await forms.at(-1).$('button.primary').then(e=>e.click());
+ await tv.waitForSelector('.portrait-layout');console.log('checkpoint');results.push('Appearance and active champion composition cross-tab');
+ await go('/admin/spin-management');await click('Prize Setup');await click('+ Add prize');await field('Display name','Audit Cash');await field('Cash amount (0 = non-cash)','1250.50');await field('Currency','USD');await field('Segment icon','★');await p.click('dialog form button.primary');await p.waitForSelector('dialog',{hidden:true});
+ const cash=(await state()).prizes.find(x=>x.name==='Audit Cash');assert.equal(cash.minor,125050);assert.equal(cash.currency,'USD');
+ await click('Wheel Preview');await p.waitForSelector('.premium-wheel');assert((await p.$eval('.premium-wheel',e=>e.textContent)).includes('USD'));assert((await p.$eval('.premium-wheel',e=>e.textContent)).includes('★'));console.log('checkpoint');results.push('Prize amount/currency/icon persisted and rendered in wheel');
+ await go('/admin/celebrations');await click('Wheel spin');await field('Base duration (seconds; global multiplier applies except prize reveal)','3');await p.click('form button.primary');await p.waitForFunction(()=>JSON.parse(localStorage.getItem('medicare-arena.dev.v3')).broadcast.wheel.duration===3);await click('Preview selected event');await new Promise(r=>setTimeout(r,700));const f=p.frames().find(f=>f.url().includes('monitor'));assert(await f.$('.phase-chamber,.phase-wheel'));console.log('checkpoint');results.push('Wheel phase settings and isolated selected preview');
+ await p.reload({waitUntil:'networkidle0'});assert.equal((await state()).broadcast.wheel.duration,3);console.log('checkpoint');results.push('Settings survive refresh');
+ assert.deepEqual(errors,[]);
+ await tv.screenshot({path:'.arena-qa/admin-functional-arena.png'});await p.screenshot({path:'.arena-qa/admin-functional-effects.png'});
+ fs.writeFileSync('.arena-qa/admin-functional-results.json',JSON.stringify(results,null,2));console.log(results);
+}finally{await b.close()}

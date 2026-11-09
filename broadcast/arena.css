@@ -1,0 +1,276 @@
+/* Supported presentation options, layered over the original Nexus composition. */
+.nexus[data-theme="Midnight"] {
+  background-color: var(--maroon-tone-0);
+  background-image: radial-gradient(
+    ellipse at 30% 20%,
+    color-mix(in srgb, var(--maroon-tone-4) 33.33%, transparent),
+    transparent 65%
+  );
+}
+.nexus[data-theme="Glacier"] {
+  background-color: var(--maroon-tone-2);
+  background-image: radial-gradient(
+    ellipse at 20% 10%,
+    color-mix(in srgb, var(--maroon-tone-5) 33.33%, transparent),
+    transparent 70%
+  );
+}
+.nexus[data-background="Clean"] {
+  background-image: none;
+}
+.nexus[data-background="Grid"] {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--maroon-tone-5) 9.41%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--maroon-tone-5) 9.41%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.nexus[data-contrast="High"] small,
+.nexus[data-contrast="High"] p,
+.nexus[data-contrast="High"] .person small {
+  color: var(--maroon-tone-16);
+}
+.nexus .boardhead {
+  border-top: 2px solid var(--accent);
+}
+.nexus .board li {
+  border-left: 2px solid transparent;
+}
+.nexus[data-champion="Electric"] .perf-identity > small,
+.nexus[data-champion="Electric"] .perf-score b,
+.nexus[data-champion="Electric"] .champ h2 {
+  color: var(--accent);
+}
+.nexus[data-ranking="Electric"] .board .r0,
+.nexus[data-ranking="Electric"] .board .r1,
+.nexus[data-ranking="Electric"] .board .r2 {
+  border-color: var(--accent);
+  background: var(--maroon-tone-3);
+}
+.nexus.no-medals .board li {
+  background: var(--maroon-tone-2);
+  border-color: var(--maroon-tone-4);
+}
+.nexus .broadcast-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.nexus .tv-badge {
+  font-size: 11px;
+  font-style: normal;
+  padding: 4px 7px;
+  margin-left: 10px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  color: var(--accent);
+}
+.nexus.no-avatars .board .avatar,
+.nexus.no-avatars .podium-crest,
+.nexus.no-teams .board .person small,
+.nexus.no-changes .board .move,
+.nexus.no-sales .board li > b,
+.nexus.no-sales .tablehead > span:last-child,
+.nexus.no-top-sales .perf-podium article p,
+.nexus.no-top-sales .period-score,
+.nexus.no-top-teams .podium-racer > p,
+.nexus.no-team-ranks .duel,
+.nexus.no-team-ranks .battle > small:last-child {
+  display: none;
+}
+.nexus.no-avatars .board li {
+  grid-template-columns: 45px 1fr 42px 48px;
+}
+.nexus.no-changes .board .move {
+  visibility: hidden;
+  display: block;
+}
+.nexus.no-sales .board li > b {
+  visibility: hidden;
+  display: block;
+}
+.nexus.no-podium .performance,
+.nexus.no-podium .period-podium,
+.nexus.no-podium .mode-stage.podium,
+.nexus.no-podium .champ,
+.nexus.no-podium .stagefoot,
+.nexus.no-podium .scene {
+  visibility: hidden;
+}
+.nexus.no-top3 .perf-podium,
+.nexus.no-top3 .period-field,
+.nexus.no-top3 .podium-steps,
+.nexus.no-top3 .podium-summary {
+  visibility: hidden;
+}
+.nexus.no-champion .perf-identity,
+.nexus.no-champion .champ,
+.nexus.no-champion .champ-achievements,
+.nexus.no-champion .stagefoot {
+  visibility: hidden;
+}
+.nexus.no-board .grid {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+.nexus.no-board .board {
+  display: none !important;
+}
+.nexus.with-board .board {
+  display: flex !important;
+}
+.nexus.with-board .grid {
+  grid-template-columns: minmax(0, 1.24fr) minmax(0, 1fr) !important;
+}
+.nexus.board-left.with-board .board {
+  grid-column: 1;
+  grid-row: 1;
+}
+.nexus.board-left.with-board .stage {
+  grid-column: 2;
+  grid-row: 1;
+}
+.nexus.no-metrics .metrics,
+.nexus.no-ticker > footer {
+  display: none;
+}
+.nexus.card-podium .podium-racer {
+  height: 100%;
+  align-self: stretch;
+  transform: none !important;
+}
+.nexus.card-podium .period-field {
+  align-items: stretch;
+}
+.nexus.card-podium .medal-0 {
+  margin-top: 0;
+}
+.nexus .headright > button {
+  font-size: 11px;
+  white-space: nowrap;
+}
+.nexus .ceremony[data-style="Minimal"] {
+  background: color-mix(in srgb, var(--maroon-tone-2) 96.08%, transparent);
+}
+.nexus .ceremony[data-style="Minimal"]::before,
+.nexus .ceremony[data-style="Minimal"]::after {
+  display: none;
+}
+.nexus .ceremony[data-effect="Electric"] {
+  --gold: var(--maroon-tone-12);
+}
+.nexus .ceremony[data-paused="true"] * {
+  animation-play-state: paused !important;
+}
+.nexus .wheel-disc {
+  animation-duration: var(--wheel-duration, 5s);
+}
+.nexus .ceremony-score {
+  min-height: 1em;
+}
+.nexus .ceremony-wait {
+  color: var(--maroon-tone-13);
+  font-size: 18px;
+  padding: 12px;
+}
+.nexus .ceremony.phase-wait .wheel-disc {
+  animation: none !important;
+  transform: rotate(0deg);
+}
+
+.nexus .config-idle {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  background: radial-gradient(ellipse, var(--maroon-tone-3), var(--maroon-tone-0) 70%);
+}
+.nexus .config-idle .nexus-device {
+  width: 60%;
+  height: 55%;
+}
+.nexus .config-idle h2 {
+  font-size: 2.4rem;
+  margin: 20px;
+}
+.nexus .ceremony-content {
+  animation-duration: var(--transition, 0.6s);
+}
+.nexus .metrics:empty {
+  display: none;
+}
+.nexus[data-effect="Electric"] .wheel-frame {
+  border-color: var(--accent);
+}
+
+.nexus.no-top-teams .top-team {
+  display: none;
+}
+.nexus .perf-podium .top-team {
+  font-size: 0.56rem;
+  letter-spacing: 0.02em;
+  margin-top: 0.2rem;
+  color: var(--maroon-tone-14);
+}
+.nexus .ceremony[data-effect="Electric"] .wheel-frame {
+  box-shadow: 0 0 3rem color-mix(in srgb, var(--maroon-tone-11) 33.33%, transparent);
+}
+.nexus.no-metrics .grid {
+  flex: 1;
+}
+.nexus.no-ticker > footer {
+  display: none;
+}
+
+.nexus.no-podium .mode-stage {
+  visibility: hidden;
+}
+
+.nexus .championship-id {
+  max-width: 32%;
+}
+.nexus .championship-id b,
+.nexus .championship-id small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nexus .brand {
+  max-width: 34%;
+}
+.nexus .brand > div {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nexus .brand small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nexus .period-podium h3 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.nexus .perf-identity h3 {
+  overflow-wrap: anywhere;
+}
+.nexus .ceremony h2 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.nexus[data-champion-motion="true"] .perf-hero,
+.nexus[data-champion-motion="true"] .podium-racer {
+  animation: champion-recognition var(--transition, 0.6s) ease-out;
+}
+@keyframes champion-recognition {
+  from {
+    filter: brightness(1.35);
+  }
+  to {
+    filter: brightness(1);
+  }
+}

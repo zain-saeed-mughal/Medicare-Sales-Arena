@@ -1,0 +1,203 @@
+/* Shared premium wheel: actual live geometry, no image assets. */
+.premium-wheel .oe-wheel-body {
+  transform: rotateX(7deg) rotateY(-5deg);
+}
+.premium-wheel .oe-wheel-rim,
+.victory-studio .premium-wheel .oe-wheel-rim {
+  background: conic-gradient(
+    from -35deg,
+    #785528,
+    #d8b66a 12%,
+    #fff1bd 20%,
+    #a77a38 30%,
+    #dbbb76 48%,
+    #806035 61%,
+    #f7e5ac 75%,
+    #ba9651 88%,
+    #785528
+  );
+  box-shadow:
+    0 0 0 0.08rem #d5b878,
+    inset 0 0 0 0.3rem #8b6c3544,
+    0 0.7rem 0.9rem #0009;
+}
+.premium-wheel .oe-wheel-rim:before {
+  border: 1px solid #f4dfa1a6;
+  box-shadow:
+    inset 0 0 0 0.2rem var(--maroon-tone-2),
+    inset 0 0 1rem var(--maroon-tone-0);
+}
+.premium-wheel .oe-wheel-depth,
+.victory-studio .premium-wheel .oe-wheel-depth {
+  background: linear-gradient(
+    100deg,
+    var(--maroon-tone-3),
+    var(--maroon-tone-5) 18%,
+    var(--maroon-tone-2) 46%,
+    var(--maroon-tone-0) 66%,
+    var(--maroon-tone-5)
+  );
+  transform: translateY(0.8rem) translateZ(-1.2rem);
+  box-shadow: 0 1.4rem 1.8rem #0008;
+}
+.premium-wheel .oe-wheel-rotor {
+  background: radial-gradient(circle, var(--maroon-tone-4), var(--maroon-tone-2));
+}
+.premium-wheel .oe-wheel-hub,
+.victory-studio .premium-wheel .oe-wheel-hub {
+  width: 24%;
+  height: 24%;
+  left: 38%;
+  top: 38%;
+  border: 0.2rem solid #dfc585;
+  background: radial-gradient(
+    ellipse at 35% 20%,
+    var(--maroon-tone-5),
+    var(--maroon-tone-2) 60%,
+    var(--maroon-tone-0)
+  );
+  box-shadow:
+    0 0.5rem 0.7rem #000a,
+    inset 0 0 0 0.2rem #715d37,
+    inset 0 0.4rem 0.6rem #ffffff15;
+}
+.premium-wheel .oe-wheel-hub svg {
+  width: 36%;
+  height: 36%;
+  stroke: #efd89c;
+}
+.premium-wheel .oe-wheel-hub span {
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+  color: #f5e4bd;
+}
+.premium-wheel .oe-wheel-hub small {
+  font-size: 0.36rem;
+  letter-spacing: 0.2em;
+  color: var(--maroon-tone-14);
+}
+.premium-wheel .oe-wheel-pointer {
+  top: -1%;
+  width: 7%;
+  height: 13%;
+  left: 46.5%;
+  background: linear-gradient(
+    100deg,
+    #9a773e,
+    #fff1c7 45%,
+    #d2b274 58%,
+    #8e682c
+  );
+  clip-path: polygon(8% 0, 92% 0, 78% 50%, 50% 100%, 22% 50%);
+  filter: drop-shadow(0 0.25rem 0.15rem #0009);
+}
+.premium-wheel .oe-wheel-reflection {
+  opacity: 0.2;
+}
+.premium-wheel .oe-wheel-stand {
+  display: none;
+}
+.premium-wheel .oe-wheel-shadow {
+  background: radial-gradient(ellipse, #000b, transparent 70%);
+  filter: blur(0.5rem);
+}
+.premium-wheel-label {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.premium-wheel[data-state="spin"] .premium-wheel-label {
+  animation: premium-label-counter var(--spin-time, 5s)
+    cubic-bezier(0.18, 0.01, 0.12, 1) forwards;
+}
+.premium-wheel[data-state="landed"] .premium-wheel-label {
+  transform: rotate(var(--counter-landing));
+}
+.premium-wheel[data-state="landed"] g[data-winning="true"] > path:first-child {
+  filter: brightness(1.55);
+  stroke: #ffe6a0;
+  stroke-width: 1.5;
+}
+@keyframes premium-label-counter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(var(--counter-landing));
+  }
+}
+.premium-wheel.flat .oe-wheel-body {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .premium-wheel .oe-wheel-body {
+    transform: none;
+  }
+  .premium-wheel[data-state="spin"] .premium-wheel-label {
+    animation: none;
+    transform: rotate(var(--counter-landing));
+  }
+}
+.championship[data-intensity="Reduced"]
+  .premium-wheel[data-state="spin"]
+  .premium-wheel-label {
+  animation: none;
+  transform: rotate(var(--counter-landing));
+}
+/* The result keeps the earned identity prominent and frames the actual prize. */
+.victory-studio .cine-ceremony.phase-result .cine-prize-panel {
+  background: linear-gradient(120deg, #6d542b75, var(--maroon-tone-3) 60%);
+  box-shadow:
+    inset 0 1px #ffe6ae,
+    0 0.8rem 2rem #0004;
+}
+.victory-studio .phase-result .cine-prize-panel:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    #fff2c61a 49%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  animation: reward-finish-sweep 2.4s 0.3s ease-out forwards;
+}
+@keyframes reward-finish-sweep {
+  to {
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .victory-studio .phase-result .cine-prize-panel:after {
+    animation: none;
+    display: none;
+  }
+}
+
+.victory-studio .cine-ceremony.phase-result .cine-copy {
+  text-align: center;
+}
+.victory-studio .cine-ceremony.phase-result .cine-identity {
+  justify-content: center;
+}
+.victory-studio .cine-ceremony.phase-result .cine-prize-panel small {
+  justify-content: center;
+}
+.victory-studio .cine-ceremony.phase-result .cine-prize-panel {
+  border-left-width: 1px;
+  border-top: 2px solid #e7cd8b;
+  border-radius: 0.2rem 1.3rem;
+  clip-path: none;
+  overflow: hidden;
+}
+.victory-studio .cine-ceremony.phase-result .cine-landed-wheel {
+  opacity: 0.08;
+}
+.victory-studio .cine-ceremony.phase-result .cine-orbit {
+  border-color: #edd28a88;
+  box-shadow:
+    0 0 3rem #d8af4530,
+    inset 0 0 2rem #d8af4510;
+}

@@ -1,0 +1,2 @@
+import puppeteer from 'puppeteer-core';
+const b=await puppeteer.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,defaultViewport:{width:1920,height:1080}});try{const p=await b.newPage();await p.goto('http://127.0.0.1:5191/arena?demo',{waitUntil:'networkidle0'});await p.waitForSelector('.demo-showcase');await p.screenshot({path:'.arena-qa/demo-controller-1920.png'});console.log(await p.$eval('.demo-showcase',e=>({width:e.clientWidth,height:e.clientHeight,scroll:e.scrollWidth})));}finally{await b.close()}

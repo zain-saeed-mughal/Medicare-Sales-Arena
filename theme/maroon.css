@@ -1,0 +1,509 @@
+/* Approved Dark Maroon Championship materials. Geometry and motion remain in component styles. */
+:root {
+  color-scheme: dark;
+  accent-color: var(--arena-accent);
+}
+body {
+  background: var(--arena-bg);
+  color: var(--arena-text);
+}
+::selection {
+  background: var(--arena-accent);
+  color: var(--arena-text);
+}
+:focus-visible {
+  outline-color: var(--arena-focus);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--arena-surface-elevated);
+}
+.championship.titanium-velocity {
+  --emerald: var(--arena-accent) !important;
+  --gold: var(--arena-gold);
+  --muted: var(--arena-text-secondary);
+  --line: var(--arena-border);
+  color: var(--arena-text);
+  background:
+    radial-gradient(ellipse at 50% 48%, var(--material-31051555), transparent 65%),
+    linear-gradient(135deg, var(--material-100106), var(--material-160209) 50%, var(--material-100106));
+}
+.titanium-velocity:before {
+  opacity: 0.35;
+  background: linear-gradient(
+    125deg,
+    transparent 45%,
+    var(--material-590b2510) 46%,
+    transparent 70%
+  );
+}
+.titanium-velocity .oe-header {
+  border-color: var(--arena-border);
+}
+.titanium-velocity .oe-brand > svg {
+  color: var(--arena-gold);
+}
+.titanium-velocity .oe-brand b {
+  color: var(--arena-text);
+}
+.titanium-velocity .oe-brand b span {
+  color: var(--arena-accent-bright);
+}
+.titanium-velocity .oe-broadcast-title > span {
+  color: var(--arena-text);
+}
+.titanium-velocity .oe-live {
+  color: var(--arena-accent-bright);
+  background: linear-gradient(var(--material-590b25), var(--material-310515));
+  border-color: var(--arena-accent);
+  box-shadow: inset 0 0 1rem var(--material-e51e5122);
+}
+.titanium-velocity .oe-metrics {
+  background: linear-gradient(110deg, var(--material-21040f), var(--material-100106) 50%, var(--material-21040f));
+  border: 1px solid var(--arena-border);
+  border-radius: 1.1rem;
+  box-shadow: inset 0 1px var(--material-e51e5120);
+}
+.titanium-velocity .oe-metrics b,
+.titanium-velocity .oe-metrics small {
+  color: var(--arena-text);
+}
+.titanium-velocity .oe-metrics > div {
+  border-color: var(--arena-border);
+}
+.titanium-velocity .oe-metrics small svg {
+  color: var(--arena-accent-soft);
+}
+.titanium-velocity .tv-stage-heading span,
+.titanium-velocity .tv-stage-heading h2 {
+  color: var(--arena-text);
+}
+.titanium-velocity .tv-period-tag {
+  background: var(--arena-surface);
+  color: var(--arena-text);
+}
+.titanium-velocity .tv-hero,
+.titanium-velocity .tv-stage-monthly .tv-hero {
+  border-radius: 1.9rem;
+  border: 1px solid var(--arena-accent);
+  background:
+    radial-gradient(ellipse at 65% 0%, var(--material-910d3d77), transparent 52%),
+    linear-gradient(125deg, var(--material-310515), var(--material-160209) 55%, var(--material-21040f));
+  box-shadow:
+    inset 0 1px var(--material-ff477544),
+    0 1rem 2rem var(--material-08000355);
+}
+.titanium-velocity .tv-hero-track {
+  background: linear-gradient(
+    128deg,
+    transparent 42%,
+    var(--material-590b2533) 42.2%,
+    var(--material-910d3d77) 52%,
+    var(--material-e51e5166) 52.2%,
+    transparent 52.8%,
+    var(--material-590b2533) 57%,
+    transparent 57.2%,
+    transparent 76%,
+    var(--material-e51e5144) 76.2%,
+    transparent 77%
+  );
+  mask-image: none;
+}
+.titanium-velocity .tv-hero:after {
+  border-color: var(--material-ff477538);
+  background: linear-gradient(
+    120deg,
+    transparent 50%,
+    var(--material-e51e510a) 65%,
+    transparent 75%
+  );
+}
+.titanium-velocity .tv-hero-team,
+.titanium-velocity .tv-hero-score > span,
+.titanium-velocity .tv-lead small {
+  color: var(--arena-text);
+}
+.titanium-velocity .tv-hero-score > strong,
+.titanium-velocity .tv-orbit-caption b {
+  color: var(--arena-gold-light);
+}
+.titanium-velocity .tv-lead {
+  border-color: var(--arena-border);
+}
+.titanium-velocity .tv-lead b,
+.titanium-velocity .tv-lead svg {
+  color: var(--arena-accent);
+}
+.titanium-velocity .tv-halo {
+  border-color: var(--material-e51e5188);
+  box-shadow:
+    0 0 2rem var(--material-e51e5122),
+    inset 0 0 2rem var(--material-e51e5111);
+}
+.titanium-velocity .tv-halo:before {
+  border-color: var(--material-e51e5177);
+}
+.titanium-velocity .tv-dais {
+  background: radial-gradient(
+    ellipse,
+    var(--material-ffe0e8) 0%,
+    var(--material-ff4775) 15%,
+    var(--material-a30c37) 48%,
+    var(--material-310515) 75%
+  );
+  border-color: var(--material-fa85a3aa);
+  box-shadow:
+    0 0.5rem 0 var(--material-21040f),
+    0 0.55rem 0 var(--material-e51e51),
+    0 0 2rem var(--material-e51e5144);
+}
+.titanium-velocity .tv-dais span {
+  border-color: var(--arena-accent-bright);
+  box-shadow: 0 0 0.8rem var(--material-ff477588);
+}
+.titanium-velocity .tv-dais i {
+  background: radial-gradient(ellipse, var(--material-fff5f588), transparent 60%);
+}
+.titanium-velocity .tv-player {
+  --rank-metal: var(--arena-gold);
+  background: linear-gradient(145deg, var(--material-310515), var(--material-100106));
+  border: 1px solid color-mix(in srgb, var(--rank-metal) 60%, var(--material-310515));
+  border-radius: 1.2rem;
+  box-shadow: inset 0 1px var(--material-ff477522);
+}
+.titanium-velocity .tv-rank-2 {
+  --rank-metal: var(--arena-silver);
+}
+.titanium-velocity .tv-rank-3 {
+  --rank-metal: var(--arena-bronze);
+}
+.titanium-velocity .tv-player:before {
+  background: linear-gradient(
+    120deg,
+    color-mix(in srgb, var(--rank-metal) 10%, transparent),
+    transparent 45%
+  );
+}
+.titanium-velocity .tv-card-number {
+  color: var(--arena-card);
+  opacity: 0.45;
+}
+.titanium-velocity .tv-player p {
+  color: var(--arena-text);
+}
+.titanium-velocity .oe-avatar,
+.titanium-velocity .tv-player-identity .oe-avatar {
+  background: linear-gradient(145deg, var(--material-a10e36), var(--material-310515) 65%, var(--material-160209));
+  border-color: var(--material-a32046);
+  color: var(--arena-text);
+  border-radius: 0.4rem;
+}
+.titanium-velocity .oe-board {
+  background: linear-gradient(130deg, var(--material-21040f), var(--material-100106) 50%);
+  border: 1px solid var(--arena-accent);
+  border-radius: 1.3rem;
+  box-shadow: inset 0 1px var(--material-ff477544);
+}
+.titanium-velocity .oe-board li {
+  background: linear-gradient(100deg, var(--material-310515), var(--material-21040f));
+  border: 1px solid var(--material-590b25);
+  border-radius: 0.5rem;
+  box-shadow: inset 0 1px var(--material-e51e5118);
+}
+.titanium-velocity .oe-board li.oe-medal.m0 {
+  border-left: 2px solid var(--arena-gold);
+  background: linear-gradient(100deg, var(--material-590b25), var(--material-21040f) 60%);
+}
+.titanium-velocity .oe-board li.oe-medal.m1 {
+  border-left: 2px solid var(--arena-silver);
+}
+.titanium-velocity .oe-board li.oe-medal.m2 {
+  border-left: 2px solid var(--arena-bronze);
+}
+.titanium-velocity .oe-board li.oe-medal.m0 .oe-rank-score {
+  color: var(--arena-gold);
+}
+.titanium-velocity .oe-board li.oe-medal.m1 .oe-rank-score {
+  color: var(--arena-silver);
+}
+.titanium-velocity .oe-board li.oe-medal.m2 .oe-rank-score {
+  color: var(--arena-bronze);
+}
+.titanium-velocity .oe-rank-name strong,
+.titanium-velocity .oe-rank-name small,
+.titanium-velocity .oe-rank-score {
+  color: var(--arena-text);
+}
+.titanium-velocity .vx-module {
+  background: var(--arena-card-gradient);
+  border-color: var(--arena-border);
+  border-radius: 1rem;
+}
+.titanium-velocity .oe-ticker {
+  background: linear-gradient(100deg, var(--material-43091c), var(--material-21040f), var(--material-310515));
+  border: 1px solid var(--arena-border);
+  border-radius: 1rem;
+}
+.titanium-velocity .oe-ticker > strong,
+.titanium-velocity .oe-ticker-label {
+  background: linear-gradient(135deg, var(--material-a00e33), var(--material-e51e51));
+  color: var(--arena-text);
+}
+.titanium-velocity progress {
+  accent-color: var(--arena-accent);
+}
+.titanium-velocity .oe-target-line i,
+.titanium-velocity .oe-rank-progress i {
+  background: var(--arena-progress);
+  box-shadow: 0 0 0.5rem var(--material-ff477560);
+}
+/* Wheel materials are presentation only; stored segment IDs and assigned outcomes are untouched. */
+.velocity-wheel {
+  --wheel-segment-0: var(--material-590b25);
+  --wheel-segment-1: var(--material-310515);
+  --wheel-segment-2: var(--material-720c30);
+  --wheel-segment-3: var(--material-43091c);
+  --wheel-segment-4: var(--material-910d3d);
+  --wheel-segment-5: var(--material-21040f);
+}
+.titanium-velocity .velocity-wheel .oe-wheel-rim,
+.velocity-console .velocity-wheel .oe-wheel-rim {
+  background: conic-gradient(
+    from 15deg,
+    #ffe59a,
+    #b98224 15%,
+    #fff5cf 28%,
+    #c99134 45%,
+    #ffe59a 60%,
+    #876020 78%,
+    #ffe59a
+  );
+  box-shadow:
+    inset 0 0 0 0.2rem var(--material-310515),
+    inset 0 0 0 0.35rem #f4c75c,
+    0 0 1.4rem var(--material-e51e5122);
+}
+.titanium-velocity .velocity-wheel .oe-wheel-depth,
+.velocity-console .velocity-wheel .oe-wheel-depth {
+  background: linear-gradient(
+    130deg,
+    var(--material-720c30),
+    var(--material-100106) 35%,
+    var(--material-43091c) 70%,
+    var(--material-910d3d)
+  );
+}
+.titanium-velocity .velocity-wheel .oe-wheel-hub,
+.velocity-console .velocity-wheel .oe-wheel-hub {
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    var(--material-910d3d),
+    var(--material-43091c) 55%,
+    var(--material-160209)
+  );
+  color: var(--arena-gold-light);
+  border-color: var(--arena-gold);
+}
+.titanium-velocity .velocity-wheel .oe-wheel-rotor,
+.velocity-console .velocity-wheel .oe-wheel-rotor {
+  background: radial-gradient(circle, var(--material-43091c), var(--material-100106));
+}
+.titanium-velocity .velocity-ceremony {
+  background:
+    radial-gradient(ellipse at 55% 50%, var(--material-590b2588), transparent 68%),
+    linear-gradient(var(--material-160209), var(--material-100106));
+}
+.titanium-velocity .velocity-ceremony .cine-name {
+  color: var(--arena-text);
+}
+.titanium-velocity .velocity-ceremony .oe-prize-copy {
+  background: linear-gradient(120deg, var(--material-590b2566), var(--material-21040faa));
+  border-color: var(--arena-gold);
+}
+/* Admin keeps its operational layout, with the same materials across every route. */
+.ops.velocity-console {
+  --bg: var(--arena-bg);
+  --panel: var(--arena-surface);
+  --line: var(--arena-border);
+  --muted: var(--arena-text-secondary);
+  --emerald: var(--arena-accent);
+  --accent: var(--arena-accent);
+  color: var(--arena-text);
+  background: var(--arena-bg);
+}
+.ops.velocity-console .op-sidebar {
+  background: linear-gradient(160deg, var(--material-310515), var(--material-160209) 55%);
+  border-color: var(--arena-border);
+}
+.ops.velocity-console .op-topbar {
+  background: var(--material-160209);
+  border-color: var(--arena-border);
+}
+.ops.op-shell.velocity-console nav > a[aria-current="page"] {
+  background: linear-gradient(110deg, var(--material-590b25), var(--material-310515));
+  color: var(--arena-text);
+  box-shadow: inset 3px 0 var(--arena-accent-bright);
+  border-color: var(--arena-border);
+}
+.ops.velocity-console .tv-admin-hero {
+  background:
+    radial-gradient(ellipse at 70% 0%, var(--material-720c3066), transparent 65%),
+    linear-gradient(120deg, var(--material-43091c), var(--material-21040f));
+  border-color: var(--arena-border);
+}
+.ops.velocity-console .tv-admin-hero h2,
+.ops.velocity-console .tv-admin-hero h2 span {
+  color: var(--arena-text);
+}
+.ops.velocity-console .op-panel,
+.ops.velocity-console .panel,
+.ops.velocity-console .tv-admin-stat,
+.ops.velocity-console .tv-director-actions {
+  background: var(--arena-card-gradient);
+  border-color: var(--arena-border);
+}
+.ops.velocity-console input,
+.ops.velocity-console select,
+.ops.velocity-console textarea {
+  color: var(--arena-text);
+  background: var(--arena-bg-deep);
+  border-color: var(--arena-border);
+  accent-color: var(--arena-accent);
+}
+.ops.velocity-console button {
+  border-color: var(--material-862040);
+}
+.ops.velocity-console .primary {
+  background: var(--arena-button);
+  color: var(--arena-text);
+  border-color: var(--arena-accent);
+}
+.ops.velocity-console button:hover,
+.ops.velocity-console a:hover {
+  border-color: var(--arena-accent-bright);
+}
+.ops.velocity-console :focus-visible {
+  outline: 2px solid var(--arena-focus);
+  outline-offset: 3px;
+}
+.ops.velocity-console progress::-webkit-progress-value {
+  background: var(--arena-progress);
+}
+.ops.velocity-console .op-badge {
+  background: var(--arena-surface);
+  color: var(--arena-text-secondary);
+  border-color: var(--arena-border);
+}
+.ops.velocity-console .success {
+  color: var(--arena-success);
+}
+.ops.velocity-console .error {
+  color: var(--arena-error);
+}
+.ops.velocity-console .warning {
+  color: var(--arena-warning);
+}
+/* Reference comparison refinements: neutral text, ruby energy, brighter champion metal. */
+.titanium-velocity .oe-metrics > div:first-child b {
+  color: var(--arena-text);
+}
+.titanium-velocity .oe-ticker > span:first-child {
+  color: var(--arena-text);
+  background: linear-gradient(135deg, var(--material-9c0b2e), var(--material-e51e51));
+}
+.titanium-velocity .oe-row-progress span,
+.titanium-velocity .oe-board-foot,
+.titanium-velocity .vx-modules span {
+  color: var(--arena-text-secondary);
+}
+.titanium-velocity .oe-board .oe-avatar {
+  background: linear-gradient(145deg, var(--material-a10e36), var(--material-310515) 65%, var(--material-160209));
+  border-color: var(--material-a32046);
+  border-radius: 0.4rem;
+}
+.titanium-velocity .tv-stage .vx-modules > article {
+  background: linear-gradient(145deg, var(--material-21040f), var(--material-160209));
+  border: 1px solid var(--arena-border);
+  border-radius: 1rem;
+}
+.titanium-velocity progress::-webkit-progress-value {
+  background: var(--arena-progress);
+  box-shadow: 0 0 0.5rem var(--material-ff4775aa);
+}
+.titanium-velocity progress::-moz-progress-bar {
+  background: var(--arena-progress);
+}
+.titanium-velocity .oe-target-line progress {
+  overflow: visible;
+}
+.titanium-velocity .tv-hero-track {
+  background: linear-gradient(
+    128deg,
+    transparent 42%,
+    var(--material-590b2533) 42.2%,
+    var(--material-910d3d77) 52%,
+    var(--material-ff4775aa) 52.2%,
+    transparent 52.9%,
+    var(--material-590b2533) 57%,
+    transparent 57.2%,
+    transparent 76%,
+    var(--material-e51e5177) 76.2%,
+    transparent 77%
+  );
+}
+.ops.velocity-console .tv-command-hero {
+  background:
+    radial-gradient(ellipse at 70% 0%, var(--material-590b2566), transparent 65%),
+    linear-gradient(120deg, var(--material-310515), var(--material-160209));
+  border-color: var(--arena-border);
+}
+.ops.velocity-console .tv-command-hero h2 em {
+  color: var(--arena-text);
+}
+.ops.velocity-console .tv-command-actions small,
+.ops.velocity-console .op-page-heading p,
+.ops.velocity-console .op-header p,
+.ops.velocity-console .tv-command-actions p {
+  color: var(--arena-text-secondary);
+}
+.ops.velocity-console nav > a:not([aria-current="page"]) {
+  color: var(--arena-text-secondary);
+}
+/* Left leaderboard broadcast composition. Existing Admin position control remains functional. */
+.championship.titanium-velocity.has-board:not(.oe-leaderboard-mode) .oe-composition {
+  grid-template-columns: minmax(0, 68fr) minmax(0, 32fr);
+  gap: clamp(16px, .9375vw, 36px);
+  min-height: 0;
+}
+.championship.titanium-velocity.board-left.has-board:not(.oe-leaderboard-mode) .oe-composition {
+  grid-template-columns: minmax(0, 32fr) minmax(0, 68fr);
+}
+.titanium-velocity .tv-daily:has(.tv-top-three) {
+  display:grid;
+  grid-template-rows:auto minmax(0,57fr) minmax(0,26fr);
+  gap:.85rem;
+}
+.titanium-velocity .tv-daily:has(.tv-top-three)>.tv-top-three {height:auto;min-height:0;}
+.titanium-velocity .tv-hero {grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);}
+.titanium-velocity .tv-hero-copy h2 {display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.titanium-velocity .tv-player-identity {width:100%;}
+.titanium-velocity .tv-player-identity>div:last-child {min-width:0;}
+.titanium-velocity .tv-player h3 {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.titanium-velocity .oe-board .oe-rank-row {gap:.65rem;}
+.titanium-velocity .oe-rank {font-size:1.28rem;}
+.titanium-velocity .oe-rank-score {flex-shrink:0;}
+.titanium-velocity .oe-rank-name small {display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.titanium-velocity .oe-board:not(:only-child) .oe-board-head h2 {font-size:1.55rem;}
+.titanium-velocity .tv-player-identity>div:last-child {max-width:100%;}
+
+/* Settings for the active champion stage. */
+.championship.titanium-velocity.portrait-layout .tv-hero-copy { grid-column: 2; grid-row: 1; }
+.championship.titanium-velocity.portrait-layout .tv-hero-sculpture { grid-column: 1; grid-row: 1; }
+.championship.titanium-velocity[data-champion="Electric"] .tv-hero { --arena-gold: var(--arena-accent); --arena-gold-light: var(--material-ffdbe3); }
+.championship.titanium-velocity[data-ranking="Electric"] .oe-board .oe-medal { border-left-color: var(--arena-accent); }
+.championship.titanium-velocity[data-ranking="Electric"] .oe-board .oe-medal .oe-rank-score { color: var(--arena-accent); }
+
+.championship.titanium-velocity[data-background="Clean"] { background: var(--arena-bg); }
+.championship.titanium-velocity[data-background="Grid"] { background-color: var(--arena-bg); background-image: linear-gradient(var(--material-e51e5112) 1px,transparent 1px), linear-gradient(90deg,var(--material-e51e5112) 1px,transparent 1px); background-size: 3rem 3rem; }
+.championship.titanium-velocity[data-contrast="High"] { --arena-text-secondary: var(--material-fff0f3); --arena-border: var(--material-b54560); --muted: var(--material-fff0f3); --line: var(--material-b54560); }
+.championship.titanium-velocity.portrait-layout .tv-hero { grid-template-columns:minmax(0,1fr) minmax(0,1.35fr); }
+.tv-profile-badge { font-size: .8rem; font-weight: 700; margin-left:.5rem; }

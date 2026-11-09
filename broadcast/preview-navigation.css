@@ -1,0 +1,73 @@
+/* DEV-only controls: compact header navigation, no change to Arena grid geometry. */
+.arena-preview-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-top: 0.35rem;
+  white-space: nowrap;
+}
+.arena-preview-nav button,
+.arena-preview-nav select,
+.arena-preview-tools button,
+.arena-preview-tools select,
+.arena-preview-reopen {
+  font:
+    600 0.65rem Sora,
+    sans-serif;
+  color: var(--material-fff0f3);
+  background: var(--material-280510);
+  border: 1px solid var(--material-7c2440);
+  border-radius: 0.3rem;
+  padding: 0.4rem 0.5rem;
+  cursor: pointer;
+}
+.arena-preview-nav button[aria-pressed="true"] {
+  color: #ffe49e;
+  border-color: #c69a48;
+  background: var(--material-491020);
+}
+.arena-preview-nav select {
+  max-width: 8rem;
+}
+.arena-preview-tools {
+  position: fixed;
+  z-index: 120;
+  bottom: 0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: 96vw;
+  background: var(--material-17030a);
+  border: 1px solid var(--material-7c2440);
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.65rem;
+}
+.arena-preview-tools > span {
+  font:
+    600 0.55rem Sora,
+    sans-serif;
+  color: #e3bd72;
+}
+.arena-preview-tools [role="alert"] {
+  position: absolute;
+  bottom: 100%;
+  background: var(--material-280510);
+  padding: 0.7rem;
+}
+.arena-preview-tools button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.arena-preview-reopen {
+  position: fixed;
+  z-index: 120;
+  bottom: 0.2rem;
+  right: 0.3rem;
+  opacity: 0.8;
+}
+
+.arena-preview-tools { flex-wrap:wrap; justify-content:center; width:max-content; max-width:90vw; }
+.arena-preview-tools .preview-featured { color:#061316; background:linear-gradient(135deg,#f0c75e,#ffe59a); border-color:#f0c75e; }

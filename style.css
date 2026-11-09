@@ -1,0 +1,64 @@
+@import "tailwindcss";
+:root{font-family:Sora,Arial,sans-serif;color:var(--maroon-tone-16);background:var(--maroon-tone-0);font-size:clamp(13px,min(1.06vw,1.77vh),34px);font-variant-numeric:tabular-nums}*{box-sizing:border-box}main{max-width:135rem;margin:auto;padding:0 2.5rem 1rem;min-height:100svh;background:radial-gradient(ellipse at 25% 35%,var(--maroon-tone-2),transparent 56%)}header,.headright,.brand,.title,.period,small,.stagehead,.boardhead,.team,.tablehead,li,footer,aside,aside span{display:flex;align-items:center}header,.title,.stagehead,.boardhead,.tablehead,aside{justify-content:space-between}header{height:4.5rem;border-bottom:1px solid var(--maroon-tone-3)}.brand{gap:.8rem;letter-spacing:.06em;font-size:1rem;font-weight:700}.brand strong{color:var(--maroon-tone-12)}.brand small{font-size:.54rem;margin-top:.1rem}.brandmark{position:relative;color:var(--maroon-tone-12)}.brandmark svg:first-child{width:2.5rem;height:2.5rem;fill:var(--maroon-tone-3)}.brandmark svg:last-child{position:absolute;inset:23%;width:55%;height:55%;fill:var(--maroon-tone-13)}.headright{gap:1.2rem}label,.period,button{border:1px solid var(--maroon-tone-4);border-radius:.4rem;padding:.45rem .7rem}label{font-size:.66rem;letter-spacing:.14em;color:var(--maroon-tone-13);background:var(--maroon-tone-2)}i{display:inline-block;width:.42rem;height:.42rem;border-radius:50%;background:var(--maroon-tone-7);box-shadow:0 0 .55rem var(--maroon-tone-7);animation:pulse 3s infinite}time,.period{font-size:.78rem;color:var(--maroon-tone-14)}time b{margin-left:.6rem;color:var(--maroon-tone-16)}button{cursor:pointer;background:var(--maroon-tone-2);color:var(--maroon-tone-15)}button:hover,button:focus-visible{border-color:var(--maroon-tone-11)}.title{padding:1.45rem 0 1.05rem}small,aside,.stagehead>span,.tablehead{font-size:.66rem;font-weight:600;letter-spacing:.13em;color:var(--maroon-tone-13);gap:.5rem}.title small,.stagehead small,.boardhead small,footer small{color:var(--maroon-tone-12)}.title small span{width:1.4rem;height:2px;background:var(--maroon-tone-11)}h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.055em;line-height:1.16}h1{font-size:2.45rem;margin-top:.3rem}.period{gap:.6rem;background:var(--maroon-tone-2)}.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem}.metrics article,.board,.stage,footer{border:1px solid var(--maroon-tone-4);border-radius:.65rem;background:linear-gradient(125deg,var(--maroon-tone-2),var(--maroon-tone-2))}.metrics article{padding:.8rem 1rem}.metrics small{letter-spacing:0;font-size:.8rem}.metrics svg{color:var(--maroon-tone-12)}.metrics b{display:block;font-size:1.95rem;margin-top:.23rem;letter-spacing:-.045em}.metrics article:last-child b{color:var(--maroon-tone-13)}.grid{display:grid;grid-template-columns:1.38fr 1fr;gap:1rem;margin:1rem 0}.stage{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;background:radial-gradient(ellipse at 50% 44%,var(--maroon-tone-4) 0,var(--maroon-tone-3) 38%,var(--maroon-tone-2) 75%)}.stage:before{content:'';position:absolute;inset:0;z-index:-1;background-image:radial-gradient(color-mix(in srgb, var(--maroon-tone-12) 43.92%, transparent) .8px,transparent 1px);background-size:1.9rem 2.3rem;mask-image:linear-gradient(transparent,#0009,transparent)}.stagehead,.boardhead{padding:1.15rem 1.3rem}.scene{position:relative;flex:1;min-height:11rem}.scene svg{position:absolute;width:100%;height:100%;filter:drop-shadow(0 .4rem 1rem var(--maroon-tone-0))}.beam{position:absolute;inset:-35% 0 -15%;background:conic-gradient(from 150deg at 20% 0,transparent,color-mix(in srgb, var(--maroon-tone-12) 9.41%, transparent) 6deg,transparent 13deg),conic-gradient(from 196deg at 82% 0,transparent,color-mix(in srgb, var(--maroon-tone-12) 13.33%, transparent) 7deg,transparent 15deg)}.cup{animation:float 5s ease-in-out infinite}.energy{animation:pulse 4s ease-in-out infinite}.champ{text-align:center;padding:.65rem .5rem 1.1rem}.champ small{justify-content:center;color:#f5c765}.champ h2{font-size:3.1rem;margin:.3rem 0}.team{justify-content:center;gap:.4rem;color:var(--maroon-tone-13);font-size:.9rem}.stagefoot{margin:0 1.3rem 1.1rem;border-top:1px solid var(--maroon-tone-4);padding-top:.8rem;display:grid;grid-template-columns:repeat(3,1fr);text-align:center}.stagefoot>div+div{border-left:1px solid var(--maroon-tone-4)}.stagefoot b{font-size:1.55rem}.stagefoot small{justify-content:center;letter-spacing:0;font-size:.74rem}.board{overflow:hidden}.boardhead{padding-bottom:.8rem}.boardhead>svg{color:var(--maroon-tone-12)}h3{font-size:1.5rem;margin-top:.2rem}.tablehead{background:var(--maroon-tone-2);padding:.4rem 1.3rem;font-size:.61rem}ol{list-style:none;margin:0;padding:0 .65rem .45rem}li{height:clamp(2.18rem,4.23vh,3rem);gap:.65rem;padding:0 .65rem;border-bottom:1px solid var(--maroon-tone-3)}li:last-child{border:0}.rank{width:1.35rem;font-size:.85rem;color:var(--maroon-tone-13)}.r0{background:linear-gradient(90deg,#71603339,transparent);border-left:2px solid #f5c765}.r0 .rank,.r0>b{color:#f5c765}.r1 .rank{color:var(--maroon-tone-15)}.r2 .rank{color:#deaa83}.avatar{display:grid;place-items:center;width:1.7rem;height:1.7rem;border-radius:50%;font-size:.6rem;font-weight:bold;border:1px solid #ffffff25}.a0{background:var(--maroon-tone-4);color:var(--maroon-tone-15)}.a1{background:var(--maroon-tone-5);color:var(--maroon-tone-16)}.a2{background:var(--maroon-tone-3);color:var(--maroon-tone-14)}.a3{background:var(--material-593d4f);color:var(--material-ffccdb)}.person{flex:1}.person strong{font-size:.84rem}.person small{font-size:.62rem;letter-spacing:0}.move{color:var(--maroon-tone-11);font-size:.72rem}li>b{width:1.75rem;text-align:right;font-size:1.03rem}footer{overflow:hidden;height:2.65rem;gap:1rem;padding-right:1rem}footer small{align-self:stretch;flex:none;padding:0 1rem;border-right:1px solid var(--maroon-tone-4);background:var(--maroon-tone-3)}.feed{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.77rem;color:var(--maroon-tone-14);animation:appear .6s ease}aside{margin-top:.7rem;font-size:.55rem}aside span{gap:.5rem}@keyframes float{50%{transform:translateY(-5px)}}@keyframes pulse{50%{opacity:.62}}@keyframes appear{from{opacity:.3;transform:translateX(5px)}}@media(max-width:760px){:root{font-size:14px}main{padding:0 1rem 1rem}.grid{grid-template-columns:1fr}.stage{min-height:31rem}.metrics{grid-template-columns:repeat(3,1fr)}.metrics article{padding:.65rem}.headright time{display:none}.title{align-items:flex-start;gap:.5rem}.period{font-size:.65rem}.metrics b{font-size:1.5rem}li{height:3.1rem}.brand{font-size:.88rem}.headright{gap:.5rem}}@media(prefers-reduced-motion:reduce){*,*:before{animation:none!important;transition:none!important}}
+
+/* Broadcast lighting fades into the champion lower third. */
+.stage {
+  border-color: var(--maroon-tone-5);
+  background: radial-gradient(ellipse at 50% 38%, var(--maroon-tone-4) 0, var(--maroon-tone-3) 28%, var(--maroon-tone-2) 55%, var(--maroon-tone-2) 84%);
+}
+.beam { mask-image: linear-gradient(#000 60%, transparent 98%); }
+.scene::before {
+  content: '';
+  position: absolute;
+  inset: 66% 0 -10%;
+  background: repeating-linear-gradient(0deg, transparent 0 13px, color-mix(in srgb, var(--maroon-tone-12) 14.90%, transparent) 14px, transparent 15px),
+              repeating-linear-gradient(90deg, transparent 0 51px, color-mix(in srgb, var(--maroon-tone-12) 14.90%, transparent) 52px, transparent 53px);
+  transform: perspective(9rem) rotateX(58deg);
+  mask-image: radial-gradient(ellipse, #0009, transparent 67%);
+}
+.energy { filter: drop-shadow(0 0 3px var(--maroon-tone-11)); }
+@media (min-width: 950px) {
+  .person { display: grid; grid-template-columns: 1.35fr 1fr; align-items: center; gap: .4rem; }
+  .person strong { font-size: 1.03rem; }
+  .person small { font-size: .85rem; color: var(--maroon-tone-14); }
+  li > b { font-size: 1.23rem; width: 2.1rem; }
+  .rank { font-size: .96rem; }
+  .stagehead { border-top: 2px solid transparent; border-image: linear-gradient(90deg, transparent, var(--maroon-tone-11), transparent) 1; }
+}
+
+/* Recognition stays inside the existing stage footprint. */
+.ceremony {
+  position:absolute; inset:0; z-index:3; display:grid; grid-template-rows:auto 1fr auto;
+  place-items:center; padding:1.15rem; text-align:center; overflow:hidden;
+  background:radial-gradient(ellipse at 50% 42%,var(--maroon-tone-4),var(--maroon-tone-2) 56%,var(--maroon-tone-0) 92%);
+  animation:ceremony-in .45s ease-out both;
+}
+.ceremony::before {
+  content:''; position:absolute; width:72%; aspect-ratio:1; border:1px solid color-mix(in srgb, var(--maroon-tone-11) 22.35%, transparent);
+  border-radius:50%; top:45%; left:50%; transform:translate(-50%,-50%);
+  box-shadow:0 0 0 1.5rem color-mix(in srgb, var(--maroon-tone-11) 3.53%, transparent),0 0 0 3rem color-mix(in srgb, var(--maroon-tone-11) 3.14%, transparent);
+}
+.phase-approved::before { animation:recognition-pulse 1.2s ease-out both; }
+.ceremony-tag,.ceremony-score,.ceremony-content small {font-size:.7rem;font-weight:600;letter-spacing:.15em;color:var(--maroon-tone-13)}
+.ceremony-tag {justify-self:start}.ceremony-score {border-top:1px solid var(--maroon-tone-5);width:90%;padding-top:.8rem}
+.ceremony-content {position:relative;display:grid;justify-items:center;align-content:center;gap:.5rem;animation:ceremony-in .4s ease-out both}
+.ceremony-content h2 {font-size:clamp(2rem,3.2vw,6rem);line-height:1.1}
+.ceremony-content p {color:var(--maroon-tone-15)}.medallion,.wheel-hub {display:grid;place-items:center;border-radius:50%;color:var(--maroon-tone-15);background:radial-gradient(at 35% 20%,var(--maroon-tone-5),var(--maroon-tone-2) 70%);border:2px solid var(--maroon-tone-12);box-shadow:0 0 0 .4rem var(--maroon-tone-3),0 0 0 .48rem var(--maroon-tone-11),0 0 3rem color-mix(in srgb, var(--maroon-tone-11) 25.10%, transparent)}
+.medallion {width:6rem;aspect-ratio:1;font-size:2.2rem;font-weight:700;margin:1rem}.medallion svg{width:45%;height:45%}
+.phase-unlock .medallion,.phase-result .medallion,.phase-milestone .medallion {color:#f5c765;border-color:#e9c881}
+.wheel-frame {position:relative;width:clamp(9rem,23vh,20rem);aspect-ratio:1;border-radius:50%;padding:.45rem;margin:.5rem;background:linear-gradient(140deg,var(--maroon-tone-15),var(--maroon-tone-5) 28%,var(--maroon-tone-2) 55%,var(--maroon-tone-12) 80%,var(--maroon-tone-4));box-shadow:0 .32rem 0 var(--maroon-tone-3),0 .48rem 0 var(--maroon-tone-7),0 .8rem 1.3rem var(--maroon-tone-0),0 0 2rem color-mix(in srgb, var(--maroon-tone-11) 27.06%, transparent)}
+.wheel-disc {width:100%;height:100%;animation:wheel-turn 5s cubic-bezier(.45,0,.12,1) forwards}
+.wheel-pointer{position:absolute;z-index:2;top:-.25rem;left:50%;transform:translateX(-50%);border-left:.48rem solid transparent;border-right:.48rem solid transparent;border-top:1.15rem solid #ffdc84}
+.wheel-hub{position:absolute;inset:40%;color:#ffdf94;border-color:#cfb175;box-shadow:0 .13rem .35rem var(--maroon-tone-0)}.wheel-hub svg{width:55%}
+.demo{position:fixed;bottom:.5rem;right:1rem;z-index:6;display:flex;gap:.3rem;font-size:.78rem}
+@keyframes recognition-pulse{from{opacity:.9;transform:translate(-50%,-50%) scale(.2)}to{opacity:0;transform:translate(-50%,-50%) scale(1.6)}}
+@keyframes ceremony-in{from{opacity:0;transform:translateY(.35rem)}to{opacity:1;transform:none}}
+@keyframes wheel-turn{to{transform:rotate(var(--landing))}}
+@media(prefers-reduced-motion:reduce){.wheel-disc{transform:rotate(var(--landing))}}
+main[data-mode="Champion Spotlight"] .grid,main[data-mode="Leaderboard Focus"] .grid{grid-template-columns:1fr}
+main[data-mode="Champion Spotlight"] .board,main[data-mode="Leaderboard Focus"] .stage:not(:has(.ceremony)){display:none}
+main[data-mode="Champion Spotlight"] .stage{min-height:50vh}
+main[data-mode="Leaderboard Focus"] .grid:has(.ceremony){grid-template-columns:1.38fr 1fr}
+.mode-stage{position:absolute;inset:0;z-index:2;display:grid;align-content:center;justify-items:center;gap:.5rem;background:radial-gradient(ellipse at center,var(--maroon-tone-4),var(--maroon-tone-2) 78%)}
+.mode-stage h2{font-size:3rem}
+main[data-intensity="Reduced"] *,main[data-intensity="Reduced"] *::before{animation-duration:.001s!important;animation-iteration-count:1!important}

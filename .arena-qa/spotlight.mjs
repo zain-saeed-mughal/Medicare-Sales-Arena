@@ -1,0 +1,6 @@
+import puppeteer from 'puppeteer-core';import assert from 'node:assert/strict';
+const browser=await puppeteer.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+try{const p=await browser.newPage();await p.setViewport({width:1920,height:1080});await p.goto('http://127.0.0.1:5191/arena',{waitUntil:'networkidle0'});await p.waitForSelector('.performance');
+for(const [w,h] of [[2560,1440],[3840,2160],[1920,1080]]){await p.setViewport({width:w,height:h});assert.deepEqual(await p.evaluate(()=>[document.documentElement.scrollWidth,document.documentElement.scrollHeight]),[w,h]);assert.deepEqual(await p.$$eval('.perf-podium strong',els=>els.map(x=>x.textContent)),await p.$$eval('.board .person strong',els=>els.slice(0,3).map(x=>x.textContent)));assert.ok(await p.$eval('.perf-periods',e=>e.getBoundingClientRect().bottom<e.closest('.stage').getBoundingClientRect().bottom));}
+await p.screenshot({path:'.arena-qa/performance-spotlight.png'});await p.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);assert.ok(await p.$eval('.rotor',e=>getComputedStyle(e).animationName==='none'||parseFloat(getComputedStyle(e).animationDuration)<.01));console.log('PASS three TV resolutions, podium parity, highlight panels inside stage, reduced motion.');
+}finally{await browser.close()}

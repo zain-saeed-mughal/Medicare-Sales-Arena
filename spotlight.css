@@ -1,0 +1,323 @@
+.performance {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  padding: 1.25rem 1.35rem;
+  gap: 1rem;
+}
+.performance small,
+.perf-head > span,
+.perf-margin,
+.perf-place {
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+}
+.perf-head,
+.perf-periods article > div,
+.perf-periods p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+.perf-head {
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--maroon-tone-4);
+}
+.perf-head small,
+.perf-podium > small,
+.perf-periods small {
+  color: var(--ice);
+  font-size: 0.72rem;
+}
+.perf-head h2 {
+  font-size: 1.72rem;
+  margin-top: 0.2rem;
+}
+.perf-head > span {
+  color: var(--maroon-tone-13);
+  font-size: 0.65rem;
+}
+.perf-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+  min-height: 0;
+}
+.perf-identity {
+  width: 50%;
+  position: relative;
+  z-index: 1;
+}
+.perf-identity > small {
+  color: var(--gold);
+  font-size: 0.76rem;
+}
+.perf-identity h3 {
+  font-size: clamp(2.1rem, 3.8vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.07em;
+  margin: 0.5rem 0 0.35rem;
+  overflow-wrap: anywhere;
+}
+.perf-identity > p {
+  color: var(--maroon-tone-14);
+  font-size: 1.04rem;
+}
+.perf-score {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.75rem 0 0.25rem;
+}
+.perf-score > b {
+  font-size: 2.35rem;
+  line-height: 1;
+  color: #ffe2a6;
+}
+.perf-score > span {
+  font-size: 0.78rem;
+  color: var(--maroon-tone-15);
+  line-height: 1.2;
+}
+.perf-margin {
+  font-size: 0.68rem;
+  color: var(--maroon-tone-14);
+  letter-spacing: 0.035em;
+}
+.perf-core {
+  position: absolute;
+  inset: -3% -13% -4% 35%;
+  z-index: -1;
+  pointer-events: none;
+}
+.perf-core svg {
+  width: 100%;
+  height: 100%;
+}
+.perf-podium > div,
+.perf-periods {
+  display: grid;
+  gap: 0.55rem;
+}
+.perf-podium > div {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 0.55rem;
+}
+.perf-podium article {
+  position: relative;
+  padding: 0.66rem 0.75rem;
+  border-top: 2px solid var(--medal);
+  background: linear-gradient(110deg, var(--wash), var(--maroon-tone-2));
+  clip-path: var(--cut);
+}
+.medal-0 {
+  --medal: #efc46a;
+  --wash: #393127;
+}
+.medal-1 {
+  --medal: var(--maroon-tone-14);
+  --wash: var(--maroon-tone-3);
+}
+.medal-2 {
+  --medal: #d6a37d;
+  --wash: var(--material-372d2c);
+}
+.perf-place {
+  display: block;
+  color: var(--medal);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.perf-podium strong,
+.perf-periods strong {
+  display: block;
+  font-size: 1.11rem;
+  line-height: 1.25;
+  margin: 0.18rem 0;
+}
+.perf-podium p,
+.perf-periods p {
+  font-size: 0.76rem;
+  color: var(--maroon-tone-14);
+}
+.perf-periods {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.perf-periods article {
+  padding: 0.65rem 0.8rem;
+  background: linear-gradient(115deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  border: 1px solid var(--maroon-tone-4);
+}
+.perf-periods article > div {
+  margin-top: 0.32rem;
+}
+.perf-periods b {
+  font-size: 1.35rem;
+  color: var(--maroon-tone-15);
+}
+.perf-periods small {
+  letter-spacing: 0.045em;
+}
+.perf-periods p {
+  margin: 0;
+}
+@media (max-width: 760px) {
+  .performance {
+    padding: 1rem;
+    gap: 0.8rem;
+    grid-template-rows: auto minmax(14rem, 1fr) auto auto;
+  }
+  .perf-podium article {
+    padding: 0.5rem;
+  }
+  .perf-periods {
+    gap: 0.4rem;
+  }
+  .perf-periods small {
+    font-size: 0.62rem;
+  }
+  .perf-periods article {
+    padding: 0.5rem;
+  }
+  .perf-periods strong,
+  .perf-podium strong {
+    font-size: 0.93rem;
+  }
+  .perf-periods p span {
+    display: none;
+  }
+}
+.period-podium {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  padding: 1.45rem;
+  gap: 1rem;
+  background: radial-gradient(ellipse at 50% 62%, color-mix(in srgb, var(--maroon-tone-4) 50.20%, transparent), transparent 60%);
+}
+.period-podium.monthly {
+  background: radial-gradient(ellipse at 50% 64%, #80673726, transparent 65%);
+}
+.period-field {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+  gap: 0.55rem;
+  padding: 1rem 0;
+}
+.podium-racer {
+  width: 33%;
+  position: relative;
+  height: 83%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0.9rem 0.45rem;
+  border-top: 2px solid var(--medal);
+  background: linear-gradient(165deg, var(--wash), var(--maroon-tone-2) 85%);
+  box-shadow: inset 0 -3px var(--medal);
+  clip-path: var(--cut);
+}
+.podium-racer.medal-0 {
+  height: 100%;
+}
+.podium-racer.medal-2 {
+  height: 75%;
+}
+.podium-crest {
+  display: grid;
+  place-items: center;
+  width: 3.8rem;
+  aspect-ratio: 1;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--medal);
+  border: 2px solid var(--medal);
+  border-radius: 50%;
+  outline: 1px solid var(--medal);
+  outline-offset: 4px;
+  background: var(--wash);
+  margin-bottom: 1.3rem;
+}
+.podium-crest img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.podium-crest svg {
+  width: 55%;
+}
+.podium-racer small {
+  color: var(--medal);
+  font-family: var(--mono);
+}
+.podium-racer h3 {
+  font-size: 1.52rem;
+  line-height: 1.15;
+  margin: 0.45rem 0;
+}
+.podium-racer p,
+.period-score span {
+  color: var(--maroon-tone-14);
+  font-size: 0.85rem;
+}
+.period-score {
+  display: grid;
+  margin-top: 1rem;
+}
+.period-score b {
+  font-size: 2.3rem;
+  color: var(--medal);
+  line-height: 1.2;
+}
+.podium-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--maroon-tone-4);
+  font-size: 0.85rem;
+}
+.podium-summary svg {
+  width: 1.5rem;
+  color: var(--ice);
+}
+.podium-summary b {
+  margin-left: auto;
+  color: var(--ice);
+}
+.nexus .phase-milestone .ceremony-content,
+.nexus .phase-unlock .ceremony-content {
+  min-width: 65%;
+  padding: 1.8rem 1rem;
+  border-block: 1px solid var(--maroon-tone-7);
+  background: linear-gradient(110deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  clip-path: var(--cut);
+}
+.nexus .phase-milestone .ceremony-content {
+  border-color: var(--gold);
+}
+.nexus .phase-unlock .ceremony-content {
+  border-color: var(--laser);
+}
+@media (max-width: 760px) {
+  .period-field {
+    min-height: 24rem;
+  }
+  .podium-racer h3 {
+    font-size: 1.08rem;
+  }
+  .podium-crest {
+    width: 2.8rem;
+  }
+}

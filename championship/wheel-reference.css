@@ -1,0 +1,206 @@
+/* Reference-inspired, live SVG wheel. No imagery or prize selection in presentation. */
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel .oe-wheel-body {
+  transform: rotateX(3deg);
+  inset: 3%;
+}
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel .oe-wheel-rim {
+  background: conic-gradient(
+    from -30deg,
+    #633004,
+    #ffdb79 12%,
+    #fff5c3 18%,
+    #ac5c0b 29%,
+    #f1bd52 41%,
+    #663005 53%,
+    #ffe8a0 68%,
+    #ae6315 83%,
+    #fff2ba 94%,
+    #633004
+  );
+  border: 2px solid #ffdf89;
+  box-shadow:
+    0 0 0 2px #8a430c,
+    0 0 0 4px #e9ad3f,
+    0 0.7rem 0.3rem #502301,
+    0 1.1rem 1.8rem #000b,
+    0 0 2.5rem #d47a162b,
+    inset 0 0 0 0.2rem #fff0b777;
+}
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel .oe-wheel-rim:before {
+  inset: 4.6%;
+  border: 2px solid #613005;
+  background: var(--material-1a0306);
+  box-shadow:
+    0 0 0 2px #ffde80,
+    inset 0 0.6rem 1rem #000c;
+}
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel .oe-wheel-depth {
+  background: linear-gradient(
+    90deg,
+    #713507,
+    #d6962b 15%,
+    #482002 35%,
+    #ba6a14 67%,
+    #ffcf65 84%,
+    #6f3308
+  );
+  transform: translateY(0.9rem) translateZ(-1rem);
+}
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel .oe-wheel-rotor {
+  inset: 4.4%;
+  background: var(--material-210308);
+  box-shadow: none;
+}
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel .oe-wheel-pointer {
+  top: -4%;
+  left: 44.5%;
+  width: 11%;
+  height: 18%;
+  background: none;
+  clip-path: none;
+  filter: drop-shadow(0 0.35rem 0.2rem #210500bb);
+  z-index: 9;
+}
+.reference-wheel .oe-wheel-pointer svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.reference-bulbs {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+  transform: translateZ(2rem);
+}
+.reference-bulbs i {
+  position: absolute;
+  width: 2.1%;
+  height: 2.1%;
+  margin: 0;
+  opacity: 1;
+  animation: none;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid #9c570d;
+  background: radial-gradient(
+    circle at 35% 28%,
+    #fffde5 5%,
+    #ffe89b 38%,
+    #be7a15 72%
+  );
+  box-shadow: 0 0.15rem 0.18rem #160600;
+}
+.reference-bulbs .rim-bulb {
+  width: 2.8%;
+  height: 2.8%;
+  border-color: #fff0ac;
+  background: radial-gradient(circle, #fffef1 25%, #fff7ab 60%, #ffce43);
+  box-shadow:
+    0 0 0.35rem #fff6ac,
+    0 0 1rem #ffc02b,
+    0 0 1.9rem #f3982877;
+}
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel .oe-wheel-hub {
+  width: 25%;
+  height: 25%;
+  top: 37.5%;
+  left: 37.5%;
+  border: 2px solid #fff1b8;
+  color: var(--material-510b17);
+  background: conic-gradient(
+    from 20deg,
+    #ffdf7b,
+    #f2b53a,
+    #a6610b,
+    #fbd36b,
+    #fff3b0,
+    #c58a24,
+    #ffdf7b
+  );
+  box-shadow:
+    0 0 0 0.2rem #ab6611,
+    0 0 0 0.35rem #ffdb77,
+    0 0.6rem 0.7rem #000a,
+    inset 0 0 0 0.3rem #fff3b56b,
+    inset 0.4rem 0.6rem 1rem #fff3c66b;
+}
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel .oe-wheel-hub svg {
+  width: 28%;
+  height: 28%;
+  stroke: var(--material-690c1b);
+  filter: drop-shadow(0 1px #ffedac);
+}
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel .oe-wheel-hub span {
+  font-size: clamp(0.45rem, 1.05vw, 1.3rem);
+  color: var(--material-530713);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px #ffe6a0;
+}
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel .oe-wheel-hub small {
+  font-size: 0.42rem;
+  color: #60220c;
+  letter-spacing: 0.12em;
+}
+.reference-wheel .tv-hub-ring {
+  border-color: #fff1ac;
+  box-shadow: 0 0 0.5rem #d89020;
+  inset: -0.4rem;
+}
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel .oe-wheel-reflection {
+  display: none;
+}
+.reference-wheel .tv-wheel-aura {
+  border: 0;
+  box-shadow: 0 0 4rem #cf74122b;
+}
+.reference-wheel .tv-wheel-aura:before,
+.reference-wheel .tv-wheel-cradle {
+  display: none;
+}
+.reference-wheel[data-state="landed"]
+  g[data-winning="true"]
+  > path:first-child {
+  filter: brightness(1.14);
+}
+.reference-wheel[data-state="landed"] .rim-bulb {
+  box-shadow:
+    0 0 0.45rem #fff6ac,
+    0 0 1.3rem #ffc02b,
+    0 0 2.3rem #ffb82b99;
+}
+.reference-wheel .premium-wheel-label {
+  transform-box: view-box;
+  transform-origin: 0 0;
+}
+.oe-wheel.premium-wheel.velocity-wheel.reference-wheel.flat .oe-wheel-body {
+  transform: none;
+}
+.titanium-velocity .velocity-ceremony.phase-result .cine-prize-panel {
+  background:
+    radial-gradient(ellipse at 50% 0, #c58b2440, transparent 75%),
+    linear-gradient(135deg, var(--material-4b091c), var(--material-1d030c));
+  border: 1px solid #d7a747;
+  border-top: 3px solid #ffe7a1;
+  box-shadow:
+    0 0 3rem #eab84e22,
+    inset 0 1px #ffedb8;
+}
+.titanium-velocity .velocity-ceremony.phase-result .cine-prize-panel h3 {
+  color: #ffe9a4;
+  text-shadow:
+    0 0.15rem #693b14,
+    0 0 1.5rem #f7bf3933;
+}
+@media (prefers-reduced-motion: reduce) {
+  .oe-wheel.premium-wheel.velocity-wheel.reference-wheel .oe-wheel-body {
+    transform: none;
+  }
+}
+.championship[data-intensity="Reduced"]
+  .oe-wheel.premium-wheel.velocity-wheel.reference-wheel
+  .oe-wheel-body {
+  transform: none;
+}

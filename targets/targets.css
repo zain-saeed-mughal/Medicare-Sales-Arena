@@ -1,0 +1,76 @@
+.target-summaries {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.target-summaries > div,
+.rule-summary {
+  padding: 16px;
+  border: 1px solid var(--maroon-tone-4);
+  background: linear-gradient(120deg, var(--maroon-tone-3), var(--maroon-tone-2));
+}
+.ops progress,
+.target-strip progress {
+  height: 5px;
+  accent-color: var(--maroon-tone-11);
+  width: 100%;
+  display: block;
+}
+.target-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex: none;
+  margin: 0 1.35rem 0.65rem;
+  padding: 0.45rem 0;
+  border-top: 1px solid var(--maroon-tone-4);
+  color: var(--maroon-tone-14);
+  font-size: 0.75rem;
+}
+.target-strip strong {
+  color: var(--maroon-tone-13);
+}
+.target-strip progress {
+  max-width: 28%;
+}
+.target-strip small {
+  margin-left: auto;
+  letter-spacing: 0;
+}
+.ops .op-details b {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.ops .rule-summary {
+  padding: 10px;
+  font-size: 12px;
+}
+.ops .rule-summary p {
+  margin: 4px 0;
+}
+.ops .op-scroll progress {
+  margin: 5px 0;
+}
+.ops .op-scroll:has(progress) td {
+  min-width: 120px;
+}
+@media (max-width: 760px) {
+  .target-summaries {
+    grid-template-columns: 1fr;
+  }
+  .target-strip {
+    flex-wrap: wrap;
+  }
+}
+.op-body:has(> .target-summaries) > .op-kpis {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.target-summaries progress::-webkit-progress-value,
+.target-strip progress::-webkit-progress-value {
+  background: var(--maroon-tone-11);
+}
+.target-summaries progress::-webkit-progress-bar,
+.target-strip progress::-webkit-progress-bar {
+  background: var(--maroon-tone-4);
+}

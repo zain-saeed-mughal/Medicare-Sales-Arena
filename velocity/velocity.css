@@ -1,0 +1,1580 @@
+/* TITANIUM BLUE VELOCITY — unified live broadcast and command system. */
+:root {
+  --tv-midnight: var(--maroon-tone-0);
+  --tv-royal: var(--maroon-tone-11);
+  --tv-titanium: var(--maroon-tone-13);
+  --tv-cyan: var(--maroon-tone-12);
+  --tv-ice: var(--maroon-tone-16);
+  --tv-gold: #ebc67e;
+}
+.titanium-velocity {
+  background:
+    radial-gradient(ellipse at 35% 35%, color-mix(in srgb, var(--maroon-tone-4) 53.33%, transparent), transparent 56%),
+    radial-gradient(ellipse at 80% 85%, color-mix(in srgb, var(--maroon-tone-5) 26.67%, transparent), transparent 45%), var(--maroon-tone-0);
+  --emerald: var(--maroon-tone-12);
+  --gold: #ebc67e;
+  --muted: var(--maroon-tone-14);
+  --line: var(--maroon-tone-5);
+  padding: 1.3rem 2rem 0.8rem;
+}
+.titanium-velocity:before {
+  background:
+    linear-gradient(
+      125deg,
+      transparent 40%,
+      color-mix(in srgb, var(--maroon-tone-12) 3.14%, transparent) 40%,
+      color-mix(in srgb, var(--maroon-tone-12) 3.14%, transparent) 40.2%,
+      transparent 40.2%
+    ),
+    repeating-linear-gradient(90deg, transparent 0 8rem, color-mix(in srgb, var(--maroon-tone-12) 1.57%, transparent) 8rem 8.05rem);
+}
+.titanium-velocity .oe-header {
+  border-bottom: 1px solid color-mix(in srgb, var(--maroon-tone-13) 19.61%, transparent);
+}
+.titanium-velocity .oe-brand b {
+  font-size: 1.4rem;
+  letter-spacing: 0.025em;
+}
+.titanium-velocity .oe-brand > svg {
+  color: var(--maroon-tone-13);
+}
+.titanium-velocity .oe-broadcast-title > span {
+  color: var(--maroon-tone-15);
+}
+.titanium-velocity .oe-live {
+  color: var(--maroon-tone-13);
+  background: color-mix(in srgb, var(--maroon-tone-4) 33.33%, transparent);
+  border-color: color-mix(in srgb, var(--maroon-tone-12) 33.33%, transparent);
+}
+.titanium-velocity .oe-metrics {
+  border: 0;
+  background: linear-gradient(110deg, color-mix(in srgb, var(--maroon-tone-5) 43.92%, transparent), color-mix(in srgb, var(--maroon-tone-2) 46.67%, transparent));
+  border-radius: 0.2rem 1.6rem 0.2rem 1.6rem;
+  box-shadow: inset 0 1px color-mix(in srgb, var(--maroon-tone-13) 26.67%, transparent);
+}
+.titanium-velocity .oe-metrics b {
+  color: var(--maroon-tone-16);
+  font-size: 1.95rem;
+}
+.titanium-velocity .oe-metrics small {
+  color: var(--maroon-tone-14);
+}
+.titanium-velocity .oe-composition {
+  grid-template-columns: minmax(0, 1.92fr) minmax(0, 1fr);
+  gap: 1.5rem;
+}
+.titanium-velocity .oe-recognition-stage {
+  overflow: visible;
+}
+.tv-stage {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.tv-stage-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-height: 3.5rem;
+  padding: 0 0.2rem;
+}
+.tv-stage-heading span {
+  color: var(--maroon-tone-12);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+}
+.tv-stage-heading h2 {
+  color: var(--maroon-tone-16);
+  font-size: 1.65rem;
+  line-height: 1.2;
+  margin-top: 0.35rem;
+  letter-spacing: -0.045em;
+}
+.tv-stage-heading .tv-period-tag {
+  font-size: 0.62rem;
+  color: var(--maroon-tone-14);
+  letter-spacing: 0.03em;
+  background: color-mix(in srgb, var(--maroon-tone-3) 26.67%, transparent);
+  padding: 0.6rem 0.7rem;
+  border-radius: 0.4rem;
+}
+.tv-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 0;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  border-radius: 1.9rem 0.4rem 1.9rem 0.4rem;
+  background:
+    radial-gradient(ellipse at 65% 20%, color-mix(in srgb, var(--maroon-tone-11) 63.14%, transparent), transparent 60%),
+    linear-gradient(120deg, var(--maroon-tone-4), var(--maroon-tone-3) 60%, var(--maroon-tone-3));
+  box-shadow:
+    inset 0 1px color-mix(in srgb, var(--maroon-tone-15) 46.67%, transparent),
+    inset 1px 0 color-mix(in srgb, var(--maroon-tone-13) 30.20%, transparent),
+    0 1rem 2rem #0004;
+  overflow: hidden;
+}
+.tv-hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 30.20%, transparent);
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    color-mix(in srgb, var(--maroon-tone-13) 2.75%, transparent) 41%,
+    transparent 65%
+  );
+}
+.tv-hero-track {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: repeating-linear-gradient(
+    115deg,
+    transparent 0 7rem,
+    color-mix(in srgb, var(--maroon-tone-13) 2.75%, transparent) 7rem 7.2rem
+  );
+  mask-image: linear-gradient(90deg, transparent, #000);
+}
+.tv-hero-copy {
+  padding: 1.7rem 0 1.4rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  z-index: 2;
+}
+.tv-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--maroon-tone-13);
+  font-size: 0.63rem;
+  letter-spacing: 0.1em;
+}
+.tv-kicker svg {
+  width: 1rem;
+  height: 1rem;
+}
+.tv-hero .tv-kicker {
+  color: #f2d598;
+}
+.tv-hero-copy h2 {
+  font-size: 3.1rem;
+  line-height: 1.1;
+  letter-spacing: -0.055em;
+  margin: 0.7rem 0 0.4rem;
+  color: var(--maroon-tone-16);
+  overflow-wrap: anywhere;
+}
+.tv-hero-team {
+  color: var(--maroon-tone-14);
+  font-size: 1rem;
+  margin: 0;
+}
+.tv-hero-score {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0.8rem 0 0.7rem;
+}
+.tv-hero-score > strong {
+  font-size: 5.2rem;
+  line-height: 0.95;
+  color: #f4d48f;
+  letter-spacing: -0.065em;
+  font-weight: 700;
+  text-shadow: 0 0.15rem 0 #81632a77;
+  animation: tv-score-in 0.45s ease both;
+}
+.tv-hero-score > span {
+  color: var(--maroon-tone-14);
+  font-size: 0.65rem;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+}
+.tv-lead {
+  margin-left: 1.3rem;
+  border-left: 1px solid color-mix(in srgb, var(--maroon-tone-13) 33.33%, transparent);
+  padding-left: 1.3rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 0.2rem 0.3rem;
+}
+.tv-lead svg {
+  width: 1.1rem;
+  color: var(--maroon-tone-13);
+}
+.tv-lead b {
+  font-size: 1.5rem;
+  color: var(--maroon-tone-13);
+}
+.tv-lead small {
+  grid-column: 1/-1;
+  font-size: 0.5rem;
+  color: var(--maroon-tone-15);
+  letter-spacing: 0.06em;
+}
+.tv-hero-copy .oe-target-line {
+  max-width: 25rem;
+  width: 90%;
+  margin-top: 0.3rem;
+}
+.tv-hero-signature {
+  margin-top: 1rem;
+  color: var(--maroon-tone-14);
+  font-size: 0.45rem;
+  letter-spacing: 0.16em;
+}
+.tv-hero-sculpture {
+  position: relative;
+  display: grid;
+  place-items: center;
+  perspective: 800px;
+  min-width: 0;
+}
+.tv-insignia {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0.8rem 0.7rem color-mix(in srgb, var(--maroon-tone-0) 60.00%, transparent));
+}
+.tv-avatar-core {
+  width: 11rem;
+  height: 12rem;
+  position: relative;
+  z-index: 3;
+  transform: translateY(-1rem);
+  animation: tv-insignia-float 7s ease-in-out infinite;
+}
+.tv-avatar-core .oe-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem 0.3rem;
+  background: var(--maroon-tone-5);
+  border: 3px solid #e4c587;
+  box-shadow: 0 1rem 2rem #0006;
+  overflow: hidden;
+}
+.tv-avatar-core .oe-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tv-halo {
+  position: absolute;
+  width: 16rem;
+  height: 16rem;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 37.65%, transparent);
+  border-radius: 50%;
+  box-shadow:
+    0 0 3rem color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent),
+    inset 0 0 3rem color-mix(in srgb, var(--maroon-tone-11) 13.33%, transparent);
+  transform: rotateX(18deg) rotateY(-16deg);
+}
+.tv-halo:before {
+  content: "";
+  position: absolute;
+  inset: 0.6rem;
+  border: 1px dashed color-mix(in srgb, var(--maroon-tone-15) 25.10%, transparent);
+  border-radius: 50%;
+}
+.tv-halo.halo-two {
+  width: 19rem;
+  height: 19rem;
+  transform: rotateX(63deg) rotateY(-22deg);
+  border-color: color-mix(in srgb, var(--maroon-tone-15) 21.18%, transparent);
+  box-shadow: none;
+}
+.tv-orbit-caption {
+  position: absolute;
+  right: 1.4rem;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  z-index: 5;
+}
+.tv-orbit-caption span {
+  font-size: 0.43rem;
+  letter-spacing: 0.12em;
+  color: var(--maroon-tone-14);
+}
+.tv-orbit-caption b {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.06em;
+  color: #ebcf95;
+}
+.tv-dais {
+  position: absolute;
+  bottom: 1rem;
+  left: 10%;
+  width: 80%;
+  height: 3rem;
+  border-radius: 50%;
+  background: linear-gradient(var(--maroon-tone-5), var(--maroon-tone-2));
+  box-shadow:
+    0 0.5rem 0 var(--maroon-tone-2),
+    0 0.55rem 0 var(--maroon-tone-7),
+    0 1rem 1.4rem #0006;
+  transform: rotateX(36deg);
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 46.67%, transparent);
+}
+.tv-dais span {
+  position: absolute;
+  inset: 0.4rem;
+  border: 2px solid color-mix(in srgb, var(--maroon-tone-13) 46.67%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 0.8rem color-mix(in srgb, var(--maroon-tone-13) 33.33%, transparent);
+}
+.tv-dais i {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse, color-mix(in srgb, var(--maroon-tone-13) 33.33%, transparent), transparent 60%);
+  border-radius: 50%;
+  width: auto;
+  height: auto;
+  animation: none;
+  box-shadow: none;
+}
+.tv-top-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  min-height: 0;
+  height: 11.8rem;
+  flex-shrink: 0;
+}
+.tv-player {
+  --rank-metal: #ebc67e;
+  position: relative;
+  isolation: isolate;
+  padding: 0.9rem 1.15rem 1rem;
+  border-radius: 0.3rem 1.6rem 0.3rem 1rem;
+  background: linear-gradient(125deg, var(--maroon-tone-4), var(--maroon-tone-2) 70%);
+  border-top: 1px solid color-mix(in srgb, var(--rank-metal) 70%, transparent);
+  box-shadow:
+    inset 1px 0 color-mix(in srgb, var(--maroon-tone-14) 18.04%, transparent),
+    0 0.6rem 1rem #0003;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.tv-player:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    125deg,
+    color-mix(in srgb, var(--rank-metal) 12%, transparent),
+    transparent 60%
+  );
+}
+.tv-rank-2 {
+  --rank-metal: var(--maroon-tone-15);
+}
+.tv-rank-3 {
+  --rank-metal: #dba17e;
+}
+.tv-card-number {
+  position: absolute;
+  right: 0.5rem;
+  bottom: -0.8rem;
+  font-size: 8rem;
+  line-height: 1;
+  letter-spacing: -0.1em;
+  color: var(--rank-metal);
+  opacity: 0.065;
+  font-weight: 700;
+  z-index: -1;
+}
+.tv-player-top {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.48rem;
+  letter-spacing: 0.08em;
+  color: var(--rank-metal);
+}
+.tv-medallion {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--rank-metal) 50%, transparent);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(130deg, color-mix(in srgb, var(--maroon-tone-11) 23.14%, transparent), var(--maroon-tone-2));
+  color: var(--rank-metal);
+  font-size: 0.7rem;
+  box-shadow: inset 0 1px #ffffff44;
+}
+.tv-medallion svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+.tv-player-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  margin: 0.45rem 0;
+}
+.tv-player-identity > div:last-child {
+  min-width: 0;
+}
+.tv-player-identity .oe-avatar {
+  width: 2.8rem;
+  height: 3.1rem;
+  border-radius: 0.7rem 0.1rem;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 46.67%, transparent);
+  background: linear-gradient(130deg, var(--maroon-tone-5), var(--maroon-tone-3));
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.tv-player h3 {
+  font-size: 1.23rem;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--maroon-tone-16);
+}
+.tv-player p {
+  font-size: 0.7rem;
+  color: var(--maroon-tone-14);
+  margin: 0.25rem 0 0;
+}
+.tv-player-bottom {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+.tv-player-bottom > div {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.tv-player-bottom strong {
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--rank-metal);
+  letter-spacing: -0.05em;
+}
+.tv-player-bottom span {
+  max-width: 5rem;
+  font-size: 0.5rem;
+  color: var(--maroon-tone-14);
+  line-height: 1.5;
+}
+.tv-player-bottom em {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  color: var(--maroon-tone-12);
+  font-size: 0.8rem;
+}
+.tv-player-bottom svg {
+  width: 0.9rem;
+}
+.tv-card-plinth {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background: linear-gradient(90deg, var(--rank-metal), transparent);
+  opacity: 0.6;
+}
+.tv-weekly .tv-top-three {
+  flex: 1;
+  height: auto;
+  gap: 1.2rem;
+}
+.tv-weekly .tv-player {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 2rem 0.4rem 0.4rem 0.4rem;
+}
+.tv-weekly .tv-player-top {
+  margin-bottom: 2rem;
+  flex-direction: column;
+  font-size: 0.65rem;
+}
+.tv-weekly .tv-medallion {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.4rem;
+}
+.tv-weekly .tv-medallion svg {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+.tv-weekly .tv-player-identity {
+  flex-direction: column;
+  gap: 1rem;
+}
+.tv-weekly .tv-player-identity .oe-avatar {
+  width: 7rem;
+  height: 8rem;
+  font-size: 2.6rem;
+  border: 2px solid var(--rank-metal);
+  border-radius: 1.5rem 0.3rem;
+  box-shadow: 0 1rem 2rem #0005;
+}
+.tv-weekly .tv-player h3 {
+  font-size: 1.7rem;
+}
+.tv-weekly .tv-player p {
+  font-size: 0.85rem;
+}
+.tv-weekly .tv-player-bottom > div {
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tv-weekly .tv-player-bottom strong {
+  font-size: 4.5rem;
+}
+.tv-weekly .tv-player-bottom span {
+  max-width: none;
+  font-size: 0.6rem;
+}
+.tv-weekly .tv-card-number {
+  font-size: 16rem;
+  bottom: 1rem;
+  right: -1rem;
+}
+.tv-weekly .tv-card-plinth {
+  height: 1.2rem;
+  opacity: 0.65;
+  background: linear-gradient(120deg, var(--rank-metal), var(--maroon-tone-4));
+  border-top: 1px solid var(--rank-metal);
+}
+.tv-podium .tv-rank-1 {
+  order: 2;
+  margin-bottom: 2rem;
+  background:
+    radial-gradient(ellipse at 50% 20%, color-mix(in srgb, var(--maroon-tone-7) 46.67%, transparent), transparent 60%),
+    linear-gradient(150deg, var(--maroon-tone-4), var(--maroon-tone-3));
+}
+.tv-podium .tv-rank-2 {
+  order: 1;
+  margin-top: 3.5rem;
+}
+.tv-podium .tv-rank-3 {
+  order: 3;
+  margin-top: 5rem;
+}
+.tv-hero-finals {
+  background:
+    radial-gradient(ellipse at 85% 30%, #c9a45433, transparent 56%),
+    linear-gradient(115deg, var(--maroon-tone-3), var(--maroon-tone-4) 70%, var(--maroon-tone-3));
+}
+.tv-monthly .tv-hero-track {
+  background: repeating-linear-gradient(
+    115deg,
+    transparent 0 6rem,
+    #d7bd7c08 6rem 6.15rem
+  );
+}
+/* Rankings are a broadcast rail, with visually anchored scores. */
+.titanium-velocity .oe-board {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--maroon-tone-3) 56.08%, transparent), var(--maroon-tone-2));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-11) 26.67%, transparent);
+  border-top: 2px solid var(--maroon-tone-12);
+  border-radius: 1.5rem 0.3rem 1.5rem 0.3rem;
+  padding: 1.2rem 1rem 1rem;
+  box-shadow:
+    0 1rem 2rem #0004,
+    inset 0 1px color-mix(in srgb, var(--maroon-tone-13) 13.33%, transparent);
+}
+.titanium-velocity .oe-board h2 {
+  font-size: 1.7rem;
+  letter-spacing: -0.045em;
+}
+.titanium-velocity .oe-board-heading small {
+  color: var(--maroon-tone-13);
+}
+.titanium-velocity .oe-rank-row {
+  background: linear-gradient(100deg, var(--maroon-tone-4), var(--maroon-tone-3));
+  border: 0;
+  border-left: 2px solid color-mix(in srgb, var(--maroon-tone-11) 33.33%, transparent);
+  border-radius: 0.65rem 0.2rem 0.65rem 0.2rem;
+  box-shadow: inset 0 1px color-mix(in srgb, var(--maroon-tone-13) 10.20%, transparent);
+  padding: 0.3rem 0.6rem;
+  position: relative;
+}
+.titanium-velocity .oe-rank-row.m0 {
+  background: linear-gradient(105deg, #ad8a463d, var(--maroon-tone-4) 48%, var(--maroon-tone-3));
+  border-left-color: #e3c180;
+}
+.titanium-velocity .oe-rank-row.m1 {
+  background: linear-gradient(105deg, color-mix(in srgb, var(--maroon-tone-13) 16.86%, transparent), var(--maroon-tone-3));
+  border-left-color: var(--maroon-tone-15);
+}
+.titanium-velocity .oe-rank-row.m2 {
+  background: linear-gradient(105deg, #ba886d2b, var(--maroon-tone-3));
+  border-left-color: #d9a587;
+}
+.titanium-velocity .oe-rank-name strong {
+  font-size: 1.24rem;
+  letter-spacing: -0.035em;
+}
+.titanium-velocity .oe-rank-name small {
+  color: var(--maroon-tone-14);
+  font-size: 0.74rem;
+}
+.titanium-velocity .oe-rank-row .oe-avatar {
+  border-radius: 0.45rem 0.1rem;
+  background: linear-gradient(145deg, var(--maroon-tone-5), var(--maroon-tone-3));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 34.90%, transparent);
+}
+.titanium-velocity .oe-rank-row progress {
+  height: 0.12rem;
+  background: var(--maroon-tone-5);
+}
+.titanium-velocity .oe-ticker {
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 20.00%, transparent);
+  border-radius: 0.7rem;
+  background: linear-gradient(90deg, var(--maroon-tone-4), var(--maroon-tone-2));
+}
+.titanium-velocity .oe-ticker > span:first-child {
+  background: linear-gradient(120deg, var(--maroon-tone-11), var(--maroon-tone-12));
+  color: var(--maroon-tone-2);
+}
+.titanium-velocity .vx-audio > button {
+  border-color: color-mix(in srgb, var(--maroon-tone-13) 40.00%, transparent) !important;
+  background: color-mix(in srgb, var(--maroon-tone-4) 40.00%, transparent) !important;
+  color: var(--maroon-tone-15) !important;
+}
+@keyframes tv-insignia-float {
+  0%,
+  100% {
+    transform: translateY(-1rem) rotateY(-7deg);
+  }
+  50% {
+    transform: translateY(-1.4rem) rotateY(7deg);
+  }
+}
+@keyframes tv-score-in {
+  from {
+    opacity: 0.3;
+    transform: translateY(0.3rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* The operator console shares the materials, with calmer motion and simpler controls. */
+.velocity-console {
+  background:
+    radial-gradient(ellipse at 65% 0, color-mix(in srgb, var(--maroon-tone-4) 33.33%, transparent), transparent 50%), var(--maroon-tone-0);
+  color: var(--maroon-tone-16);
+}
+.velocity-console.op-shell {
+  grid-template-columns: 238px minmax(0, 1fr);
+}
+.velocity-console.op-shell > nav {
+  background: linear-gradient(175deg, var(--maroon-tone-3), var(--maroon-tone-2) 55%);
+  border-right: 1px solid color-mix(in srgb, var(--maroon-tone-11) 16.86%, transparent);
+  padding: 24px 16px;
+}
+.velocity-console .op-brand {
+  padding: 0 5px 18px;
+  border-bottom: 1px solid color-mix(in srgb, var(--maroon-tone-13) 16.86%, transparent);
+  margin-bottom: 24px;
+}
+.velocity-console .op-brand svg {
+  color: var(--maroon-tone-13);
+}
+.velocity-console .op-brand em {
+  color: var(--maroon-tone-12);
+}
+.velocity-console nav > a {
+  padding: 13px 14px;
+  border-radius: 10px 3px 10px 3px;
+  position: relative;
+  margin: 5px 0;
+  color: var(--maroon-tone-14);
+}
+.velocity-console nav > a[aria-current="page"] {
+  color: var(--maroon-tone-16);
+  background: linear-gradient(105deg, color-mix(in srgb, var(--maroon-tone-11) 61.18%, transparent), color-mix(in srgb, var(--maroon-tone-7) 15.69%, transparent));
+  box-shadow:
+    inset 3px 0 var(--maroon-tone-12),
+    inset 0 1px color-mix(in srgb, var(--maroon-tone-13) 26.67%, transparent),
+    0 5px 16px color-mix(in srgb, var(--maroon-tone-0) 20.00%, transparent);
+}
+.velocity-console .op-top {
+  background: color-mix(in srgb, var(--maroon-tone-2) 80.00%, transparent);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+}
+.velocity-console .console-top-chips span {
+  background: color-mix(in srgb, var(--maroon-tone-4) 33.33%, transparent);
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-12) 16.86%, transparent);
+  border-radius: 12px;
+  color: var(--maroon-tone-15);
+}
+.velocity-console .op-body {
+  max-width: 1560px;
+  padding: 32px 38px 60px;
+}
+.velocity-console .op-body > h1 {
+  font-size: 32px;
+  color: var(--maroon-tone-16);
+  letter-spacing: -0.045em;
+}
+.velocity-console .dev-label {
+  color: var(--maroon-tone-13);
+  margin-bottom: 26px;
+}
+.velocity-console .op-panel {
+  background: linear-gradient(140deg, color-mix(in srgb, var(--maroon-tone-3) 85.10%, transparent), color-mix(in srgb, var(--maroon-tone-2) 90.98%, transparent));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 18.82%, transparent);
+  border-top-color: color-mix(in srgb, var(--maroon-tone-13) 30.20%, transparent);
+  border-radius: 18px 5px 18px 5px;
+  box-shadow:
+    0 12px 30px color-mix(in srgb, var(--maroon-tone-0) 16.08%, transparent),
+    inset 0 1px color-mix(in srgb, var(--maroon-tone-15) 3.14%, transparent);
+  padding: 24px;
+}
+.velocity-console .op-panel h2 {
+  color: var(--maroon-tone-16);
+}
+.velocity-console .op-panel p {
+  color: var(--maroon-tone-14);
+}
+.velocity-console button {
+  background: linear-gradient(125deg, var(--maroon-tone-4), var(--maroon-tone-3));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 30.20%, transparent);
+  color: var(--maroon-tone-16);
+  box-shadow: inset 0 1px color-mix(in srgb, var(--maroon-tone-16) 4.71%, transparent);
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.velocity-console button:hover {
+  border-color: color-mix(in srgb, var(--maroon-tone-13) 60.00%, transparent);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--maroon-tone-7) 16.86%, transparent);
+  transform: translateY(-1px);
+}
+.velocity-console button:disabled {
+  transform: none;
+}
+.velocity-console button.primary {
+  background: linear-gradient(120deg, var(--maroon-tone-11), var(--maroon-tone-11));
+  border-color: color-mix(in srgb, var(--maroon-tone-13) 46.67%, transparent);
+  color: var(--maroon-tone-16);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+}
+.velocity-console input,
+.velocity-console select {
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-11) 30.20%, transparent);
+  background: var(--maroon-tone-2);
+  color: var(--maroon-tone-16);
+  border-radius: 8px;
+  min-height: 41px;
+}
+.velocity-console input:focus,
+.velocity-console select:focus {
+  outline: 2px solid color-mix(in srgb, var(--maroon-tone-12) 53.33%, transparent);
+  outline-offset: 2px;
+}
+.velocity-console .simple-tabs {
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+  gap: 7px;
+}
+.velocity-console .simple-tabs [aria-current="page"],
+.velocity-console .simple-tabs [aria-selected="true"] {
+  background: linear-gradient(100deg, color-mix(in srgb, var(--maroon-tone-11) 33.33%, transparent), color-mix(in srgb, var(--maroon-tone-7) 16.86%, transparent));
+  color: var(--maroon-tone-15);
+  box-shadow: inset 0 -2px var(--maroon-tone-12);
+}
+.velocity-console .console-tabs button[aria-pressed="true"],
+.velocity-console .console-tabs button[aria-selected="true"] {
+  background: color-mix(in srgb, var(--maroon-tone-7) 20.00%, transparent);
+  color: var(--maroon-tone-15);
+}
+.velocity-console table {
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+.velocity-console table th {
+  background: transparent;
+  border: 0;
+  color: var(--maroon-tone-13);
+}
+.velocity-console table td {
+  background: color-mix(in srgb, var(--maroon-tone-3) 46.67%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--maroon-tone-11) 13.33%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--maroon-tone-11) 13.33%, transparent);
+}
+.velocity-console table td:first-child {
+  border-radius: 8px 0 0 8px;
+}
+.velocity-console table td:last-child {
+  border-radius: 0 8px 8px 0;
+}
+.velocity-console table tr:hover td {
+  background: color-mix(in srgb, var(--maroon-tone-4) 53.33%, transparent);
+}
+.velocity-console .save-action-bar {
+  background: color-mix(in srgb, var(--maroon-tone-4) 92.16%, transparent);
+  border-color: color-mix(in srgb, var(--maroon-tone-12) 43.92%, transparent);
+  backdrop-filter: blur(14px);
+}
+.velocity-console dialog {
+  background: linear-gradient(140deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 40.00%, transparent);
+  border-radius: 20px 6px;
+  box-shadow: 0 30px 100px #0009;
+  animation: tv-dialog-in 0.25s ease-out;
+}
+.velocity-console .console-metrics > div,
+.velocity-console .target-summaries > div,
+.velocity-console .op-kpis > div {
+  border-radius: 15px 4px;
+  background: linear-gradient(130deg, color-mix(in srgb, var(--maroon-tone-4) 46.67%, transparent), var(--maroon-tone-3));
+  border-color: color-mix(in srgb, var(--maroon-tone-13) 20.00%, transparent);
+}
+.velocity-console .simple-advanced summary {
+  color: var(--maroon-tone-13);
+}
+.velocity-console .simple-wheel-studio .op-wheel {
+  background: radial-gradient(ellipse, color-mix(in srgb, var(--maroon-tone-7) 20.00%, transparent), transparent 65%);
+}
+.tv-command {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.tv-command-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+  padding: 30px 36px;
+  border-radius: 24px 6px 24px 6px;
+  background:
+    radial-gradient(ellipse at 80% 30%, color-mix(in srgb, var(--maroon-tone-11) 40.00%, transparent), transparent 60%),
+    linear-gradient(115deg, var(--maroon-tone-5), var(--maroon-tone-4) 65%, var(--maroon-tone-4));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 36.08%, transparent);
+  box-shadow:
+    inset 0 1px color-mix(in srgb, var(--maroon-tone-15) 20.00%, transparent),
+    0 15px 40px color-mix(in srgb, var(--maroon-tone-0) 20.00%, transparent);
+  overflow: hidden;
+}
+.tv-command-hero:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    120deg,
+    transparent 0 160px,
+    color-mix(in srgb, var(--maroon-tone-15) 2.35%, transparent) 160px 162px
+  );
+  pointer-events: none;
+}
+.tv-command .tv-kicker {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+.tv-command .tv-kicker svg {
+  width: 14px;
+  height: 14px;
+}
+.velocity-console .tv-command-hero h2 {
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  margin: 16px 0 12px;
+  color: var(--maroon-tone-16);
+}
+.tv-command-hero h2 em {
+  color: var(--maroon-tone-13);
+  font-style: normal;
+}
+.tv-command-hero p {
+  font-size: 12px;
+  color: var(--maroon-tone-14);
+}
+.tv-command-hero > div > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 19px;
+  padding: 10px 16px;
+  background: color-mix(in srgb, var(--maroon-tone-12) 12.16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 33.33%, transparent);
+  border-radius: 8px;
+  color: var(--maroon-tone-16);
+  font-size: 12px;
+  text-decoration: none;
+}
+.tv-command-hero > div > a svg {
+  width: 16px;
+  height: 16px;
+}
+.tv-command-champion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.tv-command-champion > .tv-insignia {
+  width: 135px;
+  height: 160px;
+  flex-shrink: 0;
+}
+.tv-command-champion small {
+  font-size: 8px;
+  color: #d9c492;
+  letter-spacing: 0.1em;
+}
+.tv-command-champion h3 {
+  font-size: 25px;
+  margin: 10px 0 5px;
+  color: var(--maroon-tone-16);
+}
+.tv-command-champion strong {
+  font-size: 39px;
+  color: #efcd87;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 12px;
+}
+.tv-command-champion strong span {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--maroon-tone-14);
+}
+.tv-command-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+.tv-command-stats article {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 19px 22px;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 23.14%, transparent);
+  border-radius: 14px 4px;
+  background: linear-gradient(125deg, var(--maroon-tone-4), var(--maroon-tone-3));
+  box-shadow: inset 0 1px color-mix(in srgb, var(--maroon-tone-15) 5.88%, transparent);
+}
+.tv-command-stats article:nth-child(2) {
+  background: linear-gradient(125deg, var(--maroon-tone-4), var(--maroon-tone-3));
+}
+.tv-command-stats article:nth-child(3) {
+  background: linear-gradient(125deg, var(--maroon-tone-4), var(--maroon-tone-3));
+}
+.tv-command-stats svg {
+  width: 25px;
+  height: 25px;
+  color: var(--maroon-tone-13);
+}
+.tv-command-stats small {
+  font-size: 10px;
+  letter-spacing: 0;
+  color: var(--maroon-tone-14);
+}
+.tv-command-stats b {
+  font-size: 29px;
+  color: var(--maroon-tone-16);
+  margin-top: 6px;
+  display: block;
+}
+.tv-command-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  gap: 22px;
+}
+.tv-command-monitor {
+  padding: 22px;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 20.00%, transparent);
+  border-radius: 18px 5px;
+  background: color-mix(in srgb, var(--maroon-tone-3) 70.20%, transparent);
+  min-width: 0;
+}
+.tv-command-monitor header {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  padding: 0 0 20px;
+  border: 0;
+}
+.tv-command-monitor header h3 {
+  font-size: 19px;
+  margin-top: 7px;
+  color: var(--maroon-tone-16);
+}
+.tv-command-monitor header > span {
+  font-size: 8px;
+  color: var(--maroon-tone-13);
+}
+.tv-command-monitor .op-monitor {
+  border-radius: 10px;
+  border-color: color-mix(in srgb, var(--maroon-tone-12) 40.00%, transparent);
+}
+.tv-command-actions {
+  padding: 25px 27px;
+  background: linear-gradient(140deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 20.00%, transparent);
+  border-radius: 5px 20px;
+}
+.tv-command-actions h3 {
+  color: var(--maroon-tone-16);
+  font-size: 25px;
+  margin: 13px 0 15px;
+}
+.tv-command-actions a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+  text-decoration: none;
+}
+.tv-command-actions a:last-child {
+  border-bottom: 0;
+}
+.tv-command-actions a > span {
+  color: var(--maroon-tone-11);
+  font-size: 12px;
+}
+.tv-command-actions a > svg {
+  width: 18px;
+  height: 18px;
+  color: var(--maroon-tone-13);
+  margin-left: auto;
+}
+.tv-command-actions a b {
+  color: var(--maroon-tone-16);
+  font-size: 13px;
+  font-weight: 500;
+}
+.tv-command-actions a small {
+  color: var(--maroon-tone-13);
+  font-size: 10px;
+  letter-spacing: 0;
+  margin-top: 6px;
+}
+@keyframes tv-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 1200px) {
+  .tv-command-hero {
+    padding: 26px;
+  }
+  .velocity-console .tv-command-hero h2 {
+    font-size: 27px;
+  }
+  .tv-command-champion > .tv-insignia {
+    width: 90px;
+  }
+  .tv-command-champion h3 {
+    font-size: 20px;
+  }
+  .tv-command-main {
+    grid-template-columns: 1fr;
+  }
+  .tv-command-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 800px) {
+  .velocity-console.op-shell,
+  .velocity-console.op-shell.is-collapsed {
+    grid-template-columns: 1fr;
+  }
+  .velocity-console .op-body {
+    padding: 22px 16px 60px;
+  }
+  .tv-command-hero {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+  .tv-command-champion {
+    justify-content: start;
+    padding-top: 20px;
+    border-top: 1px solid color-mix(in srgb, var(--maroon-tone-13) 20.00%, transparent);
+  }
+  .tv-command-champion > .tv-insignia {
+    width: 80px;
+    height: 95px;
+  }
+  .tv-command-hero h2 {
+    font-size: 25px;
+  }
+  .tv-command-stats {
+    gap: 10px;
+  }
+  .tv-command-stats article {
+    padding: 16px 12px;
+    gap: 10px;
+  }
+  .tv-command-stats svg {
+    width: 19px;
+  }
+  .tv-command-stats small {
+    font-size: 9px;
+  }
+  .tv-command-monitor {
+    padding: 14px;
+  }
+  .tv-command-monitor header > span {
+    display: none;
+  }
+  .velocity-console .op-panel {
+    padding: 18px;
+  }
+  .tv-command-actions {
+    padding: 22px;
+  }
+}
+.tv-monthly .tv-top-three {
+  height: 9.3rem;
+}
+.tv-monthly .tv-player {
+  padding: 0.7rem 1rem;
+}
+.tv-monthly .tv-player-top {
+  font-size: 0.42rem;
+}
+.tv-monthly .tv-player-bottom strong {
+  font-size: 2rem;
+}
+.tv-teamrace {
+  flex-shrink: 0;
+  min-height: 2.7rem;
+  background: color-mix(in srgb, var(--maroon-tone-3) 40.00%, transparent);
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.8rem;
+}
+.tv-teamrace .oe-team-comparison {
+  margin: 0;
+}
+/* Celebration architecture replaces the boxed popup with a broadcast stage. */
+.titanium-velocity .velocity-ceremony {
+  background: radial-gradient(ellipse at 50% 60%, color-mix(in srgb, var(--maroon-tone-4) 85.10%, transparent), color-mix(in srgb, var(--maroon-tone-2) 94.90%, transparent) 70%);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+.tv-ceremony-architecture {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.tv-ceremony-architecture > span {
+  position: absolute;
+  width: 65rem;
+  height: 65rem;
+  left: 50%;
+  top: 50%;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 12.94%, transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotateX(55deg);
+  box-shadow:
+    inset 0 0 7rem color-mix(in srgb, var(--maroon-tone-11) 6.67%, transparent),
+    0 0 6rem color-mix(in srgb, var(--maroon-tone-11) 10.20%, transparent);
+}
+.tv-ceremony-architecture > span:nth-child(2) {
+  width: 85rem;
+  height: 85rem;
+  border-style: dashed;
+  transform: translate(-50%, -50%) rotateX(55deg) rotate(-20deg);
+}
+.tv-ceremony-architecture > span:nth-child(3) {
+  width: 120rem;
+  height: 120rem;
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 13.33%, transparent);
+  transform: translate(-50%, -50%) rotateX(60deg);
+}
+.titanium-velocity .velocity-ceremony .cine-stage,
+.titanium-velocity .velocity-ceremony[data-category] .cine-stage {
+  position: relative;
+  width: 100rem;
+  max-width: 94%;
+  height: 38rem;
+  max-height: calc(100% - 7rem);
+  background: none;
+  border: 0;
+  clip-path: none;
+  border-radius: 0;
+  box-shadow: none;
+  grid-template-columns: 19rem minmax(0, 1fr);
+  gap: 3rem;
+  padding: 2rem;
+  overflow: visible;
+}
+.titanium-velocity .velocity-ceremony .cine-stage:before {
+  content: "";
+  position: absolute;
+  inset: 7% -3%;
+  background:
+    radial-gradient(ellipse at 20% 50%, color-mix(in srgb, var(--maroon-tone-11) 25.88%, transparent), transparent 40%),
+    radial-gradient(ellipse at 75% 50%, color-mix(in srgb, var(--maroon-tone-5) 25.10%, transparent), transparent 65%);
+  pointer-events: none;
+  mask-image: none;
+}
+.titanium-velocity .velocity-ceremony .cine-emblem {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 1rem 2rem #0006);
+}
+.titanium-velocity .velocity-ceremony .cine-badge {
+  width: 19rem;
+  height: 22rem;
+}
+.titanium-velocity .velocity-ceremony .cine-orbit {
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-15) 40.00%, transparent);
+  box-shadow: 0 0 3rem color-mix(in srgb, var(--maroon-tone-12) 20.00%, transparent);
+}
+.titanium-velocity .velocity-ceremony .cine-copy {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  min-width: 0;
+}
+.titanium-velocity .velocity-ceremony .cine-heading {
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  color: var(--maroon-tone-13);
+  margin-bottom: 1.5rem;
+}
+.titanium-velocity .velocity-ceremony .cine-identity {
+  justify-content: center;
+}
+.titanium-velocity .velocity-ceremony .cine-identity h2 {
+  font-size: 5.6rem;
+  line-height: 1.06;
+  letter-spacing: -0.055em;
+  text-shadow: 0 0.3rem 2rem #0003;
+  color: var(--maroon-tone-16);
+}
+.titanium-velocity .velocity-ceremony .cine-team {
+  font-size: 1.35rem;
+  color: var(--maroon-tone-14);
+  margin-top: 0.7rem;
+}
+.titanium-velocity .velocity-ceremony .cine-sales {
+  justify-content: center;
+  margin-top: 1.7rem;
+  gap: 1rem;
+}
+.titanium-velocity .velocity-ceremony .cine-sales strong {
+  font-size: 4.3rem;
+  color: var(--maroon-tone-15);
+}
+.titanium-velocity .velocity-ceremony .cine-reward-ready {
+  color: var(--maroon-tone-15);
+  font-size: 1.45rem;
+  letter-spacing: 0.04em;
+}
+.titanium-velocity .velocity-ceremony .cine-bonus {
+  margin-top: 1.7rem;
+  padding: 1.2rem 2rem;
+  background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--maroon-tone-5) 26.67%, transparent), transparent);
+  border-top: 1px solid color-mix(in srgb, var(--maroon-tone-13) 30.20%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--maroon-tone-13) 14.90%, transparent);
+}
+.titanium-velocity .velocity-ceremony .cine-bonus small {
+  justify-content: center;
+  color: #dfc58f;
+}
+.titanium-velocity .velocity-ceremony .cine-bonus strong {
+  font-size: 3.8rem;
+  color: #f2d28c;
+}
+.titanium-velocity .velocity-ceremony.phase-result .cine-heading {
+  color: #eed6a1;
+}
+.titanium-velocity .velocity-ceremony.phase-result .cine-prize-panel {
+  margin-top: 2rem;
+  padding: 1.2rem 2.5rem 1.4rem;
+  background: linear-gradient(115deg, #92723b38, color-mix(in srgb, var(--maroon-tone-5) 40.00%, transparent) 65%, color-mix(in srgb, var(--maroon-tone-3) 80.00%, transparent));
+  border: 1px solid #c5ab755c;
+  border-top: 2px solid #ecd49b;
+  box-shadow:
+    0 1rem 3rem #0004,
+    inset 0 1px #fff0ba55;
+  border-radius: 1.8rem 0.3rem;
+}
+.titanium-velocity .velocity-ceremony.phase-result .cine-prize-panel h3 {
+  font-size: 5.2rem;
+  line-height: 1.15;
+  color: #f7d994;
+  letter-spacing: -0.045em;
+  text-shadow: 0 0.15rem 0 #8d6a3277;
+}
+.titanium-velocity .velocity-ceremony.phase-result .cine-prize-panel > span {
+  display: block;
+  text-align: center;
+  font-size: 0.55rem;
+  color: var(--maroon-tone-14);
+}
+.titanium-velocity .velocity-ceremony .cine-wheel-stage {
+  grid-template-columns: minmax(0, 1fr) 37rem;
+  gap: 3rem;
+}
+.titanium-velocity .velocity-ceremony .cine-wheel-stage .cine-identity h2 {
+  font-size: 4.6rem;
+}
+.titanium-velocity .velocity-ceremony .cine-main-wheel .oe-wheel {
+  width: 36rem;
+  height: 36rem;
+}
+.titanium-velocity .velocity-ceremony .oe-ceremony-rail,
+.titanium-velocity .velocity-ceremony .oe-ceremony-baseline {
+  position: relative;
+  z-index: 2;
+  border-color: color-mix(in srgb, var(--maroon-tone-12) 20.00%, transparent);
+}
+.titanium-velocity .velocity-ceremony .cine-landed-wheel {
+  display: none;
+}
+.titanium-velocity
+  .velocity-ceremony.phase-result
+  .tv-ceremony-architecture
+  > span {
+  border-color: #d7b66f33;
+  box-shadow: 0 0 5rem #bd985712;
+}
+/* Luxury reward mechanism, with a separate cradle and precision bearing rings. */
+.velocity-wheel .tv-wheel-aura {
+  position: absolute;
+  inset: -4%;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 23.14%, transparent);
+  border-radius: 50%;
+  box-shadow:
+    0 0 3rem color-mix(in srgb, var(--maroon-tone-11) 16.86%, transparent),
+    inset 0 0 3rem color-mix(in srgb, var(--maroon-tone-11) 10.20%, transparent);
+  transform: rotateX(9deg) rotateY(-7deg);
+}
+.velocity-wheel .tv-wheel-aura:before {
+  content: "";
+  position: absolute;
+  inset: -5%;
+  border: 1px dashed color-mix(in srgb, var(--maroon-tone-13) 15.69%, transparent);
+  border-radius: 50%;
+}
+.velocity-wheel .tv-wheel-cradle {
+  position: absolute;
+  width: 67%;
+  height: 14%;
+  left: 16.5%;
+  bottom: -4%;
+  border-radius: 50%;
+  background: linear-gradient(var(--maroon-tone-4), var(--maroon-tone-0));
+  border-top: 1px solid color-mix(in srgb, var(--maroon-tone-13) 46.67%, transparent);
+  box-shadow:
+    0 0.7rem 0 var(--maroon-tone-0),
+    0 0.8rem 0 var(--maroon-tone-7),
+    0 1rem 2rem #0009;
+}
+.titanium-velocity .velocity-wheel .oe-wheel-body,
+.velocity-console .velocity-wheel .oe-wheel-body {
+  transform: rotateX(8deg) rotateY(-7deg);
+}
+.titanium-velocity .velocity-wheel .oe-wheel-rim,
+.velocity-console .velocity-wheel .oe-wheel-rim {
+  background: conic-gradient(
+    from 10deg,
+    var(--maroon-tone-13),
+    var(--maroon-tone-16) 12%,
+    var(--maroon-tone-11) 25%,
+    var(--maroon-tone-4) 40%,
+    var(--maroon-tone-15) 58%,
+    #f0d59b 70%,
+    #8c7246 80%,
+    var(--maroon-tone-14) 93%,
+    var(--maroon-tone-13)
+  );
+  box-shadow:
+    0 0 0 0.08rem var(--maroon-tone-14),
+    inset 0 0 0 0.35rem var(--maroon-tone-3),
+    0 0.8rem 1rem #0008;
+}
+.velocity-wheel .oe-wheel-rim:before {
+  border: 1px solid #f2d39488;
+  box-shadow:
+    inset 0 0 0 0.2rem var(--maroon-tone-2),
+    inset 0 0 1.4rem color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+}
+.titanium-velocity .velocity-wheel .oe-wheel-depth,
+.velocity-console .velocity-wheel .oe-wheel-depth {
+  background: linear-gradient(
+    100deg,
+    var(--maroon-tone-3),
+    var(--maroon-tone-11) 18%,
+    var(--maroon-tone-3) 30%,
+    var(--maroon-tone-0) 65%,
+    var(--maroon-tone-5)
+  );
+}
+.titanium-velocity .velocity-wheel .oe-wheel-rotor,
+.velocity-console .velocity-wheel .oe-wheel-rotor {
+  background: radial-gradient(circle, var(--maroon-tone-4), var(--maroon-tone-2));
+}
+.titanium-velocity .velocity-wheel .oe-wheel-hub,
+.velocity-console .velocity-wheel .oe-wheel-hub {
+  width: 25%;
+  height: 25%;
+  left: 37.5%;
+  top: 37.5%;
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    var(--maroon-tone-7),
+    var(--maroon-tone-3) 65%,
+    var(--maroon-tone-2)
+  );
+  border: 2px solid #e5cca0;
+  box-shadow:
+    0 0.6rem 0.8rem #000a,
+    inset 0 0 0 0.3rem color-mix(in srgb, var(--maroon-tone-11) 30.20%, transparent),
+    inset 0 0.4rem 0.7rem #ffffff22;
+}
+.velocity-wheel .tv-hub-ring {
+  position: absolute;
+  inset: -0.45rem;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 73.33%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 0.7rem color-mix(in srgb, var(--maroon-tone-12) 20.00%, transparent);
+}
+.velocity-wheel .oe-wheel-pointer {
+  width: 6%;
+  left: 47%;
+  height: 12%;
+  top: 0;
+  filter: drop-shadow(0 0.3rem 0.15rem #0009);
+}
+
+.velocity-wheel.flat .oe-wheel-body,
+.velocity-console .velocity-wheel.flat .oe-wheel-body,
+.titanium-velocity .velocity-wheel.flat .oe-wheel-body {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .titanium-velocity *,
+  .velocity-console *,
+  .titanium-velocity *:before,
+  .titanium-velocity *:after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .titanium-velocity .velocity-wheel .oe-wheel-body {
+    transform: none;
+  }
+}
+.titanium-velocity[data-intensity="Reduced"] *,
+.titanium-velocity[data-intensity="Reduced"] *:before,
+.titanium-velocity[data-intensity="Reduced"] *:after {
+  animation: none !important;
+  transition: none !important;
+}
+.titanium-velocity[data-intensity="Reduced"] .velocity-wheel .oe-wheel-body {
+  transform: none;
+}
+.titanium-velocity[data-hidden="true"] * {
+  animation-play-state: paused !important;
+}
+.titanium-velocity .velocity-ceremony.cine-ceremony[data-category] .cine-stage {
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+.titanium-velocity .oe-rank-row:has(.oe-rank-change.up) {
+  box-shadow:
+    inset 2px 0 var(--maroon-tone-12),
+    0 0 1rem color-mix(in srgb, var(--maroon-tone-11) 13.33%, transparent);
+}
+.ops.op-shell.velocity-console nav > a[aria-current="page"] {
+  color: var(--maroon-tone-16);
+  background: linear-gradient(105deg, color-mix(in srgb, var(--maroon-tone-11) 61.18%, transparent), color-mix(in srgb, var(--maroon-tone-7) 15.69%, transparent));
+  border-left: 0;
+  box-shadow:
+    inset 3px 0 var(--maroon-tone-12),
+    inset 0 1px color-mix(in srgb, var(--maroon-tone-13) 26.67%, transparent),
+    0 5px 16px color-mix(in srgb, var(--maroon-tone-0) 20.00%, transparent);
+}
+.titanium-velocity
+  .velocity-ceremony[data-category]
+  .cine-stage.cine-wheel-stage {
+  grid-template-columns: minmax(0, 1fr) 36rem;
+  gap: 3rem;
+}
+.titanium-velocity .velocity-ceremony .cine-main-wheel .oe-wheel {
+  width: 34rem;
+  height: 34rem;
+}
+.titanium-velocity .oe-team {
+  background:
+    radial-gradient(ellipse at 50% 25%, color-mix(in srgb, var(--maroon-tone-7) 30.20%, transparent), transparent 65%),
+    linear-gradient(145deg, var(--maroon-tone-4), var(--maroon-tone-2));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-13) 30.20%, transparent);
+  border-radius: 2rem 0.4rem;
+  box-shadow:
+    inset 0 1px color-mix(in srgb, var(--maroon-tone-13) 26.67%, transparent),
+    0 1rem 2rem #0003;
+}
+.titanium-velocity .oe-team-badge {
+  background: linear-gradient(130deg, var(--maroon-tone-7), var(--maroon-tone-3));
+  border-color: var(--maroon-tone-14);
+  box-shadow: 0 0.7rem 1rem #0004;
+}
+.titanium-velocity .oe-hall-grid article {
+  background: linear-gradient(130deg, var(--maroon-tone-4), var(--maroon-tone-2));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-14) 26.67%, transparent);
+  border-radius: 1.6rem 0.3rem;
+  box-shadow: 0 1rem 2rem #0003;
+}
+.titanium-velocity .oe-standby {
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--maroon-tone-7) 25.49%, transparent), transparent 60%);
+}
+.titanium-velocity .oe-standby h2 {
+  color: var(--maroon-tone-16);
+}
+.titanium-velocity .oe-history-strip {
+  background: linear-gradient(100deg, var(--maroon-tone-4), var(--maroon-tone-3));
+  border-color: color-mix(in srgb, var(--maroon-tone-14) 20.00%, transparent);
+  border-radius: 0.5rem;
+}
+.titanium-velocity[data-champion="Electric"] .tv-hero .tv-avatar-core {
+  filter: drop-shadow(0 0 1rem color-mix(in srgb, var(--maroon-tone-12) 33.33%, transparent));
+}
+.titanium-velocity[data-champion="Electric"] .tv-hero .tv-dais span {
+  border-color: var(--maroon-tone-15);
+  box-shadow: 0 0 1.2rem color-mix(in srgb, var(--maroon-tone-12) 53.33%, transparent);
+}
+.tv-hero-score > strong {
+  min-width: 2ch;
+}
+.velocity-console progress { accent-color:var(--maroon-tone-12);background:var(--maroon-tone-4);border-radius:8px;overflow:hidden; }
+.velocity-console progress::-webkit-progress-bar { background:var(--maroon-tone-4); }
+.velocity-console progress::-webkit-progress-value { background:linear-gradient(90deg,var(--maroon-tone-11),var(--maroon-tone-12)); }
+.velocity-console .op-badge { border-radius:12px;border:1px solid color-mix(in srgb, var(--maroon-tone-12) 23.14%, transparent);background:color-mix(in srgb, var(--maroon-tone-4) 40.00%, transparent);color:var(--maroon-tone-15); }
+

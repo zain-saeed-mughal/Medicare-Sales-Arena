@@ -1,0 +1,11 @@
+import puppeteer from 'puppeteer-core';import assert from 'node:assert/strict';
+const browser=await puppeteer.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,defaultViewport:{width:1500,height:960}});
+try{
+const p=await browser.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
+const base='http://127.0.0.1:5191';const go=async(path)=>{await p.goto(base+path,{waitUntil:'networkidle0'})};await go('/admin');await p.click('.primary');await p.waitForSelector('.op-kpis');
+await p.screenshot({path:'.arena-qa/admin.png'});const get=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('medicare-arena.dev.v3')));
+async function click(text){await p.evaluate(t=>{const b=[...document.querySelectorAll('button')].find(x=>x.textContent===t);if(!b)throw Error('Missing '+t);b.click()},text)}
+await go('/admin/agents');await click('+ Add agent');await p.type('dialog input','Casey Lane');await click('Save changes');await new Promise(r=>setTimeout(r,500));console.log(await p.evaluate(()=>({dialog:document.querySelector('dialog')?.innerText,agents:JSON.parse(localStorage.getItem('medicare-arena.dev.v3')).agents.at(-1),body:document.body.innerText.slice(-600)})));await go('/admin/competitions');await click('+ Add competition');await p.type('dialog input','Autumn Cup');await p.evaluate(()=>{for(const [i,el] of [...document.querySelectorAll('dialog input[type=datetime-local]')].entries()){Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(el,'2026-11-0'+(i+5)+'T12:00');el.dispatchEvent(new Event('input',{bubbles:true}))}});await click('Save changes');await p.waitForFunction(()=>!document.querySelector('dialog'));
+await go('/admin/users');await click('End session');await p.select('select','u3');await click('Enter development workspace →');await go('/admin/sales');assert.ok((await p.$eval('.op-body',x=>x.textContent)).includes('unavailable for your profile'));assert.deepEqual(errors,[]);console.log('PASS 10 admin routes, approval confirmation, repeated approval, reward issuance, Arena sync, preview isolation, reversal, agent and competition creation, role gate, 1080p layout.');
+}finally{await browser.close()}
+

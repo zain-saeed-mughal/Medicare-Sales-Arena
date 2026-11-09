@@ -1,0 +1,46 @@
+/* Dark Maroon Championship — the only active visual palette. */
+:root {
+  --arena-bg: var(--material-100106);
+  --arena-bg-deep: var(--material-1b020b);
+  --arena-surface: var(--material-310515);
+  --arena-surface-elevated: var(--material-43091c);
+  --arena-card: var(--material-590b25);
+  --arena-accent: var(--material-e51e51);
+  --arena-accent-bright: var(--material-ff4775);
+  --arena-accent-soft: var(--material-fa85a3);
+  --arena-gold: #f4c75c;
+  --arena-gold-light: #ffe59a;
+  --arena-silver: #ccd1dc;
+  --arena-bronze: #d99264;
+  --arena-text: var(--material-fff5f5);
+  --arena-text-secondary: var(--material-d8b5c2);
+  --arena-text-muted: var(--material-a77e90);
+  --arena-success: #34d6a2;
+  --arena-warning: #f1b95b;
+  --arena-error: var(--material-ff6075);
+  --arena-border: var(--material-75112e);
+  --arena-focus: var(--material-ff4775);
+  --arena-shadow: var(--material-080003);
+  --arena-glass: color-mix(in srgb, var(--arena-surface) 82%, transparent);
+  --arena-card-gradient: linear-gradient(145deg, var(--material-310515), var(--material-160209));
+  --arena-metal: linear-gradient(135deg, #b98224, #f4c75c, #ffe59a, #c99134);
+  --arena-button: linear-gradient(135deg, var(--material-b21346), var(--material-720c30));
+  --arena-progress: linear-gradient(90deg, var(--material-e51e51), var(--material-ff4775), var(--material-ffe0e8));
+  --maroon-tone-0: var(--material-100106);
+  --maroon-tone-1: var(--material-160209);
+  --maroon-tone-2: var(--material-1b020b);
+  --maroon-tone-3: var(--material-21040f);
+  --maroon-tone-4: var(--material-310515);
+  --maroon-tone-5: var(--material-43091c);
+  --maroon-tone-6: var(--material-590b25);
+  --maroon-tone-7: var(--material-720c30);
+  --maroon-tone-8: var(--material-910d3d);
+  --maroon-tone-9: var(--material-b21346);
+  --maroon-tone-10: var(--material-d61d50);
+  --maroon-tone-11: var(--material-e51e51);
+  --maroon-tone-12: var(--material-ff4775);
+  --maroon-tone-13: var(--material-fa85a3);
+  --maroon-tone-14: var(--material-d8b5c2);
+  --maroon-tone-15: var(--material-ecd0da);
+  --maroon-tone-16: var(--material-fff5f5);
+}

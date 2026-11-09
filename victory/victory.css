@@ -1,0 +1,1743 @@
+/* VICTORY STUDIO X — broadcast and operator material system. */
+:root {
+  --vx-night: var(--maroon-tone-0);
+  --vx-navy: var(--maroon-tone-3);
+  --vx-sapphire: var(--maroon-tone-4);
+  --vx-gold: #f0b94b;
+  --vx-cyan: var(--maroon-tone-11);
+  --vx-ivory: #f6f5f1;
+  --vx-success: var(--maroon-tone-7);
+  --vx-silver: var(--maroon-tone-15);
+  --vx-bronze: #cc9162;
+}
+html:has(.victory-studio) {
+  background: var(--vx-night);
+}
+.victory-studio {
+  --surface: var(--maroon-tone-3);
+  --mint: var(--maroon-tone-13);
+  --gold: #f0b94b;
+  --text: #f6f5f1;
+  --muted: var(--maroon-tone-13);
+  --line: var(--maroon-tone-4);
+  background:
+    radial-gradient(ellipse at 43% 38%, color-mix(in srgb, var(--maroon-tone-4) 53.33%, transparent), transparent 65%),
+    linear-gradient(140deg, var(--maroon-tone-0), var(--maroon-tone-2) 60%, var(--maroon-tone-0));
+  padding: 1.4rem 2rem 0.8rem;
+  gap: 0.85rem;
+}
+.victory-studio:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    115deg,
+    transparent 0 10rem,
+    color-mix(in srgb, var(--maroon-tone-14) 1.18%, transparent) 10rem 10.06rem
+  );
+  z-index: -1;
+}
+.victory-studio .oe-header {
+  border-bottom: 1px solid #f0b94b40;
+  padding-bottom: 0.8rem;
+  min-height: 4.7rem;
+}
+.victory-studio .oe-brand > svg {
+  color: var(--vx-gold);
+}
+.victory-studio .oe-brand b {
+  font-size: 1.3rem;
+}
+.victory-studio .oe-brand small {
+  color: var(--maroon-tone-13);
+  font-size: 0.6rem;
+}
+.victory-studio .oe-broadcast-title > span {
+  color: var(--vx-gold);
+  letter-spacing: 0.15em;
+}
+.victory-studio .oe-live {
+  background: var(--maroon-tone-2);
+  border-color: color-mix(in srgb, var(--maroon-tone-7) 36.08%, transparent);
+  color: var(--maroon-tone-7);
+}
+.victory-studio .oe-header-right {
+  gap: 1rem;
+}
+.victory-studio .oe-metrics {
+  gap: 0;
+  background: linear-gradient(100deg, color-mix(in srgb, var(--maroon-tone-2) 85.10%, transparent), color-mix(in srgb, var(--maroon-tone-2) 43.92%, transparent));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-7) 21.18%, transparent);
+  border-radius: 0.5rem;
+  min-height: 5.3rem;
+  padding: 0.6rem 1rem;
+  box-shadow: inset 0 1px #ffffff07;
+}
+.victory-studio .oe-metrics > div {
+  border-color: color-mix(in srgb, var(--maroon-tone-7) 20.00%, transparent);
+  padding: 0.2rem 1.1rem;
+}
+.victory-studio .oe-metrics b {
+  font-size: 1.8rem;
+  color: var(--vx-ivory);
+}
+.victory-studio .oe-metrics small {
+  font-size: 0.65rem;
+  color: var(--maroon-tone-14);
+}
+.victory-studio .oe-metrics progress {
+  height: 0.15rem;
+}
+.victory-studio .oe-composition {
+  grid-template-columns: minmax(0, 1.95fr) minmax(0, 1fr);
+  gap: 1.3rem;
+}
+.victory-studio.board-left .oe-composition {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.95fr);
+}
+.victory-studio .oe-recognition-stage {
+  min-height: 0;
+  gap: 0.8rem;
+}
+.victory-studio .oe-board {
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-7) 30.20%, transparent);
+  border-top: 2px solid #f0b94b;
+  padding: 1.1rem;
+  background: linear-gradient(120deg, color-mix(in srgb, var(--maroon-tone-3) 85.10%, transparent), color-mix(in srgb, var(--maroon-tone-2) 87.06%, transparent));
+  border-radius: 0.55rem;
+  box-shadow:
+    0 1rem 2.5rem #0003,
+    inset 0 1px #ffffff10;
+}
+.victory-studio .oe-board h2 {
+  font-size: 1.5rem;
+}
+.victory-studio .oe-board-heading small {
+  color: var(--maroon-tone-11);
+}
+.victory-studio .oe-rank-row {
+  background: linear-gradient(100deg, var(--maroon-tone-3), var(--maroon-tone-3));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-5) 20.00%, transparent);
+  border-radius: 0.25rem;
+  border-left: 2px solid var(--maroon-tone-5);
+  padding: 0.3rem 0.6rem;
+  box-shadow: inset 0 1px #ffffff05;
+}
+.victory-studio .oe-rank-row.m0 {
+  border-left-color: #f0b94b;
+  background: linear-gradient(95deg, #6c54293b, var(--maroon-tone-3));
+}
+.victory-studio .oe-rank-row.m1 {
+  border-left-color: var(--maroon-tone-15);
+}
+.victory-studio .oe-rank-row.m2 {
+  border-left-color: #cc9162;
+}
+.victory-studio .oe-rank-name strong {
+  font-size: 1.1rem;
+}
+.victory-studio .oe-rank-name small {
+  font-size: 0.7rem;
+}
+.victory-studio .oe-rank-row .oe-avatar {
+  background: linear-gradient(125deg, var(--maroon-tone-4), var(--maroon-tone-2));
+  border-color: color-mix(in srgb, var(--maroon-tone-7) 46.67%, transparent);
+}
+.victory-studio .oe-medal.m0 {
+  --medal: #f0b94b;
+}
+.victory-studio .oe-medal.m1 {
+  --medal: var(--maroon-tone-15);
+}
+.victory-studio .oe-medal.m2 {
+  --medal: #cc9162;
+}
+.victory-studio .oe-ticker {
+  background: linear-gradient(95deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  border-color: color-mix(in srgb, var(--maroon-tone-5) 40.00%, transparent);
+}
+.victory-studio .oe-ticker > span:first-child {
+  background: #f0b94b;
+  color: var(--maroon-tone-2);
+}
+.victory-studio .oe-transmission {
+  color: var(--maroon-tone-11);
+}
+.vx-daily {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 0;
+}
+.vx-main-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.65fr);
+  gap: 1.2rem;
+  flex: 1;
+  min-height: 0;
+}
+.vx-main-stage.no-deck {
+  grid-template-columns: 1fr;
+}
+.vx-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--vx-gold);
+  height: 1.8rem;
+}
+.vx-label svg {
+  width: 1rem;
+  height: 1rem;
+}
+.vx-deck {
+  display: grid;
+  grid-template-rows: auto repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  min-height: 0;
+}
+.vx-player-card {
+  --tier: var(--vx-gold);
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 1.1rem 0.8rem 1.2rem;
+  min-height: 0;
+  background: linear-gradient(135deg, var(--maroon-tone-4), var(--maroon-tone-2) 70%);
+  border: 1px solid color-mix(in srgb, var(--tier) 70%, transparent);
+  border-left: 3px solid var(--tier);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 1.1rem) 0,
+    100% 1.1rem,
+    100% 100%,
+    0.8rem 100%,
+    0 calc(100% - 0.8rem)
+  );
+  box-shadow: inset 0 1px #ffffff20;
+  overflow: hidden;
+}
+.vx-player-card.tier-2 {
+  --tier: var(--vx-silver);
+}
+.vx-player-card.tier-3 {
+  --tier: var(--vx-bronze);
+}
+.vx-card-cut {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    120deg,
+    transparent 35%,
+    #fff08d09 49%,
+    transparent 65%
+  );
+  transform: translateX(-25%);
+  animation: vx-card-reflection 12s ease-in-out infinite;
+}
+.vx-card-identity {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  min-width: 0;
+  margin-top: 0.45rem;
+}
+.vx-card-identity > div {
+  min-width: 0;
+}
+.vx-card-identity h3 {
+  font-size: 1.15rem !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.035em !important;
+}
+.vx-card-identity p {
+  font-size: 0.75rem;
+  color: var(--maroon-tone-14);
+  margin-top: 0.3rem !important;
+}
+.vx-card-identity .oe-avatar {
+  width: 3.4rem;
+  height: 4rem;
+  background: linear-gradient(140deg, var(--maroon-tone-5), var(--maroon-tone-2));
+  border: 1px solid var(--tier);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  border-radius: 0.1rem;
+}
+.vx-rank-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--tier);
+  position: absolute;
+  top: 0.4rem;
+  left: 1.2rem;
+}
+.vx-rank-badge b {
+  font-size: 0.85rem;
+}
+.vx-rank-badge small {
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  color: var(--tier);
+}
+.vx-card-score {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.5rem 0 0;
+}
+.vx-card-score strong {
+  font-size: 2.15rem;
+  line-height: 1;
+  color: var(--tier);
+}
+.vx-card-score span {
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+  color: var(--maroon-tone-14);
+}
+.vx-card-score em {
+  font-size: 0.8rem;
+  font-style: normal;
+  color: var(--maroon-tone-7);
+  margin-left: auto;
+}
+.vx-card-foot {
+  font-size: 0.45rem;
+  letter-spacing: 0.13em;
+  color: var(--tier);
+  margin-top: 0.6rem;
+  border-top: 1px solid #ffffff14;
+  padding-top: 0.35rem;
+}
+.vx-champion-stage {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 0;
+  background:
+    radial-gradient(ellipse at 50% 37%, color-mix(in srgb, var(--maroon-tone-5) 49.02%, transparent), transparent 58%),
+    linear-gradient(140deg, color-mix(in srgb, var(--maroon-tone-3) 50.20%, transparent), color-mix(in srgb, var(--maroon-tone-2) 18.82%, transparent));
+  border-top: 1px solid #f0b94b88;
+  border-bottom: 1px solid #f0b94b5c;
+  border-radius: 1rem 1rem 0.4rem 0.4rem;
+  padding: 1rem 1.3rem 0.8rem;
+  overflow: hidden;
+}
+.vx-stage-top,
+.vx-stage-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  color: var(--maroon-tone-13);
+  flex-shrink: 0;
+}
+.vx-stage-top > span {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #f0b94b;
+  font-size: 0.65rem;
+}
+.vx-stage-top svg {
+  width: 1rem;
+  height: 1rem;
+}
+.vx-stage-top > b {
+  font-weight: 400;
+  font-size: 0.5rem;
+}
+.vx-stage-beams {
+  position: absolute;
+  inset: -20% -30%;
+  z-index: -1;
+  background: conic-gradient(
+    from 160deg at 50% 0%,
+    transparent 0deg,
+    #f0b94b07 7deg,
+    transparent 18deg,
+    color-mix(in srgb, var(--maroon-tone-11) 3.14%, transparent) 24deg,
+    transparent 35deg
+  );
+  animation: vx-beams 16s ease-in-out infinite;
+}
+.vx-champion-portrait {
+  position: relative;
+  width: 100%;
+  height: 19rem;
+  min-height: 12rem;
+  flex: 1;
+  max-height: 21rem;
+  display: grid;
+  place-items: center;
+  perspective: 800px;
+  animation: vx-stage-intro 0.9s ease both;
+}
+.vx-portrait-shell {
+  width: 10rem;
+  height: 12rem;
+  position: relative;
+  z-index: 4;
+  padding: 0.4rem;
+  background: linear-gradient(
+    145deg,
+    #fff2af,
+    #ab7a29 40%,
+    #f0c977 70%,
+    #785321
+  );
+  clip-path: polygon(
+    10% 0,
+    90% 0,
+    100% 9%,
+    100% 91%,
+    90% 100%,
+    10% 100%,
+    0 91%,
+    0 9%
+  );
+  box-shadow: 0 1rem 2rem #0009;
+  transform: translateY(-0.5rem);
+}
+.vx-portrait-shell > .oe-avatar {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at 40% 20%,
+    var(--maroon-tone-5),
+    var(--maroon-tone-3) 65%,
+    var(--maroon-tone-2)
+  );
+  color: #f4da8c;
+  font-size: 4rem;
+  border: 1px solid #f0b94b88;
+  display: grid;
+  place-items: center;
+  clip-path: inherit;
+}
+.vx-portrait-shell .oe-avatar img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.vx-portrait-rank {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: #f0b94b;
+  font-size: 0.7rem;
+}
+.vx-portrait-rank svg {
+  width: 1rem;
+  height: 1rem;
+}
+.vx-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 19rem;
+  height: 19rem;
+  border: 1px solid #f0b94b42;
+  border-radius: 50%;
+  transform: translate(-50%, -55%) rotateX(62deg);
+  box-shadow: 0 0 1.5rem color-mix(in srgb, var(--maroon-tone-11) 3.14%, transparent);
+}
+.orbit-back {
+  width: 22rem;
+  height: 22rem;
+  transform: translate(-50%, -50%) rotateX(63deg) rotateY(-16deg);
+  border: 1px dashed color-mix(in srgb, var(--maroon-tone-11) 27.06%, transparent);
+  animation: vx-orbit 25s linear infinite;
+}
+.orbit-front {
+  border-bottom: 2px solid #f0b94b99;
+  z-index: 5;
+}
+.vx-platform {
+  position: absolute;
+  bottom: 0.2rem;
+  left: 50%;
+  width: 25rem;
+  height: 6.5rem;
+  transform: translateX(-50%);
+  z-index: 2;
+  filter: drop-shadow(0 1.5rem 1rem #0008);
+}
+.vx-platform-surface {
+  position: absolute;
+  inset: 0 0 1.2rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    var(--maroon-tone-4) 20%,
+    var(--maroon-tone-3) 60%,
+    #8b6d32 61%,
+    #efcc70 63%,
+    var(--maroon-tone-3) 65%,
+    var(--maroon-tone-2) 80%
+  );
+  border: 1px solid #efcd7666;
+}
+.vx-platform-rim {
+  position: absolute;
+  inset: 2.6rem 0 0;
+  border-radius: 0 0 50% 50%;
+  background: linear-gradient(
+    90deg,
+    var(--maroon-tone-0),
+    var(--maroon-tone-4) 35%,
+    var(--maroon-tone-3) 65%,
+    var(--maroon-tone-0)
+  );
+  border-bottom: 2px solid #f0b94b85;
+  z-index: -1;
+}
+.vx-platform-light {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  height: 0.15rem;
+  bottom: 1rem;
+  background: linear-gradient(90deg, transparent, var(--maroon-tone-11), transparent);
+  box-shadow: 0 0 1.5rem var(--maroon-tone-11);
+  animation: vx-platform-light 5s ease-in-out infinite;
+}
+.vx-champion-nameplate {
+  width: 100%;
+  text-align: center;
+  padding: 0.8rem 0.6rem;
+  position: relative;
+  z-index: 6;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--maroon-tone-3) 60.00%, transparent) 30%,
+    color-mix(in srgb, var(--maroon-tone-3) 60.00%, transparent) 70%,
+    transparent
+  );
+}
+.vx-champion-nameplate > small {
+  font-size: 0.5rem;
+  color: #f0b94b;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.5rem;
+}
+.vx-champion-nameplate h2 {
+  font-size: 2.8rem !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.045em !important;
+  color: #f6f5f1;
+  text-wrap: balance;
+}
+.vx-champion-nameplate > p {
+  font-size: 1rem;
+  color: var(--maroon-tone-14);
+  margin-top: 0.45rem !important;
+}
+.vx-champion-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.7rem;
+  margin-top: 0.75rem;
+}
+.vx-champion-numbers > div {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-align: left;
+}
+.vx-champion-numbers strong {
+  font-size: 3.3rem;
+  line-height: 1;
+  color: #f0b94b;
+}
+.vx-champion-numbers span {
+  font-size: 0.65rem;
+  max-width: 5rem;
+  color: var(--maroon-tone-14);
+  letter-spacing: 0.1em;
+}
+.vx-champion-numbers .vx-margin {
+  padding-left: 1.5rem;
+  border-left: 1px solid color-mix(in srgb, var(--maroon-tone-7) 33.33%, transparent);
+}
+.vx-margin b {
+  font-size: 1.5rem;
+  color: var(--maroon-tone-11);
+}
+.vx-champion-nameplate .oe-target-line {
+  max-width: 18rem;
+  margin: 0.8rem auto 0;
+}
+.vx-stage-bottom {
+  margin-top: 0.4rem;
+  border-top: 1px solid color-mix(in srgb, var(--maroon-tone-7) 18.04%, transparent);
+  padding-top: 0.5rem;
+}
+.vx-modules {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  height: 6rem;
+  flex-shrink: 0;
+}
+.vx-modules article {
+  position: relative;
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  min-width: 0;
+  padding: 0.7rem;
+  background: linear-gradient(115deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-7) 33.33%, transparent);
+}
+.vx-modules article > svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--maroon-tone-11);
+  flex-shrink: 0;
+}
+.vx-modules article > div {
+  min-width: 0;
+}
+.vx-modules small {
+  font-size: 0.5rem;
+  color: var(--maroon-tone-14);
+}
+.vx-modules b {
+  display: block;
+  font-size: 0.9rem;
+  color: #f6f5f1;
+  line-height: 1.25;
+  margin: 0.35rem 0;
+}
+.vx-modules span {
+  font-size: 0.5rem;
+  display: block;
+  color: var(--maroon-tone-13);
+}
+.vx-modules .vx-team-module {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 92% 100%, 0 100%);
+  border-left: 2px solid var(--maroon-tone-11);
+}
+.vx-modules .vx-rising-module {
+  background: linear-gradient(120deg, color-mix(in srgb, var(--maroon-tone-3) 33.33%, transparent), var(--maroon-tone-2));
+  border-radius: 0.7rem 0 0.7rem 0;
+}
+.vx-modules .vx-target-module {
+  border-radius: 2.5rem 0.4rem 0.4rem 2.5rem;
+}
+.vx-modules .vx-reward-module {
+  background: linear-gradient(120deg, #694f2933, var(--maroon-tone-2));
+  border-color: #f0b94b55;
+}
+.vx-modules .vx-reward-module > svg {
+  color: #f0b94b;
+}
+.vx-modules .vx-reward-module b {
+  font-size: 1.6rem;
+  color: #f0b94b;
+}
+.vx-progress-ring {
+  width: 3.2rem;
+  height: 3.2rem;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: conic-gradient(var(--maroon-tone-11) var(--progress), var(--maroon-tone-4) 0);
+  position: relative;
+}
+.vx-progress-ring:before {
+  content: "";
+  position: absolute;
+  inset: 0.2rem;
+  border-radius: 50%;
+  background: var(--maroon-tone-2);
+}
+.vx-progress-ring > span {
+  position: relative;
+  font-size: 0.8rem;
+  color: var(--maroon-tone-16);
+  display: flex;
+  align-items: baseline;
+}
+.vx-progress-ring small {
+  font-size: 0.45rem;
+}
+.victory-studio.portrait-layout .vx-portrait-shell {
+  transform: translateY(-0.5rem) rotateY(-14deg);
+}
+/* Weekly is a three-level stage; monthly is an architectural finals presentation. */
+.victory-studio .oe-podium {
+  gap: 0.7rem;
+  perspective: 1200px;
+}
+.victory-studio .oe-podium-player {
+  background: linear-gradient(125deg, color-mix(in srgb, var(--maroon-tone-4) 53.33%, transparent), var(--maroon-tone-3));
+  border: 1px solid color-mix(in srgb, var(--medal) 45%, transparent);
+  border-bottom: 1rem solid color-mix(in srgb, var(--medal) 35%, var(--maroon-tone-2));
+  clip-path: polygon(8% 0, 92% 0, 100% 4%, 100% 100%, 0 100%, 0 4%);
+  box-shadow: inset 0 1px #ffffff38;
+  animation: vx-stage-intro 0.8s ease both;
+}
+.victory-studio .oe-podium-player.m0 {
+  background: linear-gradient(130deg, #5b4d3b55, var(--maroon-tone-3) 60%);
+  animation-delay: 0.12s;
+}
+.victory-studio .oe-podium-player.m2 {
+  animation-delay: 0.24s;
+}
+.victory-studio .oe-podium-player .oe-avatar {
+  border: 2px solid var(--medal);
+  background: linear-gradient(150deg, var(--maroon-tone-5), var(--maroon-tone-3));
+  box-shadow: 0 1rem 2rem #0005;
+}
+.victory-studio .oe-podium-halo {
+  border-color: #f0b94b25;
+}
+.victory-studio .oe-weekly-bottom {
+  background: color-mix(in srgb, var(--maroon-tone-3) 40.00%, transparent);
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-7) 26.67%, transparent);
+  padding: 0.6rem 1rem;
+  clip-path: polygon(
+    0.8rem 0,
+    100% 0,
+    100% calc(100% - 0.8rem),
+    calc(100% - 0.8rem) 100%,
+    0 100%,
+    0 0.8rem
+  );
+}
+.victory-studio .oe-comparison progress,
+.victory-studio progress {
+  accent-color: var(--vx-cyan);
+}
+.victory-studio .oe-monthly-heading small {
+  color: #f0b94b;
+}
+.victory-studio .vx-finals {
+  flex: 1;
+  background:
+    radial-gradient(ellipse at 50% 35%, #f0b94b19, transparent 65%),
+    linear-gradient(130deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  border-color: #f0b94b77;
+}
+.vx-finals .vx-champion-portrait {
+  max-height: 14rem;
+  height: 14rem;
+}
+.vx-finals .vx-portrait-shell {
+  width: 8rem;
+  height: 9.5rem;
+}
+.vx-finals .vx-platform {
+  width: 24rem;
+  height: 5rem;
+}
+.vx-finals .vx-champion-nameplate h2 {
+  font-size: 2.7rem !important;
+}
+.vx-finals .vx-champion-numbers strong {
+  font-size: 2.5rem;
+}
+.victory-studio .oe-top-list > article {
+  border: 1px solid var(--medal);
+  border-left: 3px solid var(--medal);
+  background: linear-gradient(120deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  clip-path: polygon(
+    0 0,
+    calc(100% - 0.6rem) 0,
+    100% 0.6rem,
+    100% 100%,
+    0 100%
+  );
+}
+.victory-studio .oe-history-strip {
+  background: linear-gradient(90deg, #73582c22, var(--maroon-tone-2));
+  border-color: #f0b94b44;
+  padding: 0.7rem;
+}
+.victory-studio .oe-team {
+  background: linear-gradient(140deg, color-mix(in srgb, var(--maroon-tone-4) 73.33%, transparent), var(--maroon-tone-2));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-11) 33.33%, transparent);
+  box-shadow: inset 0 1px #ffffff17;
+  clip-path: polygon(
+    0 1.2rem,
+    1.2rem 0,
+    100% 0,
+    100% calc(100% - 1.2rem),
+    calc(100% - 1.2rem) 100%,
+    0 100%
+  );
+}
+.victory-studio .oe-team.side-1 {
+  background: linear-gradient(230deg, #59462a44, var(--maroon-tone-3));
+}
+.victory-studio .oe-team-badge {
+  border-color: #f0b94b88;
+  background: linear-gradient(135deg, var(--maroon-tone-4), var(--maroon-tone-2));
+  box-shadow: 0 1rem 3rem #0005;
+}
+.victory-studio .oe-versus {
+  color: #f0b94b;
+  text-shadow: 0 0 2rem #f0b94b33;
+}
+.victory-studio .oe-hall-card {
+  background: linear-gradient(130deg, var(--maroon-tone-4), var(--maroon-tone-2));
+  border-color: #f0b94b55;
+}
+.victory-studio.oe-leaderboard-mode .oe-composition {
+  grid-template-columns: 1fr;
+}
+.victory-studio:not(.has-board) .oe-composition {
+  grid-template-columns: 1fr;
+}
+.victory-studio:not(.has-board) .vx-main-stage {
+  grid-template-columns: 0.6fr 1.4fr;
+}
+.victory-studio:not(.has-board) .vx-main-stage.no-deck {
+  grid-template-columns: 1fr;
+}
+/* Victory recognition material layers preserve the deterministic phase timeline. */
+.victory-studio .cine-ceremony {
+  background: linear-gradient(110deg, color-mix(in srgb, var(--maroon-tone-0) 76.08%, transparent), color-mix(in srgb, var(--maroon-tone-2) 53.33%, transparent), color-mix(in srgb, var(--maroon-tone-0) 72.16%, transparent));
+}
+.victory-studio .cine-stage {
+  background:
+    radial-gradient(ellipse at 25% 40%, color-mix(in srgb, var(--maroon-tone-4) 50.20%, transparent), transparent 60%),
+    linear-gradient(120deg, color-mix(in srgb, var(--maroon-tone-3) 93.73%, transparent), color-mix(in srgb, var(--maroon-tone-2) 90.98%, transparent));
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 53.33%, transparent);
+  box-shadow:
+    0 2rem 5rem #0006,
+    inset 0 1px color-mix(in srgb, var(--maroon-tone-15) 9.02%, transparent);
+}
+.victory-studio .cine-heading {
+  color: var(--maroon-tone-11);
+}
+.victory-studio .cine-sales strong {
+  color: var(--maroon-tone-15);
+}
+.victory-studio .cine-orbit {
+  border-color: #f0b94b60;
+  box-shadow: 0 0 2.5rem color-mix(in srgb, var(--maroon-tone-11) 9.41%, transparent);
+}
+.victory-studio .cine-ceremony[data-category="superstar"] .cine-stage {
+  border-left: 3px solid #f0b94b;
+}
+.victory-studio .cine-ceremony[data-category="superstar"] .cine-badge {
+  animation:
+    vx-badge-assembly 0.8s ease both,
+    cine-float 6s 0.8s ease-in-out infinite;
+}
+.victory-studio .cine-ceremony[data-category="legendary"] .cine-stage {
+  background:
+    radial-gradient(ellipse at 25% 35%, #f0b94b15, transparent 55%),
+    linear-gradient(130deg, color-mix(in srgb, var(--maroon-tone-3) 92.94%, transparent), color-mix(in srgb, var(--maroon-tone-2) 90.98%, transparent));
+  border-color: #f0b94b88;
+}
+.victory-studio .cine-ceremony[data-category="legendary"] .cine-light {
+  background: conic-gradient(
+    from 150deg at 50% 0%,
+    transparent,
+    #f0b94b0b,
+    transparent,
+    color-mix(in srgb, var(--maroon-tone-11) 5.10%, transparent),
+    transparent
+  );
+}
+.victory-studio .cine-prize-panel {
+  background: linear-gradient(110deg, #a77d342e, #f0b94b30, color-mix(in srgb, var(--maroon-tone-3) 33.33%, transparent));
+  border-color: #f0b94b99;
+  box-shadow:
+    inset 0 1px #fff3cf3d,
+    0 1rem 2rem #0003;
+}
+.victory-studio .oe-wheel-depth {
+  background: linear-gradient(100deg, var(--maroon-tone-0), var(--maroon-tone-4), var(--maroon-tone-2));
+}
+.victory-studio .oe-wheel-rim {
+  background: repeating-conic-gradient(
+    #b0863d 0deg,
+    #f7dc89 2deg,
+    #c49237 4deg
+  );
+  box-shadow:
+    0 0 0 0.12rem #f0b94b,
+    inset 0 0 0.8rem #f0b94b66,
+    0 0 2rem color-mix(in srgb, var(--maroon-tone-11) 10.20%, transparent);
+}
+.victory-studio .oe-wheel-hub {
+  background: radial-gradient(circle at 30% 25%, var(--maroon-tone-5), var(--maroon-tone-3) 65%, var(--maroon-tone-0));
+}
+.vx-audio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-width: 15rem;
+}
+.vx-audio > button {
+  display: flex !important;
+  gap: 0.45rem;
+  width: auto !important;
+  min-height: 2rem !important;
+  height: auto !important;
+  padding: 0.45rem 0.7rem !important;
+  border: 1px solid #f0b94b99 !important;
+  border-radius: 0.3rem !important;
+  background: var(--maroon-tone-3) !important;
+  color: #f0d286 !important;
+  cursor: pointer;
+}
+.vx-audio > button > span {
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.vx-audio > button svg {
+  width: 1rem;
+  height: 1rem;
+}
+.vx-audio-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  justify-content: center;
+}
+.vx-audio-detail small {
+  font-size: 0.45rem;
+  letter-spacing: 0.04em !important;
+  white-space: nowrap;
+}
+.vx-audio-detail i {
+  width: 0.3rem;
+  height: 0.3rem;
+  background: var(--maroon-tone-7) !important;
+  border-radius: 50%;
+}
+.vx-audio-detail i.signal {
+  background: var(--maroon-tone-7) !important;
+  box-shadow: 0 0 0.4rem var(--maroon-tone-7);
+}
+.vx-audio-detail > button {
+  font-size: 0.45rem !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 0.3rem !important;
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--maroon-tone-11) !important;
+}
+.vx-audio > [role="alert"] {
+  position: absolute;
+  top: 6rem;
+  right: 2rem;
+  background: var(--maroon-tone-2);
+  padding: 1rem;
+  z-index: 100;
+  font-size: 1rem;
+  max-width: 25rem;
+}
+/* The 16-page operator console uses the same materials, without perpetual decoration. */
+.ops {
+  --console-bg: var(--maroon-tone-0);
+  --console-secondary: var(--maroon-tone-2);
+  --console-surface: var(--maroon-tone-3);
+  --console-elevated: var(--maroon-tone-3);
+  --console-emerald: var(--maroon-tone-11);
+  --console-hover: var(--maroon-tone-12);
+  --console-mint: var(--maroon-tone-13);
+  --console-gold: #f0b94b;
+  --console-text: #f6f5f1;
+  --console-muted: var(--maroon-tone-13);
+  --console-dim: var(--maroon-tone-11);
+  --console-border: color-mix(in srgb, var(--maroon-tone-11) 16.08%, transparent);
+  background:
+    radial-gradient(ellipse at 60% 0, color-mix(in srgb, var(--maroon-tone-3) 33.33%, transparent), transparent 60%), var(--maroon-tone-0);
+}
+.ops.op-shell nav {
+  background: linear-gradient(155deg, var(--maroon-tone-3), var(--maroon-tone-2) 65%);
+  border-right-color: #f0b94b30;
+}
+.ops.op-shell nav > a[aria-current] {
+  background: linear-gradient(95deg, #8a632933, var(--maroon-tone-3));
+  box-shadow: inset 3px 0 #f0b94b;
+  color: #f3d49a;
+}
+.ops.op-shell nav > a:hover {
+  background: var(--maroon-tone-4);
+}
+.ops .op-brand svg,
+.ops .op-brand em {
+  color: #f0b94b;
+}
+.ops .op-top {
+  background: color-mix(in srgb, var(--maroon-tone-2) 92.94%, transparent);
+  border-bottom-color: #f0b94b28;
+}
+.ops .op-top > a {
+  border-color: var(--maroon-tone-7);
+  background: var(--maroon-tone-3);
+}
+.ops .op-panel,
+.ops .op-kpis > div,
+.ops .op-gate section {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--maroon-tone-3) 90.98%, transparent), color-mix(in srgb, var(--maroon-tone-2) 90.98%, transparent));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+  box-shadow:
+    inset 0 1px color-mix(in srgb, var(--maroon-tone-16) 3.53%, transparent),
+    0 10px 30px #0002;
+}
+.ops .op-panel-head h2:before {
+  background: #f0b94b;
+}
+.ops .op-eyebrow {
+  color: #f0b94b;
+}
+.ops h1 {
+  color: #f6f5f1;
+}
+.ops button,
+.ops input,
+.ops select,
+.ops textarea {
+  background: var(--maroon-tone-2);
+  border-color: var(--maroon-tone-5);
+  color: #f6f5f1;
+}
+.ops button.primary {
+  background: linear-gradient(120deg, #f4cb73, #e3a735);
+  border-color: #f0b94b;
+  color: var(--maroon-tone-2);
+  box-shadow: 0 5px 15px #f0b94b0c;
+}
+.ops button.primary:hover {
+  background: #f5d58c;
+  color: var(--maroon-tone-2);
+}
+.ops button:hover,
+.ops a:hover {
+  background: var(--maroon-tone-4);
+}
+.ops .control-status {
+  background: linear-gradient(115deg, var(--maroon-tone-3), var(--maroon-tone-3));
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 23.14%, transparent);
+}
+.ops .console-metrics {
+  background: linear-gradient(110deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+}
+.ops .console-metrics > div {
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+}
+.ops .console-metrics strong {
+  color: #f5d18a;
+}
+.ops .bc-shortcuts a {
+  background: linear-gradient(125deg, var(--maroon-tone-4), var(--maroon-tone-2));
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+  border-radius: 4px 14px 4px 14px;
+}
+.ops .bc-shortcuts a:hover {
+  border-color: #f0b94b77;
+  background: var(--maroon-tone-4);
+}
+.ops .bc-facts > div {
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 16.86%, transparent);
+}
+.ops .console-notice {
+  background: linear-gradient(110deg, #6b502a24, var(--maroon-tone-3));
+  border-color: #f0b94b;
+}
+.ops .console-tabs {
+  background: var(--maroon-tone-2);
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+}
+.ops .console-tabs button[aria-selected="true"],
+.ops .console-tabs button[aria-pressed="true"] {
+  background: var(--maroon-tone-4);
+  color: #f0ce8a;
+  box-shadow: inset 0 -2px #f0b94b;
+}
+.ops .op-monitor {
+  background: var(--maroon-tone-0);
+  border-color: var(--maroon-tone-0);
+  outline-color: var(--maroon-tone-5);
+  box-shadow: 0 15px 35px #0005;
+}
+.ops th {
+  background: var(--maroon-tone-2);
+  color: var(--maroon-tone-13);
+}
+.ops td,
+.ops th {
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 13.33%, transparent);
+}
+.ops tr:hover td {
+  background: color-mix(in srgb, var(--maroon-tone-4) 33.33%, transparent);
+}
+.ops .bc-stack button {
+  background: var(--maroon-tone-3);
+  border-color: var(--maroon-tone-5);
+}
+.ops .op-badge {
+  background: var(--maroon-tone-4);
+  color: var(--maroon-tone-13);
+}
+.ops .bc-segments > div {
+  background: var(--maroon-tone-2);
+  border-color: color-mix(in srgb, var(--maroon-tone-7) 26.67%, transparent);
+}
+.ops dialog {
+  background: linear-gradient(125deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  border-color: var(--maroon-tone-7);
+}
+.ops .save-action-bar {
+  background: color-mix(in srgb, var(--maroon-tone-3) 96.08%, transparent);
+  border-color: var(--maroon-tone-11);
+}
+.ops .console-programs article {
+  background: linear-gradient(125deg, var(--maroon-tone-3), var(--maroon-tone-3));
+  border-color: #f0b94b33;
+  border-top-color: #f0b94b;
+}
+.ops .op-wheel {
+  background: radial-gradient(ellipse, color-mix(in srgb, var(--maroon-tone-4) 33.33%, transparent), transparent 70%);
+}
+.ops .console-queue-head {
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+}
+.ops .console-status {
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+}
+.ops .op-identity {
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+}
+.ops .console-top-chips span {
+  color: var(--maroon-tone-14);
+  border-color: color-mix(in srgb, var(--maroon-tone-7) 26.67%, transparent);
+}
+.ops .target-summaries > div,
+.ops .n-calendar,
+.ops .calendar-days > div {
+  background: var(--maroon-tone-3);
+  border-color: color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+}
+@keyframes vx-card-reflection {
+  0%,
+  100% {
+    transform: translateX(-35%);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(35%);
+    opacity: 1;
+  }
+}
+@keyframes vx-stage-intro {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes vx-orbit {
+  to {
+    transform: translate(-50%, -50%) rotateX(63deg) rotateY(-16deg)
+      rotateZ(360deg);
+  }
+}
+@keyframes vx-platform-light {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes vx-beams {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+@keyframes vx-badge-assembly {
+  from {
+    opacity: 0;
+    transform: perspective(800px) rotateY(-25deg) scale(0.93);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.victory-studio[data-visible="false"] * {
+  animation-play-state: paused !important;
+}
+.victory-studio[data-intensity="Reduced"] * {
+  animation: none !important;
+  transition: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .victory-studio * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media (max-width: 800px) {
+  .ops .console-top-chips {
+    display: none;
+  }
+  .ops .op-body {
+    padding: 20px 14px;
+  }
+}
+.victory-studio .oe-podium-player .oe-avatar {
+  clip-path: none;
+  border-radius: 1rem 0.25rem 1rem 0.25rem;
+}
+.vx-finals-team {
+  position: absolute;
+  right: 2rem;
+  top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 11rem;
+  padding: 1.5rem 0.7rem;
+  border: 1px solid #f0b94b44;
+  background: linear-gradient(140deg, #ad823320, color-mix(in srgb, var(--maroon-tone-3) 25.10%, transparent));
+  clip-path: polygon(0 0, calc(100% - 1rem) 0, 100% 1rem, 100% 100%, 0 100%);
+}
+.vx-finals-team > svg {
+  width: 3rem;
+  height: 3rem;
+  color: #f0b94b;
+}
+.vx-finals-team > b {
+  font-size: 1.2rem;
+  color: #f3d289;
+}
+.vx-finals-team > small {
+  font-size: 0.65rem;
+}
+.vx-finals-team > span {
+  font-size: 0.45rem;
+  letter-spacing: 0.13em;
+  color: var(--maroon-tone-13);
+}
+.victory-studio[data-theme="Midnight"] {
+  background: var(--maroon-tone-0);
+}
+.victory-studio[data-theme="Glacier"] {
+  background: radial-gradient(ellipse at 40% 30%, var(--maroon-tone-4), var(--maroon-tone-2));
+}
+.victory-studio[data-theme="Obsidian Emerald"] {
+  background: radial-gradient(ellipse at 40% 30%, var(--maroon-tone-3), var(--maroon-tone-0));
+}
+.victory-studio[data-background="Clean"] {
+  background-image: none;
+}
+.victory-studio[data-background="Grid"] {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--maroon-tone-11) 3.14%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--maroon-tone-11) 3.14%, transparent) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+}
+/* Focused material and motion refinements: glass supports information; metal marks achievement. */
+.victory-studio .oe-metrics,
+.victory-studio .vx-modules article {
+  backdrop-filter: blur(8px);
+  background-color: color-mix(in srgb, var(--maroon-tone-3) 23.92%, transparent);
+}
+.vx-champion-stage:after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 1px 1px color-mix(in srgb, var(--maroon-tone-16) 7.06%, transparent),
+    inset -1px -1px color-mix(in srgb, var(--maroon-tone-0) 53.33%, transparent);
+}
+.vx-portrait-shell:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 25%,
+    #fff6c519 45%,
+    transparent 65%
+  );
+  animation: vx-metal-sweep 12s ease-in-out infinite;
+}
+.vx-champion-portrait {
+  transform-style: preserve-3d;
+}
+.vx-portrait-shell {
+  animation: vx-portrait-depth 18s ease-in-out infinite;
+  transform-origin: 50% 80%;
+}
+.vx-platform-surface:after {
+  content: "";
+  position: absolute;
+  inset: 5%;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-15) 7.84%, transparent);
+  border-radius: 50%;
+  background: linear-gradient(
+    110deg,
+    transparent 15%,
+    color-mix(in srgb, var(--maroon-tone-15) 4.71%, transparent) 45%,
+    transparent 80%
+  );
+}
+.victory-studio .oe-wheel-pointer {
+  filter: drop-shadow(0 0 0.6rem #f0b94b66);
+}
+.victory-studio .oe-wheel-body {
+  filter: drop-shadow(1rem 1.6rem 1rem #0008);
+}
+.victory-studio .oe-wheel-stand {
+  background: linear-gradient(
+    100deg,
+    var(--maroon-tone-0),
+    var(--maroon-tone-5) 42%,
+    var(--maroon-tone-2) 65%,
+    var(--maroon-tone-0)
+  );
+  border-color: #f0b94b55;
+}
+.ops .op-top {
+  backdrop-filter: blur(14px);
+}
+.ops .console-preview-grid > .op-panel:first-child,
+.ops .bc-home > .op-panel:first-child {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--maroon-tone-4) 53.33%, transparent), color-mix(in srgb, var(--maroon-tone-2) 90.20%, transparent));
+  box-shadow:
+    inset 0 1px color-mix(in srgb, var(--maroon-tone-15) 8.24%, transparent),
+    0 20px 35px #0003;
+}
+@keyframes vx-metal-sweep {
+  0%,
+  65%,
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  90% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+@keyframes vx-portrait-depth {
+  0%,
+  100% {
+    transform: translateY(-0.5rem) rotateY(-3deg) rotateX(1deg);
+  }
+  50% {
+    transform: translateY(-0.8rem) rotateY(3deg) rotateX(-1deg);
+  }
+}
+.victory-studio.portrait-layout .vx-portrait-shell {
+  animation: none;
+  transform: translateY(-0.5rem) rotateY(-14deg);
+}
+.victory-studio[data-intensity="Reduced"] .vx-portrait-shell {
+  animation: none;
+  transform: translateY(-0.5rem);
+}
+@media (prefers-reduced-motion: reduce) {
+  .vx-portrait-shell {
+    animation: none !important;
+    transform: translateY(-0.5rem) !important;
+  }
+  .victory-studio .oe-metrics,
+  .victory-studio .vx-modules article {
+    backdrop-filter: none;
+  }
+}
+.vx-console-dashboard {
+  display: grid;
+  gap: 20px;
+}
+.vx-console-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 30px;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-11) 26.67%, transparent);
+  background:
+    radial-gradient(ellipse at 80% 20%, #8b68222b, transparent 60%),
+    linear-gradient(115deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  border-left: 3px solid #f0b94b;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+}
+.vx-console-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  color: var(--maroon-tone-11);
+}
+.ops .vx-console-hero h2 {
+  font-size: 30px;
+  line-height: 1.15;
+  margin: 12px 0 8px;
+}
+.vx-console-hero h2 em {
+  font-style: normal;
+  color: #f2cf88;
+}
+.vx-console-hero p {
+  font-size: 12px !important;
+}
+.vx-console-now {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 14px;
+  min-width: 280px;
+  align-items: center;
+  padding-left: 30px;
+  border-left: 1px solid color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent);
+}
+.vx-console-now > svg {
+  grid-row: 1/4;
+  width: 46px;
+  height: 46px;
+  color: #f0b94b;
+}
+.vx-console-now > strong {
+  font-size: 23px;
+  line-height: 1.2;
+}
+.vx-console-now > small {
+  font-size: 9px;
+  color: #f0b94b;
+}
+.vx-console-now > span {
+  font-size: 11px;
+  color: var(--maroon-tone-13);
+}
+.vx-console-now > a {
+  grid-column: 2;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 11px;
+  margin-top: 9px;
+}
+.vx-console-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 2.7fr) minmax(290px, 1fr);
+  gap: 20px;
+}
+.vx-console-monitor {
+  padding: 18px;
+  background: linear-gradient(140deg, color-mix(in srgb, var(--maroon-tone-3) 78.82%, transparent), color-mix(in srgb, var(--maroon-tone-2) 85.10%, transparent));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-11) 29.02%, transparent);
+  border-radius: 14px;
+  min-width: 0;
+}
+.vx-console-monitor header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.ops .vx-console-monitor header h2 {
+  margin: 5px 0 0;
+  font-size: 20px;
+}
+.vx-readonly {
+  font-size: 9px;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-11) 23.92%, transparent);
+  color: var(--maroon-tone-14);
+  padding: 6px 9px;
+  border-radius: 5px;
+}
+.vx-console-monitor footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--maroon-tone-13);
+  margin-top: 13px;
+}
+.vx-console-monitor footer b {
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  color: #f0b94b;
+}
+.vx-console-operations {
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-7) 26.67%, transparent);
+  border-radius: 12px;
+  padding: 20px;
+  background: linear-gradient(150deg, var(--maroon-tone-3), var(--maroon-tone-2));
+}
+.vx-console-operations > h2 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 17px;
+  color: var(--maroon-tone-15);
+  font-size: 17px;
+}
+.vx-operator-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: color-mix(in srgb, var(--maroon-tone-11) 16.86%, transparent);
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-11) 16.86%, transparent);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.vx-operator-metrics > div {
+  background: var(--maroon-tone-3);
+  padding: 13px;
+}
+.vx-operator-metrics small {
+  font-size: 8px !important;
+  letter-spacing: 0.08em;
+}
+.vx-operator-metrics strong {
+  display: block;
+  color: #f4cc7d;
+  font-size: 25px;
+  margin-top: 3px;
+}
+.vx-console-operations dl {
+  margin: 15px 0;
+}
+.vx-console-operations dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid color-mix(in srgb, var(--maroon-tone-7) 14.90%, transparent);
+  padding: 9px 0;
+}
+.vx-console-operations dt {
+  font-size: 11px;
+}
+.vx-console-operations dd {
+  font-size: 11px;
+  text-align: right;
+  margin: 0;
+  max-width: 65%;
+}
+.vx-console-operations dd small {
+  font-size: 8px;
+}
+.vx-console-operations label {
+  display: block;
+  font-size: 10px;
+}
+.vx-console-operations select {
+  margin: 6px 0 10px;
+}
+.vx-console-operations > button {
+  width: 100%;
+}
+.vx-console-action-deck {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 11px;
+}
+.vx-console-action-deck > a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-7) 26.67%, transparent);
+  background: linear-gradient(135deg, var(--maroon-tone-3), var(--maroon-tone-2));
+  border-radius: 4px 12px 4px 12px;
+  min-width: 0;
+}
+.vx-console-action-deck > a > svg:first-child {
+  width: 24px;
+  color: #f0b94b;
+}
+.vx-console-action-deck > a > svg:last-child {
+  margin-left: auto;
+  width: 15px;
+  color: var(--maroon-tone-11);
+}
+.vx-console-action-deck b {
+  font-size: 12px;
+  color: var(--maroon-tone-15);
+}
+.vx-console-action-deck small {
+  font-size: 9px;
+  letter-spacing: 0;
+  margin-top: 3px;
+}
+.vx-console-feed {
+  padding: 18px 22px;
+  background: var(--maroon-tone-2);
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-7) 20.00%, transparent);
+  border-radius: 10px;
+}
+.vx-console-feed h2 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+.vx-console-feed > div {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+.vx-console-feed article {
+  border-left: 2px solid #f0b94b88;
+  padding-left: 12px;
+}
+.vx-console-feed article span {
+  display: block;
+  color: var(--maroon-tone-11);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+.vx-console-feed article b {
+  display: block;
+  font-size: 13px;
+  margin: 4px 0;
+}
+.vx-console-feed article small {
+  font-size: 9px;
+}
+.ops .vx-console-dashboard + .op-panel {
+  margin-top: 20px;
+}
+@media (max-width: 1200px) {
+  .vx-console-overview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .vx-console-operations {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 25px;
+  }
+  .vx-console-operations h2 {
+    grid-column: 1/-1;
+  }
+  .vx-console-operations dl {
+    margin: 0;
+  }
+  .vx-console-operations > p {
+    grid-column: 1/-1;
+  }
+  .vx-console-action-deck {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .vx-console-hero {
+    gap: 20px;
+  }
+  .vx-console-now {
+    min-width: 220px;
+  }
+}
+@media (max-width: 800px) {
+  .vx-console-hero {
+    display: block;
+    padding: 20px;
+  }
+  .vx-console-now {
+    border: 0;
+    border-top: 1px solid color-mix(in srgb, var(--maroon-tone-7) 20.00%, transparent);
+    padding: 16px 0 0;
+    margin-top: 15px;
+  }
+  .vx-console-operations {
+    display: block;
+  }
+  .vx-console-operations dl {
+    margin: 15px 0;
+  }
+  .vx-console-action-deck {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .vx-console-feed > div {
+    grid-template-columns: 1fr 1fr;
+  }
+  .vx-console-monitor {
+    padding: 12px;
+  }
+  .vx-readonly {
+    font-size: 7px;
+  }
+  .vx-console-monitor footer {
+    font-size: 8px;
+  }
+  .vx-console-monitor footer b {
+    display: none;
+  }
+}
+/* Isolate the command desk from legacy global aside flex rules. */
+.ops .vx-console-operations { display:block; min-width:0; margin:0; letter-spacing:normal; align-self:stretch; }
+.ops .vx-console-operations .vx-operator-metrics { display:grid; }
+.ops .vx-console-operations label { width:100%; }
+.ops .vx-console-operations select { width:100%; }
+.victory-studio[data-champion=Electric] .vx-portrait-shell { border-color:var(--maroon-tone-11); filter:drop-shadow(0 0 1rem color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent)); }
+/* LED broadcast finishing: larger identities, sculpted medals and stadium light. */
+.victory-studio .oe-rank-name strong { font-size:1.22rem; letter-spacing:-.035em; }
+.victory-studio .oe-rank-name small { font-size:.78rem; }
+.victory-studio .oe-rank-row { border-radius:.15rem .8rem .15rem .15rem; background:linear-gradient(105deg,var(--maroon-tone-4),var(--maroon-tone-3) 55%,var(--maroon-tone-2)); box-shadow:inset 0 1px color-mix(in srgb, var(--maroon-tone-14) 10.20%, transparent),0 3px 7px #0002; }
+.victory-studio .oe-rank-row.m0 { background:linear-gradient(105deg,#64512b80,var(--maroon-tone-3) 52%,var(--maroon-tone-3)); border-top-color:#f0b94b66; }
+.victory-studio .oe-rank-row.m1 { background:linear-gradient(105deg,color-mix(in srgb, var(--maroon-tone-5) 40.00%, transparent),var(--maroon-tone-3) 52%,var(--maroon-tone-2)); }
+.victory-studio .oe-rank-row.m2 { background:linear-gradient(105deg,#74513a66,var(--maroon-tone-3) 52%,var(--maroon-tone-2)); }
+.vx-card-identity h3 { font-size:1.3rem!important; }
+.vx-card-identity p { font-size:.85rem; }
+.vx-card-score strong { font-size:2.6rem; }
+.vx-card-score span { font-size:.62rem; }
+.vx-player-card:after { content:''; position:absolute; right:-.7rem; top:-.5rem; width:6rem; height:11rem; border:1.1rem solid color-mix(in srgb,var(--tier) 9%,transparent); transform:skew(-22deg); pointer-events:none; z-index:-1; }
+.vx-champion-nameplate h2 { font-size:3.35rem; }
+.vx-champion-stage { border-radius:2rem .3rem 2rem .3rem; background:radial-gradient(ellipse at 50% 35%,color-mix(in srgb, var(--maroon-tone-5) 52.16%, transparent),transparent 58%),linear-gradient(135deg,color-mix(in srgb, var(--maroon-tone-3) 80.00%, transparent),color-mix(in srgb, var(--maroon-tone-2) 53.33%, transparent)); box-shadow:inset 1px 0 color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent),inset -1px 0 color-mix(in srgb, var(--maroon-tone-11) 20.00%, transparent),0 1rem 2rem #0003; }
+.vx-stage-beams { background:conic-gradient(from 160deg at 50% 0%,transparent 0deg,#f0b94b19 7deg,transparent 18deg,color-mix(in srgb, var(--maroon-tone-11) 12.16%, transparent) 24deg,transparent 35deg); }
+.vx-champion-portrait:before { content:''; position:absolute; width:20rem; height:20rem; border:1px solid color-mix(in srgb, var(--maroon-tone-12) 18.82%, transparent); border-radius:50%; background:repeating-conic-gradient(from 0deg,color-mix(in srgb, var(--maroon-tone-13) 7.06%, transparent) 0deg 1deg,transparent 1deg 15deg); mask-image:radial-gradient(transparent 55%,#000 56%,#000 65%,transparent 66%); }
+.vx-portrait-shell > .oe-avatar { text-shadow:0 3px 1px #0008,0 0 1.6rem #f0b94b40; background:linear-gradient(125deg,var(--maroon-tone-5),var(--maroon-tone-3) 48%,var(--maroon-tone-2)); }
+.victory-studio .cine-stage { background:radial-gradient(ellipse at 12% 50%,color-mix(in srgb, var(--maroon-tone-5) 60.00%, transparent),transparent 60%),linear-gradient(115deg,color-mix(in srgb, var(--maroon-tone-3) 94.90%, transparent),color-mix(in srgb, var(--maroon-tone-2) 92.94%, transparent)); box-shadow:0 2rem 5rem #0007,inset 0 1px #f6df9d30; }
+.victory-studio .cine-identity h2 { font-size:5.3rem; }
+.victory-studio .cine-team { font-size:1.5rem; color:var(--maroon-tone-14); }
+.victory-studio .cine-sales strong { color:var(--maroon-tone-16); }
+.victory-studio .phase-result .cine-stage { border:0; clip-path:none; background:radial-gradient(ellipse at 25% 50%,color-mix(in srgb, var(--maroon-tone-5) 66.67%, transparent),transparent 53%),radial-gradient(ellipse at 75% 55%,#a77e2640,transparent 57%),linear-gradient(110deg,color-mix(in srgb, var(--maroon-tone-2) 96.08%, transparent),color-mix(in srgb, var(--maroon-tone-2) 94.90%, transparent)); border-radius:3rem .2rem 3rem .2rem; box-shadow:0 2rem 6rem #0009,inset 0 1px #ffe49a88,inset 0 -1px #f0b94b55; }
+.victory-studio .phase-result .cine-stage:before { content:''; position:absolute; inset:-20%; pointer-events:none; background:repeating-conic-gradient(from 4deg at 24% 50%,transparent 0deg 13deg,#ffe5a50c 14deg 15deg,transparent 16deg 30deg); mask-image:radial-gradient(ellipse,#000,transparent 67%); }
+.victory-studio .phase-result .cine-heading { color:#ffe6a0; font-size:2.1rem; letter-spacing:.18em; text-shadow:0 0 1.8rem #f0b94b44; }
+.victory-studio .phase-result .cine-prize-panel { position:relative; background:linear-gradient(115deg,#71572766,color-mix(in srgb, var(--maroon-tone-3) 60.00%, transparent) 55%,var(--maroon-tone-3)); border:1px solid #f0cb7299; border-left:5px solid #f0b94b; clip-path:polygon(0 0,calc(100% - 1.5rem) 0,100% 1.5rem,100% 100%,1.5rem 100%,0 calc(100% - 1.5rem)); }
+.victory-studio .phase-result .cine-prize-panel h3 { font-size:5.4rem; color:#ffe39a; text-shadow:0 3px 0 #664616,0 0 2rem #f0b94b33; }
+.victory-studio .phase-result .cine-emblem { filter:drop-shadow(0 0 2rem #f0b94b33); }
+.victory-studio .phase-bonus .cine-stage,.victory-studio .phase-unlock .cine-stage { border-radius:2rem .2rem; }
+@media(prefers-reduced-motion:reduce) { .victory-studio .cine-stage:before { animation:none; } }
+.victory-studio .oe-wheel-rotor { background:radial-gradient(circle,var(--maroon-tone-3),var(--maroon-tone-2)); }
+.victory-studio .cine-ceremony.phase-result[data-category] .cine-stage { background:radial-gradient(ellipse at 25% 50%,color-mix(in srgb, var(--maroon-tone-5) 66.67%, transparent),transparent 53%),radial-gradient(ellipse at 75% 55%,#a77e2655,transparent 57%),linear-gradient(110deg,color-mix(in srgb, var(--maroon-tone-2) 98.04%, transparent),color-mix(in srgb, var(--maroon-tone-2) 98.04%, transparent)); }

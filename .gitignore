@@ -1,0 +1,86 @@
+# Dependencies
+node_modules/
+*/node_modules/
+.pnp
+.pnp.js
+
+# Production Build outputs
+dist/
+dist-ssr/
+build/
+*.tsbuildinfo
+
+# Environment & local credentials
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production
+.env.production.local
+.env.*.local
+*.local
+
+# Allow safe environment examples
+!.env.example
+!.env.*.example
+
+# Secrets, keys, certificates
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+
+# Database backups and exports
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+*.sql.gz
+*.dump
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Caches & temporary runtime data
+.cache/
+.eslintcache
+.stylelintcache
+.vite/
+.parcel-cache/
+.turbo/
+
+# Editor and OS-specific files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# Large browser testing artifacts & temporary test data (.arena-qa)
+.arena-qa/**/*.png
+.arena-qa/**/*.jpg
+.arena-qa/**/*.jpeg
+.arena-qa/**/*.webp
+.arena-qa/**/*.log
+.arena-qa/**/node_modules/
+.arena-qa/maroon-before/
+.arena-qa/pre-emerald/
+.arena-qa/*-results.json
+.arena-qa/*-inventory.json
+.arena-qa/*-evidence.json
+.arena-qa/*-tests.json

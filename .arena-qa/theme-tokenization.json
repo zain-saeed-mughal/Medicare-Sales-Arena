@@ -1,0 +1,17 @@
+{
+  "files": [
+    "spotlight.css",
+    "style.css",
+    "admin\\admin.css",
+    "admin\\console.css",
+    "broadcast\\preview-navigation.css",
+    "championship\\cinematic.css",
+    "championship\\wheel-reference.css",
+    "demo\\showcase.css",
+    "theme\\maroon-tokens.css",
+    "theme\\maroon.css",
+    "championship/Wheel.tsx",
+    "broadcast/RewardReview.tsx"
+  ],
+  "colors": 82
+}

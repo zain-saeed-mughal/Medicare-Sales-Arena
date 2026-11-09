@@ -1,0 +1,482 @@
+/* Cinematic recognition. Geometry and palette are deliberately botanical-free. */
+.championship .cine-ceremony {
+  inset: 0;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  background: linear-gradient(100deg, color-mix(in srgb, var(--maroon-tone-0) 74.12%, transparent), color-mix(in srgb, var(--maroon-tone-0) 61.96%, transparent) 55%, color-mix(in srgb, var(--maroon-tone-0) 65.88%, transparent));
+  backdrop-filter: blur(2px);
+  border: 0;
+  overflow: hidden;
+  animation: cine-dim 0.6s ease both;
+}
+.cine-ceremony:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 55%, color-mix(in srgb, var(--maroon-tone-7) 8.63%, transparent), transparent 55%);
+  pointer-events: none;
+}
+.cine-light {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    color-mix(in srgb, var(--maroon-tone-13) 6.27%, transparent) 43%,
+    transparent 54%
+  );
+  animation: cine-light 7s ease-in-out infinite;
+  pointer-events: none;
+}
+.cine-ceremony .oe-ceremony-rail,
+.cine-ceremony .oe-ceremony-baseline {
+  position: absolute;
+  left: 3rem;
+  right: 3rem;
+  height: 3.6rem;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-color: color-mix(in srgb, var(--maroon-tone-14) 15.69%, transparent);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--maroon-tone-14);
+}
+.cine-ceremony .oe-ceremony-rail {
+  top: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--maroon-tone-14) 15.69%, transparent);
+}
+.cine-ceremony .oe-ceremony-baseline {
+  bottom: 0;
+  border-top: 1px solid color-mix(in srgb, var(--maroon-tone-14) 15.69%, transparent);
+}
+.cine-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18rem minmax(0, 1fr);
+  align-items: center;
+  gap: 3.5rem;
+  width: 91rem;
+  max-width: calc(100% - 8rem);
+  min-height: 36rem;
+  padding: 3.5rem 4rem;
+  background: linear-gradient(120deg, color-mix(in srgb, var(--maroon-tone-2) 94.90%, transparent), color-mix(in srgb, var(--maroon-tone-0) 92.94%, transparent) 65%, color-mix(in srgb, var(--maroon-tone-2) 85.10%, transparent));
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-11) 30.20%, transparent);
+  box-shadow:
+    0 2rem 6rem #0005,
+    inset 0 1px color-mix(in srgb, var(--maroon-tone-15) 8.24%, transparent);
+  clip-path: polygon(
+    0 1.5rem,
+    1.5rem 0,
+    100% 0,
+    100% calc(100% - 1.5rem),
+    calc(100% - 1.5rem) 100%,
+    0 100%
+  );
+  animation: cine-arrive 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.cine-stage:before,
+.cine-stage:after {
+  content: "";
+  position: absolute;
+  left: 3rem;
+  right: 3rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e7c46b8c, transparent);
+  pointer-events: none;
+}
+.cine-stage:before {
+  top: 1.5rem;
+}
+.cine-stage:after {
+  bottom: 1.5rem;
+}
+.cine-emblem {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  align-self: center;
+}
+.cine-badge {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 1.5rem 1rem #0008) drop-shadow(0 0 1.2rem color-mix(in srgb, var(--maroon-tone-7) 10.98%, transparent));
+  animation: cine-float 6s ease-in-out infinite;
+}
+.cine-orbit {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  border: 1px solid #e7c46b25;
+  border-radius: 50%;
+  box-shadow:
+    0 0 3rem color-mix(in srgb, var(--maroon-tone-7) 7.84%, transparent),
+    inset 0 0 3rem color-mix(in srgb, var(--maroon-tone-7) 4.71%, transparent);
+  transform: rotateX(35deg);
+}
+.cine-orbit:after {
+  content: "";
+  position: absolute;
+  inset: -1rem;
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-7) 10.98%, transparent);
+  border-radius: 50%;
+}
+.cine-copy {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+.cine-heading {
+  font-size: 2rem;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  font-weight: 600;
+  color: var(--maroon-tone-14);
+  margin-bottom: 1.5rem;
+  animation: cine-copy-in 0.7s 0.25s both;
+}
+.cine-identity {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-width: 0;
+}
+.cine-identity h2 {
+  font-size: clamp(3.5rem, 4vw, 5.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  margin: 0;
+  color: #f5f7f4;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+  animation: cine-copy-in 0.7s 0.45s both;
+}
+.cine-identity .oe-avatar {
+  width: 4.5rem;
+  height: 5.2rem;
+  flex-shrink: 0;
+}
+.cine-team {
+  font-size: 1.4rem;
+  color: var(--maroon-tone-13);
+  margin: 1rem 0 1.8rem;
+  animation: cine-copy-in 0.7s 0.55s both;
+}
+.cine-sales {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin: 1.5rem 0;
+  font-variant-numeric: tabular-nums;
+  animation: cine-copy-in 0.7s 0.65s both;
+}
+.cine-sales strong {
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--maroon-tone-13);
+  min-width: 2ch;
+}
+.cine-sales span {
+  font-size: 1.3rem;
+  letter-spacing: 0.12em;
+  color: var(--maroon-tone-15);
+}
+.cine-bonus {
+  margin-top: 1.8rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid #e7c46b50;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.cine-bonus small {
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  color: #e7c46b;
+}
+.cine-bonus strong {
+  font-size: 4.2rem;
+  font-variant-numeric: tabular-nums;
+  color: #f0d88e;
+  line-height: 1.15;
+}
+.cine-caption {
+  font-size: 1.1rem;
+  color: var(--maroon-tone-14);
+  margin: 0.8rem 0 0;
+}
+.cine-ceremony.phase-bonus .cine-stage,
+.cine-ceremony.phase-milestone .cine-stage,
+.cine-ceremony.phase-result .cine-stage {
+  border-color: #e7c46b60;
+  box-shadow:
+    0 2rem 6rem #0005,
+    inset 0 0 4rem #e7c46b05;
+}
+.cine-ceremony.phase-result .cine-heading,
+.cine-ceremony.phase-bonus .cine-heading {
+  color: #ead48a;
+}
+.cine-reward-ready {
+  font-size: 1.6rem;
+  letter-spacing: 0.1em;
+  color: #e7c46b;
+  padding-top: 1rem;
+  line-height: 1.5;
+}
+.cine-ceremony .cine-prize-panel {
+  margin: 2rem 0 0;
+  padding: 1.5rem 2rem;
+  border: 1px solid #edd28a80;
+  border-left: 3px solid #e7c46b;
+  background: linear-gradient(115deg, #b08b3e22, #d9bd632b 45%, #322b181f);
+  position: relative;
+  overflow: hidden;
+}
+.cine-prize-panel:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    #ffeeb919 48%,
+    transparent 61%
+  );
+  transform: translateX(-100%);
+  animation: cine-prize-sweep 3.4s 0.3s ease both;
+  pointer-events: none;
+}
+.cine-ceremony .cine-prize-panel small {
+  font-size: 1.1rem;
+  color: #e9dcba;
+  letter-spacing: 0.19em;
+}
+.cine-ceremony .cine-prize-panel h3 {
+  font-size: 4.6rem;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  margin: 0.5rem 0 1rem;
+  color: #f5d985;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.cine-ceremony .cine-prize-panel > span {
+  font-size: 0.65rem;
+  letter-spacing: 0.13em;
+  color: var(--maroon-tone-14);
+}
+.cine-landed-wheel {
+  position: absolute;
+  width: 12rem;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  opacity: 0.24;
+  pointer-events: none;
+  z-index: 0;
+}
+.cine-landed-wheel .oe-wheel {
+  width: 12rem;
+  height: 12rem;
+}
+.cine-wheel-stage {
+  grid-template-columns: minmax(0, 1fr) 35rem;
+  width: 99rem;
+  gap: 3rem;
+}
+.cine-main-wheel .oe-wheel {
+  width: 35rem;
+  height: 35rem;
+}
+.cine-wheel-stage .cine-heading {
+  font-size: 1.7rem;
+}
+.cine-wheel-stage .cine-identity h2 {
+  font-size: 4rem;
+}
+.cine-stage .oe-confetti {
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.cine-stage .oe-confetti i {
+  width: 0.22rem;
+  height: 0.65rem;
+  border-radius: 0;
+  background: #efdca0;
+  box-shadow: 0 0 0.5rem #e7c46b44;
+  animation-duration: 3s;
+}
+.phase-unlock .cine-badge {
+  animation:
+    cine-float 5s ease-in-out infinite,
+    cine-unlock 2s ease both;
+}
+
+.cine-ceremony[data-style="Minimal"] .cine-light,
+.cine-ceremony[data-style="Minimal"] .cine-orbit,
+.cine-ceremony[data-style="Minimal"] .oe-confetti {
+  display: none;
+}
+.cine-ceremony[data-paused="true"] * {
+  animation-play-state: paused !important;
+}
+.cine-ceremony .oe-wheel-pointer {
+  filter: drop-shadow(0 0 0.6rem #e7c46b88);
+}
+.cine-ceremony .oe-wheel-rim {
+  box-shadow:
+    0 0 0 0.14rem #c6a658,
+    inset 0 0 0.7rem #e7c46b66,
+    0 0 2rem color-mix(in srgb, var(--maroon-tone-7) 14.51%, transparent);
+}
+.cine-ceremony .oe-wheel [data-winning="true"] path {
+  stroke: #fff0af;
+  stroke-width: 2;
+  filter: brightness(1.2);
+}
+@keyframes cine-dim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes cine-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes cine-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes cine-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.45rem);
+  }
+}
+@keyframes cine-light {
+  0%,
+  100% {
+    transform: translateX(-15%);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(15%);
+    opacity: 1;
+  }
+}
+@keyframes cine-prize-sweep {
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes cine-unlock {
+  from {
+    filter: drop-shadow(0 0 0.2rem color-mix(in srgb, var(--maroon-tone-7) 40.00%, transparent));
+  }
+  to {
+    filter: drop-shadow(0 0 1.5rem #e7c46b33);
+  }
+}
+@keyframes cine-exit {
+  0%,
+  55% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-0.3rem);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cine-ceremony,
+  .cine-ceremony * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .cine-light {
+    display: none;
+  }
+  .cine-badge {
+    transform: none !important;
+  }
+  .cine-ceremony {
+    backdrop-filter: none !important;
+  }
+}
+.championship[data-intensity="Reduced"] .cine-ceremony * {
+  animation: none !important;
+  transition: none !important;
+}
+.championship[data-intensity="Reduced"] .cine-light {
+  display: none;
+}
+
+.cine-stage {
+  animation:
+    cine-arrive 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both,
+    cine-phase-out 0.3s var(--exit-delay, 4s) ease forwards;
+}
+@keyframes cine-phase-out {
+  to {
+    opacity: 0;
+    transform: translateY(-0.3rem);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cine-stage {
+    animation: none !important;
+  }
+}
+.cine-spin-action { margin-top:1.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; width:100%; }
+.championship .cine-spin-button { min-width:20rem; padding:1.15rem 2.5rem; border:1px solid #ffe8a5; border-radius:.65rem; background:linear-gradient(135deg,#fff0ad,#d9a63b 55%,#ffdb77); color:var(--material-350812); font:800 1.45rem Sora,sans-serif; letter-spacing:.025em; box-shadow:0 .4rem 1.2rem #0006,0 0 1.5rem #e4b74b30,inset 0 1px #fff8; cursor:pointer; transition:transform .2s,box-shadow .2s; }
+.championship .cine-spin-button:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 .6rem 1.4rem #0007,0 0 2rem #e4b74b45; }
+.championship .cine-spin-button:disabled { opacity:.65; cursor:wait; }
+.cine-spin-action [role="alert"] { max-width:35rem; font-size:.95rem; color:var(--material-ffd8df); margin:.7rem auto; }
+@media(prefers-reduced-motion:reduce) { .championship .cine-spin-button { transition:none; } .championship .cine-spin-button:hover:not(:disabled) { transform:none; } }
+/* An operator-held chamber has no timed exit. Its queue entry remains active. */
+.cine-ceremony.phase-wait .cine-stage { animation: cine-arrive .65s cubic-bezier(.2,.8,.2,1) both; }
+
+/* Post-prize closing beat: fade in, six-second readable hold, then reveal Arena. */
+.cine-ceremony.phase-result .cine-stage {
+  animation: cine-arrive .65s cubic-bezier(.2,.8,.2,1) both,
+    cine-closing-fade-out .7s max(0s, calc(var(--exit-delay) - .4s)) ease-in-out forwards;
+}
+.cine-ceremony.phase-return .cine-stage {
+  animation: cine-closing-fade-in .7s ease-in-out both;
+}
+.cine-ceremony.phase-return {
+  animation: cine-closing-fade-out .7s 6.7s ease-in-out forwards;
+}
+.cine-ceremony.phase-return[data-paused="true"] { animation-play-state:paused !important; }
+.cine-ceremony.phase-return :is(.cine-heading,.cine-identity h2,.cine-team) { animation:none; }
+@keyframes cine-closing-fade-in { from { opacity:0; } to { opacity:1; } }
+@keyframes cine-closing-fade-out { from { opacity:1; } to { opacity:0; } }
+@media(prefers-reduced-motion:reduce) {
+  .cine-ceremony.phase-return { animation:none !important; }
+}
+.championship[data-intensity="Reduced"] .cine-ceremony.phase-return { animation:none !important; }

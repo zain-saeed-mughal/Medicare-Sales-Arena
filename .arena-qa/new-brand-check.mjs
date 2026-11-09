@@ -1,0 +1,27 @@
+import puppeteer from 'puppeteer-core';import assert from 'node:assert/strict';
+const b=await puppeteer.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:['--disable-background-timer-throttling'],defaultViewport:{width:1920,height:1080}});
+try{
+const p=await b.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
+await p.goto('http://127.0.0.1:5191/admin',{waitUntil:'networkidle0'});await p.click('.primary');await p.waitForSelector('.op-shell');
+const migration=await p.evaluate(async()=>{const {defaults,upgradeBroadcast}=await import('/broadcast/config.ts');return ['system','user'].map(source=>{const d=defaults();d.version=8;d.appearance.theme='Emerald Green Championship';d.appearance.themeSource=source;return upgradeBroadcast(d).appearance.theme})});assert.deepEqual(migration,['Midnight Teal Glow','Emerald Green Championship']);
+const before=await p.evaluate(()=>{const d=JSON.parse(localStorage.getItem('medicare-arena.dev.v3'));return JSON.stringify([d.sales,d.spins,d.prizes,d.targets,d.completed])});
+assert.equal(await p.$eval('html',e=>e.dataset.colorTheme),'Midnight Teal Glow');await p.screenshot({path:'.arena-qa/new-brand-admin.png'});
+await p.goto('http://127.0.0.1:5191/admin/appearance',{waitUntil:'networkidle0'});
+const click=async text=>p.evaluate(text=>{const panel=document.querySelector('.theme-choices').closest('section');[...panel.querySelectorAll('button')].find(e=>e.textContent.trim()===text).click()},text);
+const a=await b.newPage();a.on('pageerror',e=>errors.push(e.message));await a.goto('http://127.0.0.1:5191/arena',{waitUntil:'networkidle0'});assert.equal(await a.$('[aria-label="Preview controls"]'),null);
+for(const t of ['Dark Maroon Championship','Emerald Green Championship','Midnight Teal Glow']){
+await p.bringToFront();await click(t+(t==='Midnight Teal Glow'?' · Default':''));await click('Save Changes');await a.waitForFunction(t=>document.querySelector('main').dataset.colorTheme===t,{},t);await a.bringToFront();await a.reload({waitUntil:'networkidle0'});assert.equal(await a.$eval('main',e=>e.dataset.colorTheme),t);assert.equal(await a.$eval('.official-brand-logo',e=>getComputedStyle(e).filter),'none');
+}
+await p.bringToFront();await click('Dark Maroon Championship');await click('Restore Default');await p.waitForFunction(()=>[...document.querySelectorAll('.theme-choices button')].find(e=>e.textContent.includes('Midnight')).getAttribute('aria-pressed')==='true');
+await a.bringToFront();await a.goto('http://127.0.0.1:5191/arena?preview=1',{waitUntil:'networkidle0'});
+for(const [width,height] of [[1920,1080],[2560,1440],[3840,2160]]){await a.setViewport({width,height});for(const name of ['Daily','Weekly','Monthly']){await a.evaluate(name=>[...document.querySelectorAll('button')].find(e=>e.textContent.trim()===name).click(),name);await new Promise(r=>setTimeout(r,500));assert.deepEqual(await a.evaluate(()=>[document.documentElement.scrollWidth,document.documentElement.scrollHeight]),[width,height]);}await a.screenshot({path:'.arena-qa/new-brand-arena-'+width+'.png'});}
+await a.setViewport({width:1920,height:1080});const modes=await a.$$eval('[aria-label="More Modes"] option',es=>es.map(e=>e.value).filter(Boolean));for(const mode of modes){await a.select('[aria-label="More Modes"]',mode);await a.waitForFunction(mode=>document.querySelector('main').dataset.mode===mode,{},mode);}
+await a.evaluate(()=>[...document.querySelectorAll('button')].find(e=>e.textContent.trim()==='Daily').click());
+await a.click('[aria-label="Enable Arena Audio"]');await a.waitForFunction(()=>document.querySelector('.vx-audio').dataset.audioState==='running');
+const diag=()=>a.evaluate(async()=>{const u=performance.getEntriesByType('resource').find(e=>e.name.includes('/championship/audio.ts')).name;return(await import(u)).audioDiagnostics()});
+await a.select('[aria-label="Sound preview"]','prize');await new Promise(r=>setTimeout(r,300));assert((await diag()).scheduledNotes>0);console.log('PASS migration, all themes, unchanged logo, persistence/sync, all modes/3 resolutions, audio engine activation');
+await a.click('.preview-featured');await a.waitForSelector('.phase-wait',{timeout:12000});await new Promise(r=>setTimeout(r,1600));await a.screenshot({path:'.arena-qa/new-brand-wheel.png'});assert(await a.$('.cine-spin-button'));await a.click('.cine-spin-button');await a.waitForSelector('.phase-result',{timeout:20000});await new Promise(r=>setTimeout(r,1200));await a.screenshot({path:'.arena-qa/new-brand-prize.png'});await a.waitForSelector('.cine-ceremony',{hidden:true,timeout:20000});
+await a.evaluate(()=>[...document.querySelectorAll('button')].find(e=>e.textContent.trim()==='Hide Controls').click());assert.equal(await a.$('[aria-label="Preview controls"]'),null);await a.click('.arena-preview-reopen');
+await a.evaluate(()=>[...document.querySelectorAll('button')].find(e=>e.textContent.trim()==='Exit Preview').click());await a.waitForFunction(()=>!location.search.includes('preview'));assert.equal(await a.$('[aria-label="Preview controls"]'),null);
+const after=await p.evaluate(()=>{const d=JSON.parse(localStorage.getItem('medicare-arena.dev.v3'));return JSON.stringify([d.sales,d.spins,d.prizes,d.targets,d.completed])});assert.equal(after,before);assert.deepEqual(errors,[]);console.log('PASS full manual-spin ceremony, hide/exit, clean normal Arena, no ledger changes/errors');
+} catch(e){console.error(e);process.exitCode=1}finally{b.process().kill()}
