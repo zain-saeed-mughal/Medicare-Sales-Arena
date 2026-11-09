@@ -23,7 +23,7 @@ export const core = [
   ["account", "Settings"],
 ] as const;
 export const families: Record<string, string[]> = {
-  "live-control": ["live-control", "arena-control", "modes", "integration"],
+  "live-control": ["live-control", "arena-control", "modes", "integration", "displays"],
   targets: [
     "targets",
     "targets/rules",
@@ -35,7 +35,7 @@ export const families: Record<string, string[]> = {
     "bonuses/history",
   ],
   "reward-operations": ["reward-operations", "spin-wheel", "rewards"],
-  participants: ["participants", "agents", "teams", "sales", "performance"],
+  participants: ["participants", "agents", "teams", "dialers", "sales", "performance"],
   "reward-history": ["reward-history", "activity"],
   account: [
     "account",
@@ -45,6 +45,7 @@ export const families: Record<string, string[]> = {
     "security",
     "users",
     "access",
+    "displays",
     "competitions",
   ],
 };
@@ -55,6 +56,7 @@ const links: Record<string, [string, string][]> = {
     ["live-control", "Controls"],
     ["modes", "Rotation schedule"],
     ["integration-preview", "Rehearsal studio"],
+    ["displays", "Restricted TV Displays"],
   ],
   targets: [
     ["targets", "Milestones"],
@@ -64,8 +66,10 @@ const links: Record<string, [string, string][]> = {
     ["targets/rules", "Advanced rules"],
   ],
   participants: [
-    ["agents", "Profiles"],
-    ["sales", "Sale review"],
+    ["agents", "Agent Profiles"],
+    ["teams", "Teams"],
+    ["dialers", "Dialer Connections"],
+    ["sales", "Sale Review & Validation"],
     ["performance", "Performance"],
   ],
   "reward-history": [
@@ -76,8 +80,9 @@ const links: Record<string, [string, string][]> = {
     ["account", "Operator"],
     ["branding", "Branding"],
     ["settings", "System"],
+    ["displays", "TV Displays"],
+    ["security", "Access & Security"],
     ["system-health", "Health"],
-    ["security", "Access"],
     ["competitions", "Competitions"],
   ],
 };

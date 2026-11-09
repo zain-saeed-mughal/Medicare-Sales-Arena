@@ -91,8 +91,11 @@ export function PlayerCard({
       <div className="tv-player-bottom">
         {b.topSales && (
           <div>
-            <strong>{p.sales}</strong>
+            <strong>{p.approved ?? p.sales}</strong>
             <span>APPROVED SALES</span>
+            {p.submitted !== undefined && (
+              <small className="tv-card-sub-metric">{p.submitted} SUBMITTED</small>
+            )}
           </div>
         )}
         {b.changes && p.change > 0 && (
@@ -148,7 +151,7 @@ function Hero({
               <strong>
                 {p ? (
                   <VelocityCount
-                    value={p.sales}
+                    value={p.approved ?? p.sales}
                     reduced={s.settings.intensity === "Reduced"}
                   />
                 ) : (
@@ -162,10 +165,16 @@ function Hero({
               </span>
             </>
           )}
+          {p?.submitted !== undefined && (
+            <div className="tv-hero-sub-box">
+              <b>{p.submitted}</b>
+              <small>SUBMITTED</small>
+            </div>
+          )}
           {b.leadMargin !== false && p && (
             <div className="tv-lead">
               <ArrowUpRight />
-              <b>+{Math.max(0, p.sales - (players[1]?.sales || 0))}</b>
+              <b>+{Math.max(0, (p.approved ?? p.sales) - ((players[1]?.approved ?? players[1]?.sales) || 0))}</b>
               <small>LEAD MARGIN</small>
             </div>
           )}
@@ -245,6 +254,20 @@ export function VelocityStage({
                 ? "A Month of Excellence."
                 : "Every Sale Counts."}
           </h2>
+        </div>
+        <div className="tv-stage-metrics-strip">
+          <div className="tv-strip-stat">
+            <small>{weekly ? "SUBMITTED THIS WEEK" : monthly ? "SUBMITTED THIS MONTH" : "SUBMITTED TODAY"}</small>
+            <b>{data.submissions}</b>
+          </div>
+          <div className="tv-strip-stat stat-approved">
+            <small>{weekly ? "APPROVED THIS WEEK" : monthly ? "APPROVED THIS MONTH" : "APPROVED TODAY"}</small>
+            <strong>{data.approved}</strong>
+          </div>
+          <div className="tv-strip-stat stat-pending">
+            <small>PENDING VALIDATION</small>
+            <span>{data.pending ?? Math.max(0, data.submissions - data.approved)}</span>
+          </div>
         </div>
         <span className="tv-period-tag">
           {badge}

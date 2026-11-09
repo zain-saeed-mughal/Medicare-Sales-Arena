@@ -106,7 +106,12 @@ function Standings({
       </div>
       <div className="oe-board-label">
         <span>RANK / COMPETITOR</span>
-        <span>{b.sales ? "APPROVED" : ""}</span>
+        {b.sales && (
+          <span className="oe-board-metric-labels">
+            <small>SUBMITTED</small>
+            <b>APPROVED</b>
+          </span>
+        )}
       </div>
       <ol
         style={
@@ -131,6 +136,11 @@ function Standings({
               {b.teams && (
                 <small>
                   {p.teamLabel}
+                  {profile(s, "team", p.team).badge && (
+                    <em style={{ color: profile(s, "team", p.team).color }}>
+                      {profile(s, "team", p.team).badge}
+                    </em>
+                  )}
                   {profile(s, "agent", p.id).badge && (
                     <em style={{ color: profile(s, "agent", p.id).color }}>
                       {profile(s, "agent", p.id).badge}
@@ -159,13 +169,27 @@ function Standings({
                     : "—"}
               </span>
             )}
-            {b.sales && <b className="oe-rank-score">{p.sales}</b>}
+            {b.sales && (
+              <div
+                className="oe-rank-metrics"
+                title={`Approved: ${p.approved ?? p.sales} · Submitted: ${p.submitted ?? p.sales}`}
+              >
+                <span className="oe-count-submitted" aria-label={`Submitted: ${p.submitted ?? p.sales}`}>
+                  <small>SUB</small>
+                  <b>{p.submitted ?? p.sales}</b>
+                </span>
+                <span className="oe-count-approved" aria-label={`Approved: ${p.approved ?? p.sales}`}>
+                  <small>APP</small>
+                  <strong>{p.approved ?? p.sales}</strong>
+                </span>
+              </div>
+            )}
           </motion.li>
         ))}
       </ol>
       <div className="oe-board-foot">
-        <span>APPROVED SALES ONLY</span>
-        <span>PRECISION. PERFORMANCE. RECOGNITION.</span>
+        <span>SUBMITTED & VALIDATED</span>
+        <span>PRECISION · PERFORMANCE · RECOGNITION</span>
       </div>
     </section>
   );

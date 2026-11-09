@@ -1578,3 +1578,82 @@
 .velocity-console progress::-webkit-progress-value { background:linear-gradient(90deg,var(--maroon-tone-11),var(--maroon-tone-12)); }
 .velocity-console .op-badge { border-radius:12px;border:1px solid color-mix(in srgb, var(--maroon-tone-12) 23.14%, transparent);background:color-mix(in srgb, var(--maroon-tone-4) 40.00%, transparent);color:var(--maroon-tone-15); }
 
+/* Period Metrics Strip & Submitted/Approved Indicators */
+.tv-stage-metrics-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: color-mix(in srgb, var(--maroon-tone-3) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-6) 40%, transparent);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  backdrop-filter: blur(8px);
+}
+.tv-strip-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+}
+.tv-strip-stat small {
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.tv-strip-stat b {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+.tv-strip-stat.stat-approved strong {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--mint);
+}
+.tv-strip-stat.stat-pending span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fbbf24;
+}
+.tv-card-sub-metric {
+  display: block;
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--muted);
+  opacity: 0.8;
+  margin-top: 0.2rem;
+}
+.tv-hero-sub-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0.6rem;
+  padding-left: 0.6rem;
+  border-left: 1px solid color-mix(in srgb, var(--maroon-tone-6) 40%, transparent);
+  opacity: 0.75;
+}
+.tv-hero-sub-box b {
+  font-size: 1.35rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--fg);
+}
+.tv-hero-sub-box small {
+  font-size: 0.52rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--muted);
+}
+.award-sub-metric {
+  display: block;
+  font-size: 0.56rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--muted);
+  opacity: 0.78;
+  margin-top: 0.2rem;
+}
+
+

@@ -53,14 +53,19 @@ export function FeaturedPlayerCard({
       </div>
       <div className="vx-card-score">
         {b.topSales && (
-          <>
-            <strong>{player.sales}</strong>
+          <div className="vx-score-group">
+            <strong>{player.approved ?? player.sales}</strong>
             <span>
               APPROVED
               <br />
               SALES
             </span>
-          </>
+            {player.submitted !== undefined && (
+              <small className="vx-submitted-chip">
+                {player.submitted} SUBMITTED
+              </small>
+            )}
+          </div>
         )}
         {b.changes && player.change > 0 && <em>↑ {player.change}</em>}
       </div>
@@ -169,13 +174,19 @@ export function ChampionStage({
         <div className="vx-champion-numbers">
           {b.sales && (
             <div>
-              <strong>{player?.sales ?? "—"}</strong>
+              <strong>{player?.approved ?? player?.sales ?? "—"}</strong>
               <span>APPROVED SALES</span>
+            </div>
+          )}
+          {player?.submitted !== undefined && (
+            <div className="vx-champion-submitted">
+              <strong>{player.submitted}</strong>
+              <span>SUBMITTED SALES</span>
             </div>
           )}
           {b.leadMargin !== false && player && (
             <div className="vx-margin">
-              <b>+{Math.max(0, player.sales - (runnerUp?.sales || 0))}</b>
+              <b>+{Math.max(0, (player.approved ?? player.sales) - ((runnerUp?.approved ?? runnerUp?.sales) || 0))}</b>
               <span>LEAD MARGIN</span>
             </div>
           )}
@@ -265,6 +276,24 @@ export function VictoryDaily({
 }) {
   return (
     <div className="vx-daily">
+      <div className="vx-period-metrics-strip" aria-label="Daily sales performance metrics">
+        <div className="vx-metric-chip">
+          <small>SUBMITTED TODAY</small>
+          <b>{data.submissions}</b>
+        </div>
+        <div className="vx-metric-chip vx-chip-approved">
+          <small>APPROVED TODAY</small>
+          <strong>{data.approved}</strong>
+        </div>
+        <div className="vx-metric-chip vx-chip-pending">
+          <small>PENDING VALIDATION</small>
+          <span>{data.pending ?? Math.max(0, data.submissions - data.approved)}</span>
+        </div>
+        <div className="vx-metric-chip">
+          <small>ACTIVE AGENTS</small>
+          <b>{data.activeAgents ?? data.scorers}</b>
+        </div>
+      </div>
       <div className={"vx-main-stage " + (!top3 ? "no-deck" : "")}>
         {top3 && <TopThreeDeck players={players} s={s} />}
         <ChampionStage

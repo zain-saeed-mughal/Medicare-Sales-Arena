@@ -12,32 +12,85 @@ export function periodSnapshot(
     const date = day(stamp, store.settings.timezone);
     return date >= start && date <= today;
   }
-  const agentSales = new Map<number, number>(),
-    teamSales = new Map<string, number>();
+  const agentSubmitted = new Map<number, number>(),
+    agentApproved = new Map<number, number>(),
+    teamSubmitted = new Map<string, number>(),
+    teamApproved = new Map<string, number>();
   let submissions = 0,
-    approved = 0;
+    approved = 0,
+    pending = 0;
+
   for (const sale of store.sales) {
-    if (inPeriod(sale.submitted)) submissions++;
-    if (sale.status !== "Approved" || !inPeriod(sale.reviewed)) continue;
-    approved++;
-    agentSales.set(sale.agent, (agentSales.get(sale.agent) || 0) + 1);
-    teamSales.set(sale.team, (teamSales.get(sale.team) || 0) + 1);
+    const isSubmittedInPeriod = inPeriod(sale.submitted);
+    const isApprovedInPeriod = sale.status === "Approved" && inPeriod(sale.reviewed);
+
+    if (isSubmittedInPeriod) {
+      submissions++;
+      agentSubmitted.set(sale.agent, (agentSubmitted.get(sale.agent) || 0) + 1);
+      teamSubmitted.set(sale.team, (teamSubmitted.get(sale.team) || 0) + 1);
+      if (sale.status === "Pending" || sale.status === "Submitted") {
+        pending++;
+      }
+    }
+
+    if (isApprovedInPeriod) {
+      approved++;
+      agentApproved.set(sale.agent, (agentApproved.get(sale.agent) || 0) + 1);
+      teamApproved.set(sale.team, (teamApproved.get(sale.team) || 0) + 1);
+    }
   }
+
   const field = store.agents
-    .map((a) => ({ ...a, sales: agentSales.get(a.id) || 0 }))
-    .sort((a, b) => b.sales - a.sales || a.id - b.id);
+    .map((a) => {
+      const app = agentApproved.get(a.id) || 0;
+      const sub = agentSubmitted.get(a.id) || 0;
+      return {
+        ...a,
+        sales: app,
+        approved: app,
+        submitted: sub,
+        pending: Math.max(0, sub - app),
+      };
+    })
+    .sort(
+      (a, b) =>
+        b.approved - a.approved ||
+        b.submitted - a.submitted ||
+        a.id - b.id,
+    );
+
   const teams = store.teams
-    .map((t) => ({ ...t, score: teamSales.get(t.id) || 0 }))
-    .sort((a, b) => b.score - a.score);
+    .map((t) => {
+      const app = teamApproved.get(t.id) || 0;
+      const sub = teamSubmitted.get(t.id) || 0;
+      return {
+        ...t,
+        score: app,
+        approved: app,
+        submitted: sub,
+        pending: Math.max(0, sub - app),
+      };
+    })
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        (b.submitted ?? 0) - (a.submitted ?? 0),
+    );
+
   const rewards = store.spins.filter(
     (sp) => !sp.voided && inPeriod(sp.completed),
   ).length;
+
+  const activeAgents = field.filter((a) => a.submitted > 0 || a.approved > 0).length;
+
   return {
     field,
     teams,
     submissions,
     approved,
-    scorers: agentSales.size,
+    pending,
+    activeAgents,
+    scorers: agentApproved.size,
     rewards,
     start,
     today,

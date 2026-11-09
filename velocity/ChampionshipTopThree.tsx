@@ -60,7 +60,15 @@ function ChampionshipCard({ player: p, rank, s, reduced }: {
       {profile(s, "agent", p.id).badge && <span className="award-profile">{profile(s, "agent", p.id).badge}</span>}
     </div>
     <div className="award-result">
-      {b.topSales && <div className="award-sales"><Score value={p.sales} reduced={reduced} /><span>APPROVED SALES</span></div>}
+      {b.topSales && (
+        <div className="award-sales">
+          <Score value={p.approved ?? p.sales} reduced={reduced} />
+          <span>APPROVED SALES</span>
+          {p.submitted !== undefined && (
+            <small className="award-sub-metric">{p.submitted} SUBMITTED</small>
+          )}
+        </div>
+      )}
       <span className="award-rank" aria-hidden="true">0{rank}</span>
       {b.changes && p.change > 0 && <small className="award-movement"><ArrowUpRight />{p.change} places</small>}
     </div>

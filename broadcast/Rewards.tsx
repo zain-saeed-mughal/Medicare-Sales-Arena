@@ -203,6 +203,8 @@ export function Participants({ s, u }: { s: Data; u: AdminUser }) {
                     avatar: v.avatar || "",
                     active: true,
                     sales: ranks.find((a) => String(a.id) === v.id)?.sales || 0,
+                    approved: ranks.find((a) => String(a.id) === v.id)?.sales || 0,
+                    submitted: ranks.find((a) => String(a.id) === v.id)?.sales || 0,
                     teamLabel:
                       s.teams.find((t) => t.id === v.team)?.name ||
                       "Independent",

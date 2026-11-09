@@ -59,6 +59,9 @@ import {
 } from "../broadcast/Pages";
 import { Participants, Wheel, RewardHistory } from "../broadcast/Rewards";
 import { Milestones } from "../broadcast/Milestones";
+import { Dialers } from "./Dialers";
+import { TeamsManagement } from "./TeamsManagement";
+import { AuthScreens } from "./AuthScreens";
 import "./admin.css";
 import "../broadcast/control.css";
 import "./console.css";
@@ -98,6 +101,8 @@ const secondary = [
   ["rewards", "Rewards studio"],
   ["agents", "Agent display"],
   ["teams", "Team display"],
+  ["dialers", "Dialer Connections"],
+  ["displays", "Restricted TV Displays"],
   ["arena-control", "Live TV Control"],
 ];
 const groups: Record<string, string> = {
@@ -134,6 +139,10 @@ const titles: Record<string, string> = {
   integration: "Broadcast Rehearsal Studio",
   security: "Access & Security Perimeter",
   account: "Operator Account",
+  dialers: "Two-Dialer Connections & Synchronization",
+  teams: "Medicare Sales Teams Management",
+  displays: "Restricted TV Displays & Playout",
+  auth: "Authentication & Role Security",
 };
 export default function Admin() {
   const s = useData(),
@@ -349,7 +358,13 @@ export default function Admin() {
             <Modes s={s} />
           ) : path === "leaderboard" ? (
             <Leaderboard s={s} />
-          ) : ["participants", "agents", "teams"].includes(path) ? (
+          ) : path === "dialers" ? (
+            <Dialers s={s} u={u} />
+          ) : path === "teams" ? (
+            <TeamsManagement s={s} u={u} />
+          ) : ["access", "users", "displays", "auth"].includes(path) ? (
+            <AuthScreens s={s} u={u} />
+          ) : ["participants", "agents"].includes(path) ? (
             <Participants s={s} u={u} />
           ) : path === "targets" || path === "bonuses" ? (
             <Milestones s={s} bonus={path === "bonuses"} />

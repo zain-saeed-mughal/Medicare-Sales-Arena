@@ -278,7 +278,7 @@ export function Ceremony({
   if (!phase) return null;
   const title =
     phase === "approved"
-      ? "SALE APPROVED"
+      ? "SALE VALIDATED!"
       : phase === "champion"
         ? "NEW ARENA LEADER"
         : phase === "top3"

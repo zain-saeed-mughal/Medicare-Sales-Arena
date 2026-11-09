@@ -27,16 +27,66 @@ export type Team = {
   name: string;
   leader: string;
   active: boolean;
+  color?: string;
+  badge?: string;
+  dialerAssociations?: string[];
+  submitted?: number;
+  approved?: number;
 };
+export type SaleStatus =
+  | "Submitted"
+  | "Pending"
+  | "Approved"
+  | "Rejected"
+  | "Cancelled"
+  | "Reversed";
 export type Sale = {
   id: string;
   agent: number;
   team: string;
   submitted: string;
-  status: "Pending" | "Approved" | "Rejected" | "Cancelled";
+  status: SaleStatus;
   reviewed: string;
   reviewer: string;
   notes: string;
+  dialerId?: string;
+  externalSaleId?: string;
+  externalAgentId?: string;
+  validatedAt?: string;
+  validationSource?: string;
+  rejectionReason?: string;
+};
+export type DialerStatus = "Connected" | "Degraded" | "Disconnected" | "Connecting";
+export type DialerConnection = {
+  id: string;
+  name: string;
+  status: DialerStatus;
+  integrationType: "Webhook" | "REST API" | "Database Sync" | "Agent Socket";
+  lastSuccessfulSync?: string;
+  latestEventReceived?: string;
+  pendingEvents: number;
+  failedEvents: number;
+  agentMappingStatus: "Complete" | "Partial" | "Unmapped";
+  lastError?: string;
+};
+export type AgentDialerMapping = {
+  internalAgentId: number;
+  sourceDialerId: string;
+  externalDialerAgentId: string;
+  mappingStatus: "Mapped" | "Pending Review" | "Conflict";
+  assignedTeam: string;
+  updatedAt: string;
+  history?: { timestamp: string; note: string }[];
+};
+export type TVDisplaySession = {
+  id: string;
+  name: string;
+  status: "Online" | "Offline" | "Reconnecting";
+  activeMode: string;
+  soundEnabled: boolean;
+  lastEventReceived?: string;
+  reconnectionState?: string;
+  registeredAt: string;
 };
 export type Competition = {
   id: string;
@@ -129,7 +179,12 @@ export type ArenaSettings = {
   timezone: string;
   simulate: boolean;
 };
-export type LeaderboardEntry = Agent & { sales: number };
+export type LeaderboardEntry = Agent & {
+  sales: number;
+  approved: number;
+  submitted: number;
+  pending?: number;
+};
 export type ArenaEvent = Spotlight & {
   sale: string;
   spin: string;
@@ -155,6 +210,9 @@ export type Data = {
   sequence: number;
   news: string[];
   lastTick: number;
+  dialers?: DialerConnection[];
+  agentMappings?: AgentDialerMapping[];
+  tvDisplays?: TVDisplaySession[];
 };
 const calendars = new Map<string, Intl.DateTimeFormat>();
 export function day(iso: string, tz: string) {
@@ -185,26 +243,63 @@ export function standings(s: Data, c?: Competition): LeaderboardEntry[] {
       (a) =>
         !c || (participants(c.agents, a.id) && participants(c.teams, a.team)),
     )
-    .map((a) => ({
-      ...a,
-      sales: list.filter(
+    .map((a) => {
+      const agentList = list.filter(
         (x) =>
           x.agent === a.id &&
+          (!c ||
+            (x.submitted >= c.start &&
+              x.submitted <= c.end &&
+              participants(c.teams, x.team))),
+      );
+      const approved = agentList.filter(
+        (x) =>
           x.status === "Approved" &&
           (!c ||
             (x.reviewed >= c.start &&
               x.reviewed <= c.end &&
               participants(c.teams, x.team))),
-      ).length,
-    }))
-    .sort((a, b) => b.sales - a.sales || a.id - b.id);
+      ).length;
+      const submitted = agentList.length;
+      const pending = agentList.filter(
+        (x) => x.status === "Pending" || x.status === "Submitted",
+      ).length;
+      return {
+        ...a,
+        sales: approved,
+        approved,
+        submitted,
+        pending,
+      };
+    })
+    .sort(
+      (a, b) =>
+        b.approved - a.approved ||
+        b.submitted - a.submitted ||
+        a.id - b.id,
+    );
 }
 export function teamScores(s: Data) {
-  const approved = todaySales(s).filter((x) => x.status === "Approved");
+  const salesList = todaySales(s);
   return s.teams
-    .map((t) => ({
-      ...t,
-      score: approved.filter((x) => x.team === t.id).length,
-    }))
-    .sort((a, b) => b.score - a.score);
+    .map((t) => {
+      const teamSalesList = salesList.filter((x) => x.team === t.id);
+      const approved = teamSalesList.filter((x) => x.status === "Approved").length;
+      const submitted = teamSalesList.length;
+      const pending = teamSalesList.filter(
+        (x) => x.status === "Pending" || x.status === "Submitted",
+      ).length;
+      return {
+        ...t,
+        score: approved,
+        approved,
+        submitted,
+        pending,
+      };
+    })
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        (b.submitted ?? 0) - (a.submitted ?? 0),
+    );
 }

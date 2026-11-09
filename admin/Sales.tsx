@@ -119,6 +119,7 @@ export function Sales({ s, u }: { s: Data; u: AdminUser }) {
       <Table
         heads={[
           "Sale reference",
+          "Source Dialer",
           "Agent",
           "Team",
           "Submitted",
@@ -129,6 +130,7 @@ export function Sales({ s, u }: { s: Data; u: AdminUser }) {
         ]}
         rows={rows.slice(n * 12, n * 12 + 12).map((x) => [
           x.id,
+          <code key="dialer" style={{ fontSize: "0.8rem" }}>{x.dialerId === "dialer-b" ? "Dialer B" : "Dialer A"}</code>,
           agent(x.agent),
           team(x.team),
           format(x.submitted),
@@ -161,9 +163,11 @@ export function Sales({ s, u }: { s: Data; u: AdminUser }) {
             {Object.entries({
               Agent: agent(selected.agent),
               "Team at submission": team(selected.team),
+              "Source dialer": selected.dialerId ? (selected.dialerId === "dialer-b" ? "Dialer B (Secondary)" : "Dialer A (Primary)") : "Dialer A (Primary)",
+              "External sale ID": selected.externalSaleId || "EXT-" + selected.id.replace(/\D/g, ""),
               Submitted: format(selected.submitted),
-              "Reviewed by": selected.reviewer || "Awaiting review",
-              "Reviewed at": format(selected.reviewed),
+              "Reviewed by": selected.reviewer || "Awaiting validation",
+              "Reviewed at": selected.reviewed ? format(selected.reviewed) : "Pending",
               "Internal notes": selected.notes || "None",
             }).map(([k, v]) => (
               <p key={k}>
@@ -247,9 +251,18 @@ export function Sales({ s, u }: { s: Data; u: AdminUser }) {
                     .map((a) => [String(a.id), a.name] as [string, string]),
                 ],
               },
+              {
+                key: "dialerId",
+                label: "Source Dialer",
+                type: "select",
+                options: [
+                  ["dialer-a", "Dialer Primary (Alpha)"],
+                  ["dialer-b", "Dialer Secondary (Beta)"],
+                ],
+              },
               { key: "notes", label: "Internal operational note" },
             ]}
-            initial={{}}
+            initial={{ dialerId: "dialer-a" }}
             submit="Submit for review"
             save={async (v) => {
               const id = "SA-" + crypto.randomUUID().slice(0, 8);
@@ -268,8 +281,10 @@ export function Sales({ s, u }: { s: Data; u: AdminUser }) {
                   notes: v.notes || "",
                   reviewed: "",
                   reviewer: "",
+                  dialerId: v.dialerId || "dialer-a",
+                  externalSaleId: "EXT-" + (10000 + d.sales.length + 1),
                 });
-                return a.name;
+                return `${a.name} via ${v.dialerId || "dialer-a"}`;
               });
               add(false);
             }}

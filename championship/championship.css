@@ -786,6 +786,75 @@ body:has(.championship) {
 .oe-rank-change.up {
   color: var(--mint);
 }
+.oe-board-metric-labels {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.oe-board-metric-labels small {
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: var(--muted);
+  opacity: 0.8;
+}
+.oe-board-metric-labels b {
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--mint);
+}
+.oe-rank-metrics {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.oe-count-submitted {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  opacity: 0.7;
+}
+.oe-count-submitted small {
+  font-size: 0.48rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--muted);
+  line-height: 1;
+}
+.oe-count-submitted b {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--fg);
+  letter-spacing: -0.04em;
+}
+.oe-count-approved {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 2.2rem;
+}
+.oe-count-approved small {
+  font-size: 0.48rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--mint);
+  line-height: 1;
+}
+.oe-count-approved strong {
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--mint);
+  letter-spacing: -0.06em;
+}
+.oe-medal .oe-count-approved strong,
+.oe-medal .oe-count-approved small {
+  color: var(--medal);
+}
 .oe-rank-score {
   font-size: 1.7rem;
   line-height: 1;

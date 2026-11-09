@@ -142,7 +142,7 @@ export function Celebration({
     phase === "rank"
       ? "Rank advanced"
       : phase === "approved"
-        ? "Sale approved"
+        ? "Sale validated!"
         : phase === "spotlight"
           ? event.name
           : phase === "milestone"

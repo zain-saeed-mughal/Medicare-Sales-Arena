@@ -82,6 +82,17 @@ const read = (): Data => {
         a.action === "arena.theme_updated",
     ),
   );
+  const initialSeed = seed();
+  snapshot.dialers ??= initialSeed.dialers;
+  snapshot.agentMappings ??= initialSeed.agentMappings;
+  snapshot.tvDisplays ??= initialSeed.tvDisplays;
+  if (!snapshot.teams || snapshot.teams.length < initialSeed.teams.length) {
+    initialSeed.teams.forEach((t) => {
+      if (!snapshot.teams.some((existing) => existing.id === t.id)) {
+        snapshot.teams.push(t);
+      }
+    });
+  }
   return snapshot;
 };
 const issueListeners = new Set<() => void>();
@@ -223,6 +234,9 @@ export function allowed(u: AdminUser, area: string) {
     effects: "arena-control",
     branding: "arena-control",
     access: "users",
+    dialers: "arena-control",
+    validation: "sales",
+    displays: "arena-control",
   };
   area = aliases[area] || area;
   return (
@@ -461,7 +475,7 @@ function enqueue(s: Data, sale: Sale, actor: string) {
       event.spin,
       "Assigned without animation",
     );
-  announce(s, entry.name + " recorded an approved sale for " + team + ".");
+  announce(s, "SALE VALIDATED: " + entry.name + " (" + team + ") · " + (entry.approved ?? entry.sales) + " approved sales.");
 }
 function approve(s: Data, sale: Sale, actor: string) {
   const date = day(new Date().toISOString(), s.settings.timezone),
@@ -469,6 +483,8 @@ function approve(s: Data, sale: Sale, actor: string) {
   s.previous = standings(s).map((a) => a.id);
   sale.status = "Approved";
   sale.reviewed = new Date().toISOString();
+  sale.validatedAt = sale.reviewed;
+  sale.validationSource = actor;
   sale.reviewer = actor;
   enqueue(s, sale, actor);
   const after = periodSnapshot(s, "Daily Arena", date);
@@ -610,6 +626,55 @@ export function review(
       });
     },
   );
+}
+export async function submitSale(input: {
+  agent: number;
+  team?: string;
+  dialerId?: string;
+  externalSaleId?: string;
+  notes?: string;
+}) {
+  let id = "";
+  await transaction((s) => {
+    const agent = s.agents.find((a) => a.id === input.agent);
+    if (!agent) throw Error("Agent not found");
+    const teamId = input.team || agent.team;
+    const team = s.teams.find((t) => t.id === teamId)?.name || teamId;
+    id = "SA-" + String(s.sales.length + 1).padStart(5, "0");
+    const now = new Date().toISOString();
+    const newSale: Sale = {
+      id,
+      agent: input.agent,
+      team: teamId,
+      submitted: now,
+      status: "Pending",
+      reviewed: "",
+      reviewer: "",
+      notes: input.notes || "",
+      dialerId: input.dialerId || "dialer-a",
+      externalSaleId: input.externalSaleId || "EXT-" + (10000 + s.sales.length + 1),
+    };
+    s.sales.push(newSale);
+    const agentSubmissions = s.sales.filter(
+      (x) =>
+        x.agent === input.agent &&
+        (x.status === "Pending" ||
+          x.status === "Approved" ||
+          x.status === "Submitted"),
+    ).length;
+    announce(
+      s,
+      `NEW SALE SUBMITTED: ${agent.name} (${team}) · Total submitted: ${agentSubmissions}`,
+    );
+    audit(
+      s,
+      "Dialer Ingestion",
+      "sale.submitted",
+      id,
+      `${agent.name} · ${team} via ${newSale.dialerId}`,
+    );
+  });
+  return id;
 }
 export function preview(s: Data, kind: string, ruleId?: string) {
   const champion = standings(s)[0];

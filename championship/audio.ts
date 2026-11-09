@@ -162,7 +162,7 @@ export function wheelTickTimes(
   return times;
 }
 const scores: Record<Exclude<SoundKind, "wheel">, number[]> = {
-  sale: [587.33, 880],
+  sale: [587.33, 739.99, 880, 1174.66], // Energetic ascending major arpeggio for validated sale
   milestone2: [440, 659.25],
   milestone5: [440, 587.33, 880],
   milestone10: [293.66, 440, 587.33, 739.99, 880, 1174.66],
@@ -176,7 +176,7 @@ export function cueDuration(kind: SoundKind, duration = 5) {
   return kind === "wheel"
     ? duration + 0.12
     : kind === "sale"
-      ? 1.05
+      ? 1.6
       : kind === "prize"
         ? 3.8
         : kind === "milestone10" || kind === "champion"

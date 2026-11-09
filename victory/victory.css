@@ -1741,3 +1741,80 @@ html:has(.victory-studio) {
 @media(prefers-reduced-motion:reduce) { .victory-studio .cine-stage:before { animation:none; } }
 .victory-studio .oe-wheel-rotor { background:radial-gradient(circle,var(--maroon-tone-3),var(--maroon-tone-2)); }
 .victory-studio .cine-ceremony.phase-result[data-category] .cine-stage { background:radial-gradient(ellipse at 25% 50%,color-mix(in srgb, var(--maroon-tone-5) 66.67%, transparent),transparent 53%),radial-gradient(ellipse at 75% 55%,#a77e2655,transparent 57%),linear-gradient(110deg,color-mix(in srgb, var(--maroon-tone-2) 98.04%, transparent),color-mix(in srgb, var(--maroon-tone-2) 98.04%, transparent)); }
+
+/* Daily Arena Metrics Strip & Submissions Badges */
+.vx-period-metrics-strip {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  padding: 0.6rem 1.2rem;
+  background: color-mix(in srgb, var(--maroon-tone-2) 80%, transparent);
+  border: 1px solid color-mix(in srgb, var(--maroon-tone-5) 45%, transparent);
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 4px 12px #0004;
+}
+.vx-metric-chip {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.vx-metric-chip small {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.vx-metric-chip b {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+.vx-chip-approved strong {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--mint);
+}
+.vx-chip-pending span {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fbbf24;
+}
+.vx-score-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.vx-submitted-chip {
+  display: block;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  opacity: 0.78;
+  margin-top: 0.15rem;
+}
+.vx-champion-submitted {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0.8rem;
+  padding-left: 0.8rem;
+  border-left: 1px solid color-mix(in srgb, var(--maroon-tone-6) 40%, transparent);
+  opacity: 0.75;
+}
+.vx-champion-submitted strong {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1;
+}
+.vx-champion-submitted span {
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--muted);
+}
+
